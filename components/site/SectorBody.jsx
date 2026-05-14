@@ -8,7 +8,7 @@ export default function SectorBody({ d }) {
         <div className="grid lg:grid-cols-12 gap-12">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="lg:col-span-5">
             <div className="text-[11px] tracking-[0.25em] uppercase font-mono-display text-navy-700">Operating Vision</div>
-            <h2 className="mt-4 font-display text-4xl lg:text-5xl tracking-[-0.02em] text-navy-900 leading-[1.05]">A vertically integrated business of <span className="gradient-text italic">consequence.</span></h2>
+            <h2 className="mt-4 font-display text-4xl lg:text-5xl tracking-[-0.02em] text-navy-900 leading-[1.05]">A vertically integrated business of <span className="gradient-text">consequence.</span></h2>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15, duration: 0.8 }} className="lg:col-span-7">
             <p className="text-slate-600 text-lg leading-relaxed">{d.intro}</p>

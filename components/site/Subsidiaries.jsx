@@ -46,7 +46,7 @@ export default function Subsidiaries() {
               <span className="h-px w-8 bg-navy-700" /> 07 · Subsidiary Ecosystem
             </div>
             <h2 className="mt-6 font-display text-5xl lg:text-6xl tracking-[-0.02em] text-navy-900 leading-[1.02]">
-              The <span className="gradient-text italic">connective tissue</span> of the group.
+              The <span className="gradient-text">connective tissue</span> of the group.
             </h2>
           </div>
           <p className="max-w-md text-slate-600">Five subsidiary businesses bind our primary verticals into a single, regenerative export engine — each one quietly compounding the others.</p>

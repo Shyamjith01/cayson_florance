@@ -24,7 +24,7 @@ export default function GlobalNetwork() {
             <span className="h-px w-8 bg-navy-700" /> 04 · Global Network
           </div>
           <h2 className="mt-6 font-display text-5xl lg:text-6xl tracking-[-0.02em] text-navy-900 leading-[1.02]">
-            A logistics fabric spanning <span className="gradient-text italic">six sovereign markets.</span>
+            A logistics fabric spanning <span className="gradient-text">six sovereign markets.</span>
           </h2>
           <p className="mt-6 text-slate-600 text-lg">Cargo aircraft, container vessels and bonded warehouses moving raw materials, finished goods and capital across continents in real time.</p>
         </div>

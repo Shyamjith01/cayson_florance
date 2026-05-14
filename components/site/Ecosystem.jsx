@@ -17,7 +17,7 @@ export default function Ecosystem() {
             <span className="h-px w-8 bg-navy-700" /> 02 · Global Ecosystem
           </div>
           <h2 className="mt-6 font-display text-5xl lg:text-6xl tracking-[-0.02em] text-navy-900 leading-[1.02]">
-            One <span className="gradient-text italic">interconnected</span> industrial organism.
+            One <span className="gradient-text">interconnected</span> industrial organism.
           </h2>
           <p className="mt-6 text-slate-600 text-lg">Three primary value chains operate in concert, each reinforcing the next — creating compounding margin, regenerative supply, and unmatched export leverage.</p>
         </div>

@@ -44,7 +44,7 @@ export default function Investors() {
             <span className="h-px w-8 bg-emerald2-400" /> 05 · Investor Outlook
           </div>
           <h2 className="mt-6 font-display text-5xl lg:text-6xl tracking-[-0.02em] leading-[1.02]">
-            Compounding capital across <span className="gradient-gold italic">decades</span>, not quarters.
+            Compounding capital across <span className="gradient-gold">decades</span>, not quarters.
           </h2>
           <p className="mt-6 text-slate-300 text-lg">A long-horizon thesis backed by audited financials, geographic diversification and vertically integrated asset bases.</p>
         </div>

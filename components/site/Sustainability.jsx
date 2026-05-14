@@ -19,7 +19,7 @@ export default function Sustainability() {
               <span className="h-px w-8 bg-navy-700" /> 06 · Sustainability
             </div>
             <h2 className="mt-6 font-display text-5xl lg:text-6xl tracking-[-0.02em] text-navy-900 leading-[1.02]">
-              A regenerative <span className="gradient-text italic">supply chain</span> by design.
+              A regenerative <span className="gradient-text">supply chain</span> by design.
             </h2>
             <p className="mt-6 text-slate-600 text-lg">Sustainability is not an offset — it's the operating system. Our integrated ecosystem closes loops between agriculture, livestock, energy and waste streams.</p>
 

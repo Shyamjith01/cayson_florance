@@ -18,7 +18,7 @@ export default function CTA() {
                 <span className="h-px w-8 bg-emerald2-400" /> Partnership · Investment
               </div>
               <h3 className="mt-6 font-display text-4xl lg:text-6xl tracking-[-0.02em] leading-[1.02]">
-                Architect the next era with <span className="gradient-gold italic">Cayson Florance</span>.
+                Architect the next era with <span className="gradient-gold">Cayson Florance</span>.
               </h3>
               <p className="mt-6 text-slate-300 text-lg max-w-2xl">For institutional investors, sovereign partners and global enterprise alliances. Confidential briefings available on request.</p>
             </div>

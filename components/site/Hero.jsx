@@ -58,7 +58,7 @@ export default function Hero() {
 
         <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 1 }}
           className="mt-8 font-display text-[clamp(2.5rem,6.5vw,6rem)] leading-[0.95] tracking-[-0.03em] text-navy-900 max-w-5xl">
-          Building the future of <span className="gradient-text italic">global agro-industrial</span> infrastructure.
+          Building the future of <span className="gradient-text">global agro-industrial</span> infrastructure.
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.9 }}

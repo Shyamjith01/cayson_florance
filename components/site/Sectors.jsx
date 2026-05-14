@@ -22,7 +22,7 @@ export default function Sectors() {
               <span className="h-px w-8 bg-navy-700" /> 03 · Sectors
             </div>
             <h2 className="mt-6 font-display text-5xl lg:text-6xl tracking-[-0.02em] text-navy-900 leading-[1.02]">
-              Six verticals. <span className="gradient-text italic">One vision.</span>
+              Six verticals. <span className="gradient-text">One vision.</span>
             </h2>
           </div>
           <p className="max-w-md text-slate-600">Each business unit operates as an independent powerhouse while contributing to a singular, vertically integrated thesis.</p>
