@@ -6,9 +6,9 @@ const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfa
 const space = Space_Grotesk({ subsets: ['latin'], variable: '--font-space', display: 'swap' })
 
 export const metadata = {
-  title: 'Cayson Florance International — Building the Future of Global Agro-Industrial Infrastructure',
-  description: 'A multinational diversified conglomerate operating across agriculture, industrial manufacturing, renewable energy, mining, logistics, exports and infrastructure across India, UAE, USA, UK, Zambia and Congo.',
-  keywords: 'Cayson Florance, conglomerate, agro-industrial, renewable energy, mining, distilleries, aquaculture, tissue culture, global logistics',
+  title: 'Cayson Florance International — Redefining Health & Nutrition Through Smart Agri-Tech',
+  description: 'A futuristic health, nutrition and bio-processing startup based in Ernakulam, Kerala — upcycling coconut, pineapple, sprouted grains and moringa into world-class functional health foods.',
+  keywords: 'Cayson Florance, health tech, agri-tech, bio-processing, coconut, moringa, sprouted grains, functional foods, Kerala, Startup India',
 }
 
 export default function RootLayout({ children }) {

@@ -27,8 +27,8 @@ module.exports = {
         accent: { DEFAULT: 'hsl(var(--accent))', foreground: 'hsl(var(--accent-foreground))' },
         popover: { DEFAULT: 'hsl(var(--popover))', foreground: 'hsl(var(--popover-foreground))' },
         card: { DEFAULT: 'hsl(var(--card))', foreground: 'hsl(var(--card-foreground))' },
+        emerald2: { 50:'#ecfdf5',100:'#d1fae5',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b' },
         navy: { 50:'#f1f5fb',100:'#dde6f3',300:'#7e9bc8',500:'#2a5097',700:'#13316b',800:'#0a2a5e',900:'#061d44' },
-        emerald2: { 400: '#34d399', 500: '#10b981', 600: '#059669' },
         gold: { 300:'#e6c878', 400:'#d4af65', 500:'#b08949' },
       },
       borderRadius: {
@@ -36,10 +36,6 @@ module.exports = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
-      keyframes: {
-        'fade-up': { '0%':{opacity:'0',transform:'translateY(24px)'},'100%':{opacity:'1',transform:'translateY(0)'} },
-      },
-      animation: { 'fade-up': 'fade-up 0.8s ease forwards' },
     },
   },
   plugins: [require('tailwindcss-animate')],
