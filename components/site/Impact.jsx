@@ -1,6 +1,7 @@
 'use client'
+import { Fragment } from 'react'
 import { motion } from 'framer-motion'
-import { Recycle, Users, Truck, Sprout, Coins, Award, Trees, PackageOpen, Package, FlaskConical, ArrowDown } from 'lucide-react'
+import { Recycle, Users, Truck, Sprout, Coins, Award, Trees, PackageOpen, Package, FlaskConical, ArrowDown, ArrowRight, RefreshCw } from 'lucide-react'
 
 const CIRCULAR = [
   { icon: Recycle, t: 'Zero-Waste Manufacturing', d: 'Every input is engineered into value — no plant material leaves our facility as waste.' },
@@ -101,40 +102,39 @@ export default function Impact() {
           </motion.div>
         </div>
 
-        {/* The Loop — Circular Regenerative Diagram */}
+        {/* The Loop — Aligned Grid Flow */}
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
-          className="mt-20 relative glass rounded-3xl p-8 lg:p-12 overflow-hidden">
-          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-emerald2-500/12 blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-navy-700/10 blur-3xl" />
+          className="mt-20 relative glass rounded-3xl p-6 sm:p-8 lg:p-12 overflow-hidden">
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-emerald2-500/10 blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-navy-700/8 blur-3xl" />
 
-          <div className="relative grid lg:grid-cols-12 gap-10 items-center">
-            {/* Left: heading + supporting */}
-            <div className="lg:col-span-5">
+          {/* Heading + supporting */}
+          <div className="relative grid lg:grid-cols-12 gap-6 lg:gap-10 mb-10 lg:mb-12">
+            <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-emerald2-800/70 font-mono-display">
                 <span className="h-px w-6 bg-emerald2-700" /> The Loop
               </div>
-              <h3 className="mt-4 font-display text-4xl lg:text-5xl tracking-[-0.02em] text-emerald2-900 leading-[1.05]">
+              <h3 className="mt-4 font-display text-4xl sm:text-5xl lg:text-[3.25rem] tracking-[-0.02em] text-emerald2-900 leading-[1.05]">
                 How our ecosystem <span className="gradient-emerald">closes back on itself.</span>
               </h3>
-              <p className="mt-5 text-slate-600 leading-relaxed">
+            </div>
+            <div className="lg:col-span-5 flex flex-col justify-end">
+              <p className="text-slate-600 leading-relaxed">
                 Seven regenerative stages — beginning and ending with the soil. Every byproduct re-enters the cycle, every farmer participates in the upside.
               </p>
-              <div className="mt-6 grid grid-cols-3 gap-px bg-emerald2-100/60 rounded-2xl overflow-hidden hairline">
-                {[['7','Stages'], ['0','Linear Waste'], ['\u221e','Regenerative']].map(([v,l], i) => (
-                  <div key={i} className="bg-white p-4">
-                    <div className="font-display text-2xl text-emerald2-900">{v}</div>
-                    <div className="text-[10px] tracking-[0.2em] uppercase text-emerald2-800/65 font-mono-display">{l}</div>
+              <div className="mt-5 grid grid-cols-3 gap-px bg-emerald2-100/60 rounded-2xl overflow-hidden hairline">
+                {[['7','Stages'], ['0','Linear Waste'], ['∞','Regenerative']].map(([v,l], i) => (
+                  <div key={i} className="bg-white p-3 sm:p-4">
+                    <div className="font-display text-xl sm:text-2xl text-emerald2-900">{v}</div>
+                    <div className="text-[9px] sm:text-[10px] tracking-[0.2em] uppercase text-emerald2-800/65 font-mono-display">{l}</div>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Right: circular diagram (desktop) + vertical timeline (mobile) */}
-            <div className="lg:col-span-7 flex items-center justify-center">
-              <LoopDiagram />
-              <LoopTimeline />
-            </div>
           </div>
+
+          {/* Aligned Flow Grid */}
+          <LoopFlow />
         </motion.div>
       </div>
     </section>
@@ -143,117 +143,93 @@ export default function Impact() {
 
 /* ---------- Loop Diagram (desktop) ---------- */
 const STEPS = [
-  { label: 'Farmer', icon: Users, hue: 'from-emerald2-600 to-emerald2-800' },
-  { label: 'Fresh Harvest', icon: Sprout, hue: 'from-emerald2-500 to-emerald2-700' },
-  { label: 'Cold-Chain', icon: Truck, hue: 'from-emerald2-500 to-navy-700' },
-  { label: 'Bio-Processing', icon: FlaskConical, hue: 'from-navy-700 to-emerald2-700' },
-  { label: 'Functional Products', icon: Package, hue: 'from-emerald2-600 to-emerald2-800' },
-  { label: 'Upcycled Byproducts', icon: PackageOpen, hue: 'from-emerald2-700 to-emerald2-900' },
-  { label: 'Back to Soil', icon: Trees, hue: 'from-emerald2-800 to-emerald2-600' },
+  { n: '01', label: 'Farmer', icon: Users, desc: 'Direct partnerships with 500+ smallholders across Kerala and Tamil Nadu.' },
+  { n: '02', label: 'Fresh Harvest', icon: Sprout, desc: 'Hand-picked at peak ripeness — purity is engineered from the field.' },
+  { n: '03', label: 'Cold-Chain', icon: Truck, desc: 'Cold-pickup within 24 hours preserves every micronutrient.' },
+  { n: '04', label: 'Bio-Processing', icon: FlaskConical, desc: 'Zero-waste conversion at our state-of-the-art Ernakulam facility.' },
+  { n: '05', label: 'Functional Products', icon: Package, desc: 'Premium nutrition, packed and ready for the global wellness market.' },
+  { n: '06', label: 'Upcycled Byproducts', icon: PackageOpen, desc: 'Shells, pulp and husk re-enter the cycle — nothing is wasted.' },
+  { n: '07', label: 'Back to Soil', icon: Trees, desc: 'Organic matter returns to nourish the farms we sourced from.' },
 ]
 
-function LoopDiagram() {
-  const SIZE = 520
-  const C = SIZE / 2
-  const R = 198
-  const CIRC = 2 * Math.PI * R
+/* ---------- Loop Flow ---------- */
+function LoopFlow() {
   return (
-    <div className="hidden md:block relative" style={{ width: SIZE, height: SIZE, maxWidth: '100%' }}>
-      <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="absolute inset-0 w-full h-full" style={{ overflow: 'visible' }}>
-        <defs>
-          <linearGradient id="loopRing" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0" stopColor="#047857" />
-            <stop offset="0.5" stopColor="#10b981" />
-            <stop offset="1" stopColor="#34d399" />
-          </linearGradient>
-          <radialGradient id="loopGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#10b981" stopOpacity="0.18" />
-            <stop offset="60%" stopColor="#10b981" stopOpacity="0.04" />
-            <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-        {/* Soft inner glow */}
-        <circle cx={C} cy={C} r={R - 28} fill="url(#loopGlow)" />
-        {/* Dashed ring (static) */}
-        <circle cx={C} cy={C} r={R} fill="none" stroke="#10b981" strokeOpacity="0.35" strokeWidth="1.5" strokeDasharray="2 7" />
-        {/* Inner thin ring */}
-        <circle cx={C} cy={C} r={R - 16} fill="none" stroke="#047857" strokeOpacity="0.12" strokeWidth="1" strokeDasharray="1 5" />
-        {/* Animated spark traveling around the loop */}
-        <circle cx={C} cy={C} r={R} fill="none" stroke="url(#loopRing)" strokeWidth="3" strokeLinecap="round"
-          strokeDasharray={`70 ${CIRC - 70}`} className="animate-dash-arc" transform={`rotate(-90 ${C} ${C})`} />
-      </svg>
-
-      {/* Center orb */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center">
-        <div className="relative inline-block">
-          <div className="absolute inset-0 rounded-full bg-emerald2-500/30 blur-3xl scale-150" />
-          <div className="relative h-28 w-28 rounded-full bg-gradient-to-br from-emerald2-600 via-emerald2-700 to-emerald2-900 grid place-items-center text-white shadow-[0_20px_50px_-12px_rgba(6,78,59,0.55)] ring-8 ring-white/70">
-            <Recycle className="h-12 w-12 animate-spin-slow" />
-          </div>
-        </div>
-        <div className="mt-3 font-display text-lg text-emerald2-900">Regenerative</div>
-        <div className="text-[10px] tracking-[0.28em] uppercase text-emerald2-800/65 font-mono-display">Closed Loop</div>
+    <div className="relative">
+      {/* Stage cards: 1 col on mobile, 2 on sm, 4 on lg → 2 rows of 4 = 8 cells (7 stages + 1 closing card) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+        {STEPS.map((s, i) => (
+          <StageCard key={s.n} stage={s} index={i} />
+        ))}
+        <ClosingCard />
       </div>
 
-      {/* Nodes */}
-      {STEPS.map((s, i) => {
-        const a = (i / STEPS.length) * 2 * Math.PI - Math.PI / 2
-        const x = C + R * Math.cos(a)
-        const y = C + R * Math.sin(a)
-        const labelBelow = Math.sin(a) >= -0.2
-        return (
-          <motion.div
-            key={s.label}
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ delay: 0.15 + i * 0.1, duration: 0.7, type: 'spring', stiffness: 110 }}
-            style={{ left: `${(x / SIZE) * 100}%`, top: `${(y / SIZE) * 100}%` }}
-            className="absolute -translate-x-1/2 -translate-y-1/2 group z-20"
-          >
-            <div className={`relative flex ${labelBelow ? 'flex-col' : 'flex-col-reverse'} items-center gap-2`}>
-              <div className={`relative h-14 w-14 rounded-2xl bg-gradient-to-br ${s.hue} grid place-items-center text-white shadow-[0_15px_30px_-10px_rgba(6,78,59,0.4)] ring-4 ring-white group-hover:scale-110 group-hover:-translate-y-0.5 transition-all duration-300`}>
-                <s.icon className="h-6 w-6" />
-                <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-emerald2-400 ring-2 ring-white animate-pulse-ring" />
-              </div>
-              <div className="whitespace-nowrap rounded-full bg-white/90 backdrop-blur border border-emerald2-100 px-3 py-1 shadow-sm">
-                <span className="text-[10px] tracking-[0.18em] uppercase text-emerald2-700/70 font-mono-display mr-1.5">{String(i+1).padStart(2,'0')}</span>
-                <span className="text-[11.5px] font-medium text-emerald2-900">{s.label}</span>
-              </div>
-            </div>
-          </motion.div>
-        )
-      })}
+      {/* Decorative flow guide line under cards (desktop) */}
+      <div className="hidden lg:flex items-center gap-3 mt-8 text-[10px] tracking-[0.28em] uppercase font-mono-display text-emerald2-700/70">
+        <RefreshCw className="h-3.5 w-3.5 animate-spin-slow" />
+        <span>Continuous · Regenerative · Closed-Loop</span>
+        <div className="flex-1 h-px bg-gradient-to-r from-emerald2-500/50 via-emerald2-300 to-transparent" />
+      </div>
     </div>
   )
 }
 
-/* ---------- Loop Timeline (mobile) ---------- */
-function LoopTimeline() {
+function StageCard({ stage, index }) {
+  const next = String(parseInt(stage.n) + 1).padStart(2, '0')
+  const isLast = stage.n === '07'
   return (
-    <div className="md:hidden relative w-full">
-      <div className="relative pl-10">
-        <div className="absolute left-[15px] top-3 bottom-10 w-px bg-gradient-to-b from-emerald2-500 via-emerald2-400 to-emerald2-300" />
-        {STEPS.map((s, i) => (
-          <motion.div key={s.label} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.5 }}
-            className="relative mb-4 last:mb-2">
-            <div className={`absolute -left-[34px] top-1 h-8 w-8 rounded-xl bg-gradient-to-br ${s.hue} grid place-items-center text-white shadow-md ring-2 ring-white`}>
-              <s.icon className="h-4 w-4" />
-            </div>
-            <div className="rounded-xl bg-white border border-emerald2-100 px-4 py-2.5 shadow-sm">
-              <div className="text-[10px] tracking-[0.22em] uppercase text-emerald2-800/60 font-mono-display">Stage {String(i+1).padStart(2,'0')}</div>
-              <div className="font-medium text-emerald2-900">{s.label}</div>
-            </div>
-          </motion.div>
-        ))}
-        {/* Return arrow */}
-        <div className="relative mt-2 flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-mono-display text-emerald2-700">
-          <div className="absolute -left-[34px] top-1 h-8 w-8 rounded-xl glass-emerald grid place-items-center text-emerald2-700 ring-2 ring-white">
-            <ArrowDown className="h-4 w-4 rotate-180" />
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ delay: index * 0.07, duration: 0.55, ease: 'easeOut' }}
+      className="group relative rounded-2xl bg-white border border-emerald2-100 p-5 lg:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-emerald2-300 hover:shadow-[0_18px_40px_-18px_rgba(6,78,59,0.28)]"
+    >
+      <div className="flex items-center justify-between mb-5">
+        <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-emerald2-600 to-emerald2-800 grid place-items-center text-white shadow-md group-hover:scale-110 transition-transform duration-300">
+          <stage.icon className="h-5 w-5" />
+        </div>
+        <span className="text-[10px] tracking-[0.28em] uppercase text-emerald2-700/55 font-mono-display">Stage</span>
+      </div>
+      <div className="font-display text-2xl text-emerald2-900 leading-none mb-0.5">{stage.n}</div>
+      <div className="font-display text-lg text-emerald2-900 leading-tight mt-1">{stage.label}</div>
+      <p className="mt-2 text-[12px] text-slate-500 leading-snug">{stage.desc}</p>
+      <div className="mt-4 pt-3 border-t border-emerald2-100/80 flex items-center justify-between">
+        <span className="text-[10px] tracking-[0.22em] uppercase text-emerald2-700/65 font-mono-display">
+          {isLast ? 'closes loop' : `\u2192 stage ${next}`}
+        </span>
+        <ArrowRight className="h-3.5 w-3.5 text-emerald2-600 group-hover:translate-x-1 transition-transform duration-300" />
+      </div>
+    </motion.div>
+  )
+}
+
+function ClosingCard() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ delay: 0.55, duration: 0.65, ease: 'easeOut' }}
+      className="relative rounded-2xl bg-gradient-to-br from-emerald2-700 via-emerald2-800 to-emerald2-900 p-5 lg:p-6 text-white overflow-hidden group hover:-translate-y-1 transition-all duration-300 shadow-[0_18px_40px_-18px_rgba(6,78,59,0.45)]"
+    >
+      <div className="absolute -top-14 -right-14 w-40 h-40 rounded-full bg-emerald2-400/30 blur-2xl group-hover:bg-emerald2-300/40 transition-colors" />
+      <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-gold-400/15 blur-2xl" />
+      <div className="relative">
+        <div className="flex items-center justify-between mb-5">
+          <div className="h-12 w-12 rounded-xl bg-white/15 backdrop-blur grid place-items-center text-white ring-2 ring-white/30">
+            <Recycle className="h-5 w-5 animate-spin-slow" />
           </div>
-          <span>Returns to Stage 01 — loop closes</span>
+          <span className="text-[10px] tracking-[0.28em] uppercase text-emerald2-200 font-mono-display">Loop</span>
+        </div>
+        <div className="font-display text-2xl text-emerald2-100 leading-none mb-0.5">↺</div>
+        <div className="font-display text-lg leading-tight mt-1">Closes back on itself</div>
+        <p className="mt-2 text-[12px] text-emerald2-100/85 leading-snug">Stage 07 returns to Stage 01 — every cycle regenerates the next.</p>
+        <div className="mt-4 pt-3 border-t border-white/20 flex items-center justify-between">
+          <span className="text-[10px] tracking-[0.22em] uppercase text-emerald2-200/90 font-mono-display">returns to stage 01</span>
+          <RefreshCw className="h-3.5 w-3.5 text-emerald2-300 group-hover:rotate-180 transition-transform duration-700" />
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
