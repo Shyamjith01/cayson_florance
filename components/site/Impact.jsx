@@ -39,7 +39,7 @@ export default function Impact() {
             <h3 className="mt-4 font-display text-4xl lg:text-5xl text-emerald2-900 tracking-[-0.02em] leading-[1.05]">Circular Economy</h3>
             <p className="mt-5 text-slate-600 leading-relaxed">Zero-waste manufacturing built around upcycling — coconut shells, pineapple pulp and grain husk become inputs for the next cycle.</p>
             <div className="mt-8 grid grid-cols-3 gap-px bg-emerald2-100/60 rounded-2xl overflow-hidden hairline">
-              {[['100%','Upcycled'], ['0','Plant Waste'], ['4','Reuse Streams']].map(([v,l], i) => (
+              {[['100%', 'Upcycled'], ['0', 'Plant Waste'], ['4', 'Reuse Streams']].map(([v, l], i) => (
                 <div key={i} className="bg-white p-4">
                   <div className="font-display text-2xl text-emerald2-900">{v}</div>
                   <div className="text-[10px] tracking-[0.2em] uppercase text-emerald2-800/65 font-mono-display">{l}</div>
@@ -91,7 +91,7 @@ export default function Impact() {
             <h3 className="mt-4 font-display text-4xl lg:text-5xl text-emerald2-900 tracking-[-0.02em] leading-[1.05]">Farmer First</h3>
             <p className="mt-5 text-slate-600 leading-relaxed">A direct partnership network across Kerala and Tamil Nadu — fair pricing, agronomy support and dramatically lower post-harvest losses.</p>
             <div className="mt-8 grid grid-cols-3 gap-px bg-navy-100/60 rounded-2xl overflow-hidden hairline">
-              {[['500+','Farmers'], ['+22%','Above Mandi'], ['−60%','Post-Harvest Loss']].map(([v,l], i) => (
+              {[['500+', 'Farmers'], ['+22%', 'Above Mandi'], ['−60%', 'Post-Harvest Loss']].map(([v, l], i) => (
                 <div key={i} className="bg-white p-4">
                   <div className="font-display text-2xl text-navy-800">{v}</div>
                   <div className="text-[10px] tracking-[0.2em] uppercase text-emerald2-800/65 font-mono-display">{l}</div>
@@ -110,14 +110,14 @@ export default function Impact() {
               <div className="mt-2 font-display text-2xl text-emerald2-900">How our ecosystem closes back on itself</div>
             </div>
             <div className="flex-1 flex items-center gap-2 overflow-x-auto pb-1">
-              {['Farmer','Fresh Harvest','Cold-Chain','Bio-Processing','Functional Products','Upcycled Byproducts','Back to Soil'].map((s, i, arr) => (
+              {['Farmer', 'Fresh Harvest', 'Cold-Chain', 'Bio-Processing', 'Functional Products', 'Upcycled Byproducts', 'Back to Soil'].map((s, i, arr) => (
                 <div key={s} className="flex items-center gap-2 min-w-fit">
                   <div className="px-3.5 py-2 rounded-xl bg-white border border-emerald2-100 shadow-sm">
                     <span className="text-[12.5px] font-medium text-emerald2-900 whitespace-nowrap">{s}</span>
                   </div>
                   {i < arr.length - 1 && (
                     <svg width="28" height="10"><line x1="0" y1="5" x2="28" y2="5" stroke="url(#imp)" strokeWidth="1.5" strokeDasharray="3 3" />
-                      <defs><linearGradient id="imp" x1="0" x2="1"><stop offset="0" stopColor="#047857" stopOpacity="0.4"/><stop offset="1" stopColor="#10b981" stopOpacity="0.9"/></linearGradient></defs>
+                      <defs><linearGradient id="imp" x1="0" x2="1"><stop offset="0" stopColor="#047857" stopOpacity="0.4" /><stop offset="1" stopColor="#10b981" stopOpacity="0.9" /></linearGradient></defs>
                     </svg>
                   )}
                 </div>

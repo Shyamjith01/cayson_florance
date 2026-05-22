@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { MapPin, Recycle, Sprout, Factory } from 'lucide-react'
+import "./site.css"
 
 export default function About() {
   return (
@@ -59,7 +60,7 @@ export default function About() {
 
             {/* Floating mini-card */}
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
-              className="absolute -bottom-8 -left-6 hidden md:block">
+              className=" floating-card">
               <div className="glass rounded-2xl p-5 w-72 shadow-[0_20px_60px_-25px_rgba(6,78,59,0.35)]">
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald2-600 to-emerald2-800 grid place-items-center text-white">
