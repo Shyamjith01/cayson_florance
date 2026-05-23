@@ -9,7 +9,7 @@ export const PRODUCTS = [
     tag: 'Product 01',
     title: 'Virgin Coconut Oil & Sprouted Grain Biscuits',
     short: 'Cold-pressed VCO paired with sprouted whole-grain biscuits — a daily-ritual wellness duo.',
-    img: 'https://images.pexels.com/photos/30863190/pexels-photo-30863190.jpeg?auto=compress&w=1600&q=80',
+    img: '/products/buisketpro.webp',
     accent: 'from-emerald2-500 to-emerald2-700',
   },
   {
@@ -48,7 +48,7 @@ export const PRODUCTS = [
 
 export default function ProductPreview() {
   return (
-    <section id="products" className="relative py-32 bg-white">
+    <section id="products" className="relative py-31 bg-white">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">

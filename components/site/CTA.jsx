@@ -5,7 +5,7 @@ import { ArrowUpRight, Mail, Phone } from 'lucide-react'
 
 export default function CTA() {
   return (
-    <section id="contact" className="relative py-28 bg-white">
+    <section id="contact" className="relative py-24 mt-5 bg-white">
       <div className="mx-auto max-w-7xl px-6">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
           className="relative overflow-hidden rounded-[40px] bg-gradient-to-br from-emerald2-900 via-emerald2-800 to-navy-900 p-10 lg:p-20 text-white">

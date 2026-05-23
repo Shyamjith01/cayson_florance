@@ -9,8 +9,8 @@ const PRODUCTS = [
     tag: 'Daily Wellness Duo',
     title: 'Virgin Coconut Oil & Sprouted Grain Biscuits',
     intro: 'Two daily rituals, one wellness story. Cold-pressed virgin coconut oil paired with sprouted whole-grain biscuits — a clean, plant-powered start to every day.',
-    img: 'https://images.pexels.com/photos/30863190/pexels-photo-30863190.jpeg?auto=compress&w=1800&q=85',
-    altImg: 'https://images.unsplash.com/photo-1574156754673-0b54b2934ded?auto=format&fit=crop&w=1400&q=80',
+    img: '/products/biscuit/biscuitpro1.webp',
+    altImg: '/products/biscuit/altbuscuits.webp',
     benefits: [
       { i: Heart, t: 'Heart-Friendly MCTs', d: 'Medium-chain triglycerides metabolised directly to energy.' },
       { i: Wheat, t: 'Sprouted Grain Nutrition', d: 'Activated grains for higher bio-availability of minerals.' },
@@ -111,7 +111,7 @@ export default function ProductsList() {
                   </div>
                   {/* Floating alt thumb */}
                   <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
-                    className={`hidden md:block absolute ${reverse ? '-bottom-10 -right-8' : '-bottom-10 -left-8'} w-56 h-40 rounded-2xl overflow-hidden hairline shadow-[0_20px_60px_-25px_rgba(6,78,59,0.35)]`}>
+                    className={`hidden md:block absolute top-1/2 -mt-10 ${reverse ? '-right-8' : '-left-14'} w-44 h-40 rounded-2xl overflow-hidden hairline shadow-[0_20px_60px_-25px_rgba(6,78,59,0.35)]`}>
                     <img src={p.altImg} alt={p.title} className="w-full h-full object-cover" />
                   </motion.div>
                 </motion.div>

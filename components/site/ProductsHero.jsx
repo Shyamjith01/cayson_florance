@@ -13,9 +13,9 @@ export default function ProductsHero() {
   return (
     <section ref={ref} className="relative min-h-[88svh] w-full overflow-hidden bg-gradient-to-b from-emerald2-50/40 via-white to-white">
       <motion.div style={{ scale, y }} className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1597636319015-1fce74db8798?auto=format&fit=crop&w=2400&q=85')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/55 via-white/70 to-white" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-emerald2-700/15 via-transparent to-navy-800/8" />
+        <div className="absolute inset-0 bg-[url('/productpage.webp')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-white via-white/90 via-[30%] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
       </motion.div>
       <div className="absolute inset-0 grid-bg opacity-50" />
       <div className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-emerald2-500/20 blur-3xl animate-float-slow" />
@@ -28,7 +28,7 @@ export default function ProductsHero() {
           <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-[11px] uppercase tracking-[0.22em] font-mono-display text-emerald2-800">
             <Sparkles className="h-3.5 w-3.5 text-gold-400" /> Five Flagship Innovations
           </div>
-          <h1 className="mt-8 font-display text-[clamp(2.5rem,6vw,5.5rem)] tracking-[-0.03em] leading-[0.96] text-emerald2-900 max-w-5xl">
+          <h1 className="mt-8 font-display text-[clamp(2.5rem,6vw,5.2rem)] tracking-[-0.03em] leading-[0.96] text-emerald2-900 max-w-5xl">
             Our innovative <span className="gradient-emerald">product range.</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg text-slate-600 leading-relaxed">

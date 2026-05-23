@@ -29,12 +29,7 @@ export default function Nav() {
       <div className="mx-auto max-w-7xl px-5 mt-3">
         <div className={`flex items-center justify-between rounded-2xl px-5 py-3 transition-all duration-500 ${scrolled ? 'glass shadow-[0_10px_40px_-15px_rgba(6,78,59,0.22)]' : 'bg-white/55 backdrop-blur-md border border-white/50'}`}>
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="relative h-10 w-10">
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-emerald2-700 via-emerald2-500 to-navy-700 rotate-3 group-hover:rotate-12 transition-transform duration-500" />
-              <div className="absolute inset-[2px] rounded-[10px] bg-white flex items-center justify-center">
-                <span className="font-display text-emerald2-800 text-lg leading-none">C<span className="text-navy-700">F</span></span>
-              </div>
-            </div>
+            <img src="/logo/logo.svg" alt="Cayson Florance" className="h-12 w-12 object-contain" />
             <div className="leading-tight">
               <div className="font-display text-[15px] tracking-tight text-emerald2-900">Cayson Florance</div>
               <div className="text-[10px] tracking-[0.22em] uppercase text-emerald2-700/70 font-mono-display">Health · Nutrition · Agri-Tech</div>

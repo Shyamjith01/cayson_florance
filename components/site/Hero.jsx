@@ -8,7 +8,7 @@ export default function Hero() {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 220])
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -120])
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -10])
   const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.16])
 
@@ -16,9 +16,13 @@ export default function Hero() {
     <section ref={ref} className="relative min-h-[100svh] w-full overflow-hidden bg-gradient-to-b from-emerald2-50/40 via-white to-white">
       {/* Cinematic image backdrop */}
       <motion.div style={{ scale, y: y1 }} className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611891558978-fef37730cb68?auto=format&fit=crop&w=2400&q=85')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/55 to-white" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-emerald2-700/15 via-transparent to-navy-800/10" />
+        <div className="absolute inset-0 bg-[url('/hero_img1.webp')] bg-cover bg-center" />
+        {/* Vertical fade — stronger white wash */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/25 to-white" />
+        {/* Left-to-right fade — keeps text side very readable, image visible on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent" />
+        {/* Accent tint */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-emerald2-700/10 via-transparent to-navy-800/8" />
       </motion.div>
 
       {/* grid + glow */}
@@ -27,13 +31,9 @@ export default function Hero() {
       <div className="absolute -bottom-40 -left-40 w-[620px] h-[620px] rounded-full bg-navy-800/12 blur-3xl animate-float-slow" />
 
       {/* Floating data overlay : Top right */}
-      <motion.div style={{ y: y2, opacity }} className="absolute right-6 lg:right-16 top-32 lg:top-40 hidden md:block">
+      <motion.div style={{ y: y2, opacity }} className="absolute right-6 lg:right-32 top-32 lg:top-40 hidden md:block">
         <div className="glass rounded-2xl p-4 w-72 animate-float-slow">
-          <div className="flex items-center justify-between">
-            <div className="text-[10px] tracking-[0.25em] text-emerald2-800/70 uppercase font-mono-display">Phase 01 · Live</div>
-            <span className="h-2 w-2 rounded-full bg-emerald2-500 animate-pulse-ring" />
-          </div>
-          <div className="mt-3 font-display text-2xl text-emerald2-900">Ernakulam, Kerala</div>
+          <div className="mt-0 font-display text-2xl text-emerald2-900">Ernakulam, Kerala</div>
           <div className="mt-1 text-xs text-emerald2-800/70">Bio-Processing Facility · Zero-Waste</div>
           <div className="mt-3 grid grid-cols-4 gap-1">
             {[Leaf, Droplets, Wheat, Sprout].map((I, i) => (
@@ -46,7 +46,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Floating data overlay : Mid right */}
-      <motion.div style={{ y: y2 }} className="absolute right-6 lg:right-24 top-[60%] lg:top-[58%] hidden lg:block">
+      <motion.div style={{ y: y2 }} className="absolute right-6 lg:right-28 top-[60%] lg:top-[58%] hidden lg:block">
         <div className="glass-emerald rounded-2xl p-4 w-64">
           <div className="text-[10px] tracking-[0.25em] text-emerald2-800/70 uppercase font-mono-display">Partner Farmers</div>
           <div className="mt-2 font-display text-4xl gradient-emerald">500+</div>
@@ -58,13 +58,13 @@ export default function Hero() {
       </motion.div>
 
       {/* Floating data overlay : Bottom left */}
-      <motion.div style={{ y: y2 }} className="absolute left-6 lg:left-16 bottom-44 hidden lg:block">
+      {/* <motion.div style={{ y: y2 }} className="absolute left-6 bottom-44 hidden lg:block">
         <div className="glass rounded-2xl p-4 w-72">
           <div className="flex items-center gap-2 text-[10px] tracking-[0.25em] text-emerald2-800/70 uppercase font-mono-display"><Sparkles className="h-3 w-3 text-gold-400" /> Startup India · Ready</div>
           <div className="mt-2 font-display text-2xl text-navy-800">5 Innovative Products</div>
           <div className="mt-1 text-xs text-slate-500">Coconut · Moringa · Sprouted Grains</div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Main content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-40 lg:pt-48 pb-32">
@@ -75,13 +75,14 @@ export default function Hero() {
         </motion.div>
 
         <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 1 }}
-          className="mt-8 font-display text-[clamp(2.5rem,6.4vw,6rem)] leading-[0.96] tracking-[-0.03em] text-emerald2-900 max-w-5xl">
-          Redefining health & nutrition <span className="gradient-emerald">through smart agri-tech.</span>
+          className="mt-8 font-display text-[clamp(2.5rem,6vw,4.3rem)] leading-[0.96] tracking-[-0.03em] text-emerald2-900 max-w-5xl drop-shadow-[0_2px_12px_rgba(255,255,255,0.7)]">
+          Redefining health &amp; nutrition{' '}
+          <span className="gradient-emerald drop-shadow-[0_2px_8px_rgba(255,255,255,0.6)]">through smart agri-tech.</span>
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.9 }}
-          className="mt-8 max-w-2xl text-lg text-slate-600 leading-relaxed">
-          Sourcing the finest treasures of nature — <span className="text-emerald2-800 font-medium">Coconut, Pineapple, Sprouted Grains and Moringa</span> — and upcycling them into world-class functional health foods.
+          className="mt-8 max-w-2xl text-lg text-slate-700 leading-relaxed">
+          Sourcing the finest treasures of nature — <span className="text-emerald2-800 font-semibold">Coconut, Pineapple, Sprouted Grains and Moringa</span> — and upcycling them into world-class functional health foods.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }}
