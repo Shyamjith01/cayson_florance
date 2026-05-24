@@ -24,8 +24,8 @@ const PRODUCTS = [
     tag: 'Plant-Based Dairy',
     title: 'Coconut Paneer & Coconut Milk Powder',
     intro: 'A modern, dairy-free kitchen staple. Our coconut paneer delivers the texture and protein of traditional paneer, while our instant coconut milk powder reconstitutes into rich, creamy milk in seconds.',
-    img: 'https://images.unsplash.com/photo-1631255325853-88ee53e458fc?auto=format&fit=crop&w=1800&q=85',
-    altImg: 'https://images.unsplash.com/photo-1567011345445-fd175f248019?auto=format&fit=crop&w=1400&q=80',
+    img: '/products/paneer/paneerProd.webp',
+    altImg: '/products/paneer/paneeralt2.webp',
     benefits: [
       { i: Leaf, t: 'Plant Protein', d: 'Complete dairy alternative for the modern lactose-free kitchen.' },
       { i: Sparkles, t: 'Long Shelf Life', d: 'Stable, ambient-storage milk powder — ready in 30 seconds.' },
@@ -39,8 +39,8 @@ const PRODUCTS = [
     tag: 'Instant Hydration',
     title: 'Dehydrated Coconut Water Powder',
     intro: 'Coconut water in its purest, most portable form. Freeze-dried at low temperature to preserve every electrolyte — hydration that travels in your pocket.',
-    img: 'https://images.pexels.com/photos/20720084/pexels-photo-20720084.jpeg?auto=compress&w=1800&q=85',
-    altImg: 'https://images.unsplash.com/photo-1592907724820-eaacf1251d8c?auto=format&fit=crop&w=1400&q=80',
+    img: '/products/coco-powder/cocopowder.webp',
+    altImg: '/products/coco-powder/cocopowderalt1.webp',
     benefits: [
       { i: Droplets, t: 'Five Electrolytes', d: 'Potassium, sodium, magnesium, calcium and phosphorus in natural balance.' },
       { i: Zap, t: 'Instant Mix', d: 'Reconstitutes into fresh coconut water in under 10 seconds.' },
@@ -54,8 +54,8 @@ const PRODUCTS = [
     tag: 'Functional Beverage',
     title: 'Carbonated Sparkling Protein Drink',
     intro: 'A futuristic functional beverage that finally tastes like the future. Sparkling, plant-protein-fortified and naturally sweetened — designed for the post-soda generation.',
-    img: 'https://images.unsplash.com/photo-1775199603078-e1d964929e10?auto=format&fit=crop&w=1800&q=85',
-    altImg: 'https://images.unsplash.com/photo-1675897275724-202ce4be4f23?auto=format&fit=crop&w=1400&q=80',
+    img: '/products/protien/protien.webp',
+    altImg: '/products/protien/protienalt.webp',
     benefits: [
       { i: Zap, t: '15g Plant Protein', d: 'Coconut and pea protein blend, complete amino acid profile.' },
       { i: Sparkles, t: 'Naturally Sparkling', d: 'Filtered CO₂ carbonation — no sugar, no synthetic sweeteners.' },
@@ -69,8 +69,8 @@ const PRODUCTS = [
     tag: 'Premium Nutraceutical',
     title: 'Advanced Dry Moringa Extract Powder',
     intro: 'A nutraceutical-grade moringa concentrate — standardised for active compounds, lab-validated for purity, and engineered for premium supplement and functional-food formulations.',
-    img: 'https://images.pexels.com/photos/6833682/pexels-photo-6833682.jpeg?auto=compress&w=1800&q=85',
-    altImg: 'https://images.pexels.com/photos/33500190/pexels-photo-33500190.jpeg?auto=compress&w=1400&q=80',
+    img: '/products/muringa/muringaprod1.webp',
+    altImg: '/products/muringa/muringaprodalt.webp',
     benefits: [
       { i: Leaf, t: '46+ Antioxidants', d: 'One of nature’s most antioxidant-dense leaf extracts.' },
       { i: ShieldCheck, t: 'Lab-Standardised', d: 'Every batch validated for active phytochemical content.' },
@@ -132,9 +132,9 @@ export default function ProductsList() {
                         <div className="h-10 w-10 shrink-0 rounded-xl bg-gradient-to-br from-emerald2-600 to-emerald2-800 grid place-items-center text-white shadow-md group-hover:scale-110 transition-transform">
                           <b.i className="h-4.5 w-4.5" />
                         </div>
-                        <div className="flex-1 pt-1">
-                          <div className="font-display text-lg text-emerald2-900">{b.t}</div>
-                          <div className="text-sm text-slate-600 mt-0.5">{b.d}</div>
+                        <div className="flex-1 pt-0 mt-0">
+                          <div className="font-display text-md font-medium tracking-[0.4px] text-emerald2-900">{b.t}</div>
+                          <div className="text-xs text-slate-600 mt-0.5">{b.d}</div>
                         </div>
                       </motion.div>
                     ))}
