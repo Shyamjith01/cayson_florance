@@ -86,32 +86,32 @@ export default function ProductsList() {
       {PRODUCTS.map((p, idx) => {
         const reverse = idx % 2 === 1
         return (
-          <div key={p.slug} id={p.slug} className={`relative py-28 lg:py-32 ${idx === 0 ? 'pt-10 lg:pt-16' : ''} ${idx % 2 === 0 ? 'bg-white' : 'bg-emerald2-50/30'}`}>
+          <div key={p.slug} id={p.slug} className={`relative py-14 sm:py-20 lg:py-32 ${idx === 0 ? 'pt-6 sm:pt-10 lg:pt-16' : ''} ${idx % 2 === 0 ? 'bg-white' : 'bg-emerald2-50/30'}`}>
             {idx % 2 === 1 && <div className="absolute inset-0 dot-bg opacity-40" />}
-            <div className="relative mx-auto max-w-7xl px-6">
-              <div className={`grid lg:grid-cols-12 gap-12 items-center ${reverse ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+            <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+              <div className={`grid lg:grid-cols-12 gap-8 sm:gap-12 items-center ${reverse ? 'lg:[&>*:first-child]:order-2' : ''}`}>
                 {/* Visual */}
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.9 }}
                   className="lg:col-span-7 relative">
-                  <div className="relative h-[520px] rounded-[32px] overflow-hidden hairline">
+                  <div className="relative h-[280px] sm:h-[400px] lg:h-[520px] rounded-[20px] sm:rounded-[32px] overflow-hidden hairline">
                     <img src={p.img} alt={p.title} className="absolute inset-0 w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-emerald2-900/60 via-transparent to-transparent" />
-                    <div className="absolute top-6 left-6 right-6 flex justify-between items-start">
+                    <div className="absolute top-3 left-3 right-3 sm:top-6 sm:left-6 sm:right-6 flex justify-between items-start">
                       <span className="glass rounded-full px-3 py-1 text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">Product {p.n}</span>
                       <span className="glass rounded-full px-3 py-1 text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">{p.tag}</span>
                     </div>
-                    <div className="absolute inset-x-6 bottom-6 grid grid-cols-3 gap-2">
+                    <div className="absolute inset-x-3 bottom-3 sm:inset-x-6 sm:bottom-6 grid grid-cols-3 gap-1.5 sm:gap-2">
                       {p.facts.map(([v, l], i) => (
-                        <div key={i} className="glass rounded-xl p-3">
-                          <div className="font-display text-xl text-emerald2-900">{v}</div>
-                          <div className="text-[9px] tracking-[0.22em] uppercase text-emerald2-800/65 font-mono-display">{l}</div>
+                        <div key={i} className="glass rounded-lg sm:rounded-xl p-2 sm:p-3">
+                          <div className="font-display text-sm sm:text-base lg:text-xl text-emerald2-900">{v}</div>
+                          <div className="text-[7px] sm:text-[8px] lg:text-[9px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-emerald2-800/65 font-mono-display">{l}</div>
                         </div>
                       ))}
                     </div>
                   </div>
                   {/* Floating alt thumb */}
                   <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
-                    className={`hidden md:block absolute top-1/2 -mt-10 ${reverse ? '-right-8' : '-left-14'} w-44 h-40 rounded-2xl overflow-hidden hairline shadow-[0_20px_60px_-25px_rgba(6,78,59,0.35)]`}>
+                    className={`hidden md:block absolute top-1/2 -mt-10 ${reverse ? '-right-8' : '-left-14'} w-32 h-28 sm:w-44 sm:h-40 rounded-xl sm:rounded-2xl overflow-hidden hairline shadow-[0_20px_60px_-25px_rgba(6,78,59,0.35)]`}>
                     <img src={p.altImg} alt={p.title} className="w-full h-full object-cover" />
                   </motion.div>
                 </motion.div>
@@ -122,19 +122,19 @@ export default function ProductsList() {
                   <div className="flex items-center gap-3 text-[11px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">
                     <span className="h-px w-8 bg-emerald2-700" /> Product {p.n}
                   </div>
-                  <h2 className="mt-5 font-display text-4xl lg:text-5xl tracking-[-0.02em] text-emerald2-900 leading-[1.04]">{p.title}</h2>
-                  <p className="mt-6 text-slate-600 text-lg leading-relaxed">{p.intro}</p>
+                  <h2 className="mt-3 sm:mt-5 font-display text-2xl sm:text-3xl lg:text-5xl tracking-[-0.02em] text-emerald2-900 leading-[1.1] sm:leading-[1.04]">{p.title}</h2>
+                  <p className="mt-3 sm:mt-6 text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed">{p.intro}</p>
 
-                  <div className="mt-8 space-y-3">
+                  <div className="mt-5 sm:mt-8 space-y-2.5 sm:space-y-3">
                     {p.benefits.map((b, i) => (
                       <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.6 }}
                         className="flex items-start gap-4 group">
-                        <div className="h-10 w-10 shrink-0 rounded-xl bg-gradient-to-br from-emerald2-600 to-emerald2-800 grid place-items-center text-white shadow-md group-hover:scale-110 transition-transform">
+                        <div className="h-8 w-8 sm:h-10 sm:w-10 shrink-0 rounded-lg sm:rounded-xl bg-gradient-to-br from-emerald2-600 to-emerald2-800 grid place-items-center text-white shadow-md group-hover:scale-110 transition-transform">
                           <b.i className="h-4.5 w-4.5" />
                         </div>
                         <div className="flex-1 pt-0 mt-0">
-                          <div className="font-display text-md font-medium tracking-[0.4px] text-emerald2-900">{b.t}</div>
-                          <div className="text-xs text-slate-600 mt-0.5">{b.d}</div>
+                          <div className="font-display text-sm sm:text-md font-medium tracking-[0.4px] text-emerald2-900">{b.t}</div>
+                          <div className="text-[11px] sm:text-xs text-slate-600 mt-0.5">{b.d}</div>
                         </div>
                       </motion.div>
                     ))}

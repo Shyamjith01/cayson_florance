@@ -27,8 +27,8 @@ export default function Hero() {
 
       {/* grid + glow */}
       <div className="absolute inset-0 grid-bg opacity-50" />
-      <div className="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full bg-emerald2-500/25 blur-3xl animate-float-slow" />
-      <div className="absolute -bottom-40 -left-40 w-[620px] h-[620px] rounded-full bg-navy-800/12 blur-3xl animate-float-slow" />
+      <div className="absolute -top-32 -right-32 w-[280px] h-[280px] md:w-[560px] md:h-[560px] rounded-full bg-emerald2-500/25 blur-3xl animate-float-slow" />
+      <div className="absolute -bottom-40 -left-40 w-[300px] h-[300px] md:w-[620px] md:h-[620px] rounded-full bg-navy-800/12 blur-3xl animate-float-slow" />
 
       {/* Floating data overlay : Top right */}
       <motion.div style={{ y: y2, opacity }} className="absolute right-6 lg:right-32 top-32 lg:top-40 hidden md:block">
@@ -67,31 +67,31 @@ export default function Hero() {
       </motion.div> */}
 
       {/* Main content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-40 lg:pt-48 pb-32">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 pt-28 sm:pt-36 lg:pt-48 pb-16 sm:pb-32">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }}
-          className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-[11px] uppercase tracking-[0.22em] font-mono-display text-emerald2-800">
+          className="inline-flex items-center gap-2 rounded-full glass px-3 sm:px-4 py-1.5 text-[9px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] font-mono-display text-emerald2-800">
           <Sparkles className="h-3.5 w-3.5 text-gold-400" />
           Health · Nutrition · Smart Agri-Tech
         </motion.div>
 
         <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 1 }}
-          className="mt-8 font-display text-[clamp(2.5rem,6vw,4.3rem)] leading-[0.96] tracking-[-0.03em] text-emerald2-900 max-w-5xl drop-shadow-[0_2px_12px_rgba(255,255,255,0.7)]">
+          className="mt-5 sm:mt-8 font-display text-[clamp(1.6rem,6vw,4.3rem)] leading-[1.05] sm:leading-[0.96] tracking-[-0.02em] sm:tracking-[-0.03em] text-emerald2-900 max-w-5xl drop-shadow-[0_2px_12px_rgba(255,255,255,0.7)]">
           Redefining health &amp; nutrition{' '}
           <span className="gradient-emerald drop-shadow-[0_2px_8px_rgba(255,255,255,0.6)]">through smart agri-tech.</span>
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.9 }}
-          className="mt-8 max-w-2xl text-lg text-slate-700 leading-relaxed">
+          className="mt-5 sm:mt-8 max-w-2xl text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed">
           Sourcing the finest treasures of nature — <span className="text-emerald2-800 font-semibold">Coconut, Pineapple, Sprouted Grains and Moringa</span> — and upcycling them into world-class functional health foods.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }}
-          className="mt-10 flex flex-wrap items-center gap-4">
-          <Link href="/products" className="group inline-flex items-center gap-2 rounded-full bg-emerald2-700 text-white px-6 py-3.5 text-sm font-medium shine hover:bg-emerald2-800 transition-all">
+          className="mt-6 sm:mt-10 flex flex-wrap items-center gap-3 sm:gap-4">
+          <Link href="/products" className="group inline-flex items-center gap-2 rounded-full bg-emerald2-700 text-white px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-medium shine hover:bg-emerald2-800 transition-all">
             Explore Our Innovations
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <a href="#impact" className="group inline-flex items-center gap-2 rounded-full glass px-5 py-3.5 text-sm font-medium text-emerald2-800 hover:bg-white/85 transition-all">
+          <a href="#impact" className="group inline-flex items-center gap-2 rounded-full glass px-4 sm:px-5 py-3 sm:py-3.5 text-xs sm:text-sm font-medium text-emerald2-800 hover:bg-white/85 transition-all">
             <span className="h-2 w-2 rounded-full bg-emerald2-500" />
             See Our Impact
           </a>
@@ -99,18 +99,18 @@ export default function Hero() {
 
         {/* Metrics strip */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3, duration: 1 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-emerald2-100/60 rounded-2xl overflow-hidden hairline">
+          className="mt-10 sm:mt-16 lg:mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-emerald2-100/60 rounded-2xl overflow-hidden hairline">
           {[
             { k: '500+', l: 'Partner Farmers' },
             { k: '0', l: 'Waste Processing', s: 'Zero' },
             { k: '5', l: 'Innovative Products' },
             { k: '∞', l: 'Sustainable Ecosystem' },
           ].map((m, i) => (
-            <div key={i} className="bg-white/75 backdrop-blur p-6 lg:p-7">
-              <div className="font-display text-3xl lg:text-4xl text-emerald2-900">
+            <div key={i} className="bg-white/75 backdrop-blur p-3 sm:p-5 lg:p-7">
+              <div className="font-display text-xl sm:text-2xl lg:text-4xl text-emerald2-900">
                 {m.s ? <span className="text-emerald2-600">{m.s}-</span> : null}{m.k}
               </div>
-              <div className="mt-1 text-[11px] tracking-[0.2em] uppercase text-emerald2-800/65 font-mono-display">{m.l}</div>
+              <div className="mt-1 text-[9px] sm:text-[10px] lg:text-[11px] tracking-[0.15em] sm:tracking-[0.2em] uppercase text-emerald2-800/65 font-mono-display">{m.l}</div>
             </div>
           ))}
         </motion.div>

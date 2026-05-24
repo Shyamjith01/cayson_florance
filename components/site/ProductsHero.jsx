@@ -20,25 +20,25 @@ export default function ProductsHero() {
       <div className="absolute inset-0 grid-bg opacity-50" />
       <div className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-emerald2-500/20 blur-3xl animate-float-slow" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-40 lg:pt-48 pb-24">
-        <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-emerald2-800 hover:text-emerald2-900 glass rounded-full px-3 py-1.5">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 pt-28 sm:pt-36 lg:pt-48 pb-14 sm:pb-24">
+        <Link href="/" className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-emerald2-800 hover:text-emerald2-900 glass rounded-full px-3 py-1.5">
           ← Back to Home
         </Link>
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="mt-8">
-          <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-[11px] uppercase tracking-[0.22em] font-mono-display text-emerald2-800">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="mt-5 sm:mt-8">
+          <div className="inline-flex items-center gap-2 rounded-full glass px-3 sm:px-4 py-1.5 text-[9px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] font-mono-display text-emerald2-800">
             <Sparkles className="h-3.5 w-3.5 text-gold-400" /> Five Flagship Innovations
           </div>
-          <h1 className="mt-8 font-display text-[clamp(2.5rem,6vw,5.2rem)] tracking-[-0.03em] leading-[0.96] text-emerald2-900 max-w-5xl">
+          <h1 className="mt-5 sm:mt-8 font-display text-[clamp(1.6rem,6vw,5.2rem)] tracking-[-0.02em] sm:tracking-[-0.03em] leading-[1.05] sm:leading-[0.96] text-emerald2-900 max-w-5xl">
             Our innovative <span className="gradient-emerald">product range.</span>
           </h1>
-          <p className="mt-7 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-5 sm:mt-7 max-w-2xl text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed">
             Cinematic, functional, scientifically engineered — each product upcycles a treasured ingredient into a daily wellness ritual.
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a href="#virgin-coconut-oil" className="group inline-flex items-center gap-2 rounded-full bg-emerald2-700 text-white px-6 py-3.5 text-sm font-medium shine hover:bg-emerald2-800 transition-all">
+          <div className="mt-6 sm:mt-10 flex flex-wrap items-center gap-3 sm:gap-4">
+            <a href="#virgin-coconut-oil" className="group inline-flex items-center gap-2 rounded-full bg-emerald2-700 text-white px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-medium shine hover:bg-emerald2-800 transition-all">
               Begin the Journey <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </a>
-            <div className="flex items-center gap-3 text-[12px] text-emerald2-800/70 font-mono-display tracking-[0.18em] uppercase">
+            <div className="hidden sm:flex items-center gap-3 text-[10px] sm:text-[12px] text-emerald2-800/70 font-mono-display tracking-[0.18em] uppercase">
               <span className="h-px w-10 bg-emerald2-700/40" />
               Scroll for product stories
             </div>

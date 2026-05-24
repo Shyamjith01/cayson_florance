@@ -26,13 +26,13 @@ export default function Nav() {
       initial={{ y: -40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut' }}
       className="fixed top-0 inset-x-0 z-50"
     >
-      <div className="mx-auto max-w-7xl px-5 mt-3">
-        <div className={`flex items-center justify-between rounded-2xl px-5 py-3 transition-all duration-500 ${scrolled ? 'glass shadow-[0_10px_40px_-15px_rgba(6,78,59,0.22)]' : 'bg-white/55 backdrop-blur-md border border-white/50'}`}>
+      <div className="mx-auto max-w-7xl px-3 sm:px-5 mt-2 sm:mt-3">
+        <div className={`flex items-center justify-between rounded-2xl px-3 sm:px-5 py-2.5 sm:py-3 transition-all duration-500 ${scrolled ? 'glass shadow-[0_10px_40px_-15px_rgba(6,78,59,0.22)]' : 'bg-white/55 backdrop-blur-md border border-white/50'}`}>
           <Link href="/" className="flex items-center gap-2.5 group">
-            <img src="/logo/logo.svg" alt="Cayson Florance" className="h-12 w-12 object-contain" />
+            <img src="/logo/logo.svg" alt="Cayson Florance" className="h-9 w-9 sm:h-12 sm:w-12 object-contain" />
             <div className="leading-tight">
-              <div className="font-display text-[15px] tracking-tight text-emerald2-900">Cayson Florance</div>
-              <div className="text-[10px] tracking-[0.22em] uppercase text-emerald2-700/70 font-mono-display">Health · Nutrition · Agri-Tech</div>
+              <div className="font-display text-[13px] sm:text-[15px] tracking-tight text-emerald2-900">Cayson Florance</div>
+              <div className="text-[8px] sm:text-[10px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-emerald2-700/70 font-mono-display">Health · Nutrition · Agri-Tech</div>
             </div>
           </Link>
           <nav className="hidden lg:flex items-center gap-1">
