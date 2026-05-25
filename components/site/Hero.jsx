@@ -67,7 +67,7 @@ export default function Hero() {
       </motion.div> */}
 
       {/* Main content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 pt-28 sm:pt-36 lg:pt-48 pb-16 sm:pb-32">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:pt-[12rem] pt-28 sm:pt-36 lg:pt-48 pb-16 sm:pb-32">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }}
           className="inline-flex items-center gap-2 rounded-full glass px-3 sm:px-4 py-1.5 text-[9px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] font-mono-display text-emerald2-800">
           <Sparkles className="h-3.5 w-3.5 text-gold-400" />

@@ -11,7 +11,7 @@ export default function ProductsHero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15])
 
   return (
-    <section ref={ref} className="relative min-h-[88svh] w-full overflow-hidden bg-gradient-to-b from-emerald2-50/40 via-white to-white">
+    <section ref={ref} className="relative min-h-[60svh] md:min-h-[88svh] w-full overflow-hidden bg-gradient-to-b from-emerald2-50/40 via-white to-white">
       <motion.div style={{ scale, y }} className="absolute inset-0">
         <div className="absolute inset-0 bg-[url('/productpage.webp')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-gradient-to-tr from-white via-white/90 via-[30%] to-transparent" />
