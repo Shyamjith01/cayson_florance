@@ -110,6 +110,9 @@
 @keyframes dash { to { stroke-dashoffset: -1000; } }
 .animate-dash { animation: dash 14s linear infinite; }
 
+@keyframes dash-arc { to { stroke-dashoffset: -1244; } }
+.animate-dash-arc { animation: dash-arc 9s linear infinite; }
+
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: #f8fafc; }
 ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #047857, #10b981); border-radius: 8px; }
