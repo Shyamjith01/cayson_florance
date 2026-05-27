@@ -1,6 +1,8 @@
 'use client'
 import { motion } from 'framer-motion'
 import { MapPin, Recycle, Sprout, Factory } from 'lucide-react'
+import Image from 'next/image'
+import aboutUsImg from '@/public/aboutusimg.webp'
 import "./site.css"
 
 export default function About() {
@@ -37,7 +39,9 @@ export default function About() {
           <div className="lg:col-span-7 relative">
             <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
               className="relative h-[320px] sm:h-[420px] lg:h-[520px] rounded-[20px] sm:rounded-[32px] overflow-hidden hairline">
-              <img src="https://images.pexels.com/photos/10208795/pexels-photo-10208795.jpeg?auto=compress&w=1600&q=80" alt="Kerala coconut plantation" className="absolute inset-0 w-full h-full object-cover" />
+              {/* <img src="https://images.pexels.com/photos/10208795/pexels-photo-10208795.jpeg?auto=compress&w=1600&q=80" alt="Kerala coconut plantation" className="absolute inset-0 w-full h-full object-cover" /> */}
+              <Image src={aboutUsImg} alt="Kerala coconut plantation" placeholder="blur" fill className="object-cover" />
+
               <div className="absolute inset-0 bg-gradient-to-t from-emerald2-900/65 via-emerald2-900/15 to-transparent" />
               <div className="absolute top-3 left-3 right-3 sm:top-5 sm:left-5 sm:right-5 flex justify-between">
                 <span className="glass rounded-full px-3 py-1 text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">Kerala · Plantation</span>
