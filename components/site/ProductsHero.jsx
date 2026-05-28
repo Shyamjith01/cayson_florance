@@ -26,7 +26,7 @@ export default function ProductsHero() {
         </Link>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="mt-8">
           <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-[11px] uppercase tracking-[0.22em] font-mono-display text-emerald2-800">
-            <Sparkles className="h-3.5 w-3.5 text-gold-400" /> Five Flagship Innovations
+            <Sparkles className="h-3.5 w-3.5 text-gold-400" /> Seven Flagship Innovations
           </div>
           <h1 className="mt-8 font-display text-[clamp(2.5rem,6vw,5.5rem)] tracking-[-0.03em] leading-[0.96] text-emerald2-900 max-w-5xl">
             Our innovative <span className="gradient-emerald">product range.</span>
