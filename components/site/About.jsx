@@ -13,7 +13,7 @@ export default function About() {
           <div className="lg:col-span-5">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.8 }}>
               <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">
-                <span className="h-px w-8 bg-emerald2-700" /> 01 · About Us
+                <span className="h-px w-4 sm:w-8 bg-emerald2-700" /> 01 · About Us
               </div>
               <h2 className="mt-4 sm:mt-6 font-display text-3xl sm:text-4xl lg:text-6xl tracking-[-0.02em] text-emerald2-900 leading-[1.08] sm:leading-[1.02]">
                 A <span className="gradient-emerald">zero-waste future</span>, engineered from Kerala.
@@ -44,19 +44,19 @@ export default function About() {
 
               <div className="absolute inset-0 bg-gradient-to-t from-emerald2-900/65 via-emerald2-900/15 to-transparent" />
               <div className="absolute top-3 left-3 right-3 sm:top-5 sm:left-5 sm:right-5 flex justify-between">
-                <span className="glass rounded-full px-3 py-1 text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">Kerala · Plantation</span>
-                <span className="glass rounded-full px-3 py-1 text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">Phase 01</span>
+                <span className="glass rounded-full px-3 py-1 text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">Kerala · Plantation</span>
+                <span className="glass rounded-full px-3 py-1 text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">Phase 01</span>
               </div>
               <div className="absolute inset-x-3 bottom-3 sm:inset-x-5 sm:bottom-5 glass rounded-xl sm:rounded-2xl p-3 sm:p-5">
                 <div className="flex items-end justify-between gap-4">
                   <div>
-                    <div className="text-[10px] tracking-[0.25em] uppercase text-emerald2-800/70 font-mono-display">Sourcing Region</div>
-                    <div className="mt-1 font-display text-lg sm:text-2xl text-emerald2-900">Kerala · Tamil Nadu</div>
+                    <div className="text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800/70 font-mono-display">Sourcing Region</div>
+                    <div className="mt-1 font-display text-base sm:text-2xl text-emerald2-900">Kerala · Tamil Nadu</div>
                     <div className="mt-1 text-[10px] sm:text-xs text-slate-600">Direct partnerships · Fair pricing · Reduced post-harvest loss</div>
                   </div>
                   <div className="text-right">
                     <div className="font-display text-2xl sm:text-3xl gradient-emerald">500+</div>
-                    <div className="text-[10px] tracking-[0.22em] uppercase text-emerald2-800/65 font-mono-display">Farmers</div>
+                    <div className="text-[8px] sm:text-[10px] tracking-[0.22em] uppercase text-emerald2-800/65 font-mono-display">Farmers</div>
                   </div>
                 </div>
               </div>

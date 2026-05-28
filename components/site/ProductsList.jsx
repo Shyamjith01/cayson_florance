@@ -2,22 +2,7 @@
 import { motion } from 'framer-motion'
 import { Leaf, Sparkles, ShieldCheck, Flame, Heart, Zap, Wheat, Droplets } from 'lucide-react'
 
-const PRODUCTS = [
-  // {
-  //   slug: 'virgin-coconut-oil',
-  //   n: '01',
-  //   tag: 'Daily Wellness Duo',
-  //   title: 'Virgin Coconut Oil & Sprouted Grain Biscuits',
-  //   intro: 'Two daily rituals, one wellness story. Cold-pressed virgin coconut oil paired with sprouted whole-grain biscuits — a clean, plant-powered start to every day.',
-  //   img: '/products/biscuit/biscuitpro1.webp',
-  //   altImg: '/products/biscuit/altbuscuits.webp',
-  //   benefits: [
-  //     { i: Heart, t: 'Heart-Friendly MCTs', d: 'Medium-chain triglycerides metabolised directly to energy.' },
-  //     { i: Wheat, t: 'Sprouted Grain Nutrition', d: 'Activated grains for higher bio-availability of minerals.' },
-  //     { i: ShieldCheck, t: 'Cold-Pressed Purity', d: 'No solvents, no heat damage — just oil and grain.' },
-  //   ],
-  //   facts: [['<48h', 'Harvest to Press'], ['100%', 'Cold-Pressed'], ['0', 'Additives']],
-  // },
+const PRODUCTS = [ 
   {
     slug: 'virgin-coconut-oil',
     n: '01',
@@ -87,22 +72,7 @@ const PRODUCTS = [
       ['0', 'Chemical Processing'],
       ['Multi', 'Skin • Hair • Cooking'],
     ],
-  },
-  // {
-  //   slug: 'coconut-paneer-milk-powder',
-  //   n: '02',
-  //   tag: 'Plant-Based Dairy',
-  //   title: 'Coconut Paneer & Coconut Milk Powder',
-  //   intro: 'A modern, dairy-free kitchen staple. Our coconut paneer delivers the texture and protein of traditional paneer, while our instant coconut milk powder reconstitutes into rich, creamy milk in seconds.',
-  // img: '/products/paneer/paneerProd.webp',
-  // altImg: '/products/paneer/paneeralt2.webp',
-  //   benefits: [
-  //     { i: Leaf, t: 'Plant Protein', d: 'Complete dairy alternative for the modern lactose-free kitchen.' },
-  //     { i: Sparkles, t: 'Long Shelf Life', d: 'Stable, ambient-storage milk powder — ready in 30 seconds.' },
-  //     { i: Flame, t: 'Chef-Grade Texture', d: 'Holds shape when grilled or simmered, like the classic original.' },
-  //   ],
-  //   facts: [['100%', 'Dairy-Free'], ['12 mo', 'Shelf Stable'], ['Hi', 'Protein Density']],
-  // },
+  }, 
   {
     slug: 'coconut-paneer',
     n: '03',
@@ -138,22 +108,7 @@ const PRODUCTS = [
       ['0', 'Lactose & Dairy'],
       ['Clean', 'No Preservatives'],
     ],
-  },
-  // {
-  //   slug: 'coconut-water-powder',
-  //   n: '03',
-  //   tag: 'Instant Hydration',
-  //   title: 'Dehydrated Coconut Water Powder',
-  //   intro: 'Coconut water in its purest, most portable form. Freeze-dried at low temperature to preserve every electrolyte — hydration that travels in your pocket.',
-  // img: '/products/coco-powder/cocopowder.webp',
-  // altImg: '/products/coco-powder/cocopowderalt1.webp',
-  //   benefits: [
-  //     { i: Droplets, t: 'Five Electrolytes', d: 'Potassium, sodium, magnesium, calcium and phosphorus in natural balance.' },
-  //     { i: Zap, t: 'Instant Mix', d: 'Reconstitutes into fresh coconut water in under 10 seconds.' },
-  //     { i: ShieldCheck, t: 'Freeze-Dried Purity', d: 'Low-temperature drying retains 98% of native micronutrients.' },
-  //   ],
-  //   facts: [['98%', 'Nutrient Retention'], ['5', 'Natural Electrolytes'], ['0g', 'Added Sugar']],
-  // },
+  }, 
   {
     slug: 'coconut-water-powder',
     n: '04',
@@ -195,13 +150,10 @@ const PRODUCTS = [
     n: '05',
     tag: 'Plant-Based Culinary Luxury',
     title: 'Premium Coconut Milk Cream',
-
     intro:
       'Crafted from the first pressing of mature handpicked coconuts, our Coconut Milk Cream delivers a naturally rich, velvety texture designed for premium cooking and gourmet wellness lifestyles. Completely dairy-free and preservative-free, it enhances curries, desserts, soups, and everyday recipes with authentic tropical richness and clean plant-based nutrition.',
-
     img: '/products/cream/prod1.webp',
     altImg: '/products/cream/prod3.webp',
-
     benefits: [
       {
         i: Droplets,
@@ -219,7 +171,6 @@ const PRODUCTS = [
         d: 'Supports digestion and delivers clean plant-based energy.',
       },
     ],
-
     facts: [
       ['100%', 'First-Press Coconut'],
       ['0', 'Artificial Thickeners'],
@@ -231,13 +182,10 @@ const PRODUCTS = [
     n: '06',
     tag: 'Tropical Sparkling Wellness Drink',
     title: 'Pink Paradise Fizz',
-
     intro:
       'A vibrant sparkling wellness drink crafted with real pineapple juice, hydrating coconut water powder, and natural beetroot extract. Designed for modern active lifestyles, it delivers refreshing tropical flavor, clean hydration, natural stamina support, and crisp sparkling energy — without artificial colors, preservatives, or chemical-heavy soda ingredients.',
-
     img: '/products/protien/prodimg1.webp',
     altImg: '/products/protien/prod2.webp',
-
     benefits: [
       {
         i: Droplets,
@@ -317,12 +265,12 @@ export default function ProductsList() {
                     <img src={p.img} alt={p.title} className="absolute inset-0 w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-emerald2-900/60 via-transparent to-transparent" />
                     <div className="absolute top-3 left-3 right-3 sm:top-6 sm:left-6 sm:right-6 flex justify-between items-start">
-                      <span className="glass rounded-full px-3 py-1 text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">Product {p.n}</span>
-                      <span className="glass rounded-full px-3 py-1 text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">{p.tag}</span>
+                      <span className="glass rounded-full px-3 py-1 text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">Product {p.n}</span>
+                      <span className="glass rounded-full px-3 py-1 text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">{p.tag}</span>
                     </div>
                     <div className="absolute inset-x-3 bottom-3 sm:inset-x-6 sm:bottom-6 grid grid-cols-3 gap-1.5 sm:gap-2">
                       {p.facts.map(([v, l], i) => (
-                        <div key={i} className="glass rounded-lg sm:rounded-xl p-2 sm:p-3">
+                        <div key={i} className="glass rounded-lg sm:rounded-xl p-2 py-1 sm:p-3 flex flex-col justify-center">
                           <div className="font-display text-sm sm:text-base lg:text-xl text-emerald2-900">{v}</div>
                           <div className="text-[7px] sm:text-[8px] lg:text-[9px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-emerald2-800/65 font-mono-display">{l}</div>
                         </div>
@@ -340,7 +288,7 @@ export default function ProductsList() {
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
                   className="lg:col-span-5">
                   <div className="flex items-center gap-3 text-[11px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">
-                    <span className="h-px w-8 bg-emerald2-700" /> Product {p.n}
+                    <span className="h-px w-4 sm:w-8 bg-emerald2-700" /> Product {p.n}
                   </div>
                   <h2 className="mt-3 sm:mt-3 font-display text-2xl sm:text-3xl lg:text-5xl tracking-[-0.02em] text-emerald2-900 leading-[1.1] sm:leading-[1.04]">{p.title}</h2>
                   <p className="mt-3 sm:mt-6 text-slate-600 text-sm sm:text-base lg:text-[0.94rem] leading-relaxed">{p.intro}</p>

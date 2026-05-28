@@ -14,7 +14,7 @@ export default function ProductsHero() {
     <section ref={ref} className="relative min-h-[60svh] md:min-h-[88svh] w-full overflow-hidden bg-gradient-to-b from-emerald2-50/40 via-white to-white">
       <motion.div style={{ scale, y }} className="absolute inset-0">
         <div className="absolute inset-0 bg-[url('/productpage.webp')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-white via-white/90 via-[30%] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-white via-white/90 via-[40%] to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
       </motion.div>
       <div className="absolute inset-0 grid-bg opacity-50" />

@@ -24,7 +24,7 @@ export default function Impact() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 mt-3 sm:mt-5">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">
-            <span className="h-px w-8 bg-emerald2-700" /> 02 · Our Impact
+            <span className="h-px w-4 sm:w-8 bg-emerald2-700" /> 02 · Our Impact
           </div>
           <h2 className="mt-4 sm:mt-6 font-display text-3xl sm:text-4xl lg:text-6xl tracking-[-0.02em] text-emerald2-900 leading-[1.08] sm:leading-[1.02]">
             Two loops. <span className="gradient-emerald">One regenerative ecosystem.</span>
