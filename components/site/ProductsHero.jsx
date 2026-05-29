@@ -11,16 +11,16 @@ export default function ProductsHero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15])
 
   return (
-    <section ref={ref} className="relative min-h-[60svh] md:min-h-[88svh] w-full overflow-hidden bg-gradient-to-b from-emerald2-50/40 via-white to-white">
+    <section ref={ref} className="relative  min-h-[60svh] md:min-h-[90svh] w-full overflow-hidden bg-gradient-to-b from-emerald2-50/40 via-white to-white">
       <motion.div style={{ scale, y }} className="absolute inset-0">
-        <div className="absolute inset-0 bg-[url('/productpage.webp')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-white via-white/90 via-[40%] to-transparent" />
+        <div className="absolute inset-0 bg-[url('/products/prodbg.webp')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-white/70 via-[53%] to-transparent to-[65%]" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
       </motion.div>
       <div className="absolute inset-0 grid-bg opacity-50" />
       <div className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-emerald2-500/20 blur-3xl animate-float-slow" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 pt-28 sm:pt-36 lg:pt-48 pb-14 sm:pb-24">
+      <div className="relative z-10 mx-auto max-w-7xl px-4  sm:px-6 pt-28 sm:pt-36 lg:pt-38 pb-14 sm:pb-24">
         <Link href="/" className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-emerald2-800 hover:text-emerald2-900 glass rounded-full px-3 py-1.5">
           ← Back to Home
         </Link>

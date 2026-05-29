@@ -5,346 +5,17 @@ import {
   FlaskConical, Brain, Activity, Sun, Microscope, Atom, Cherry, Coffee,
   TreePine, Apple, Snowflake, Waves, Beaker, Layers, ArrowRight, Star
 } from 'lucide-react'
-// const PRODUCTS = [
-//   {
-//     slug: 'virgin-coconut-oil',
-//     n: '01',
-//     tag: '28 Superfood Wellness Biscuits',
-//     title: 'Premium Sprouted Grain Biscuits',
-//     intro:
-//       'A revolutionary healthy biscuit crafted with 28 powerful natural superfoods including sprouted grains, ancient millets, premium nuts, seeds, berries, and botanical ingredients. Designed for modern healthy lifestyles, it delivers clean energy, smooth digestion, immunity support, and guilt-free indulgence — completely free from maida, refined sugar, preservatives, and artificial additives.',
-//     img: '/products/biscuit/prod1.webp',
-//     altImg: '/products/biscuit/prod2.webp',
-//     whyDifferent: [
-//       { t: '28 Composed Superfoods', d: 'A measured blend, not a marketing claim.' },
-//       { t: 'Sprouted-Grain Activation', d: 'Higher mineral and protein bio-availability.' },
-//       { t: 'Zero Refined Sugar', d: 'Naturally sweetened, never compromised.' },
-//       { t: 'Nuts \u00b7 Seeds \u00b7 Botanicals', d: 'A complete daily nutritional matrix.' },
-//     ],
-//     tech: {
-//       name: 'Sprouted-Activation Methodology',
-//       desc: 'Low-heat enzymatic sprouting followed by slow-bake retention preserves enzyme activity and micronutrient density.',
-//       steps: ['Soak', 'Sprout', 'Blend', 'Slow-Bake'],
-//     },
-//     perfectFor: ['Working Professionals', 'Fitness Enthusiasts', 'Families', 'Kids & Seniors', 'Wellness Households'],
-//     benefits: [
-//       {
-//         i: Wheat,
-//         t: '28 Superfood Blend',
-//         d: 'Sprouted grains, millets, nuts, and seeds for complete daily nutrition.',
-//       },
-//       {
-//         i: Zap,
-//         t: 'Zero Refined Sugar',
-//         d: 'Naturally sweetened for clean energy without sugar crashes.',
-//       },
-//       {
-//         i: Heart,
-//         t: 'Gut, Brain & Heart Support',
-//         d: 'Supports digestion, heart wellness, and cognitive health naturally.',
-//       },
-//     ],
-
-//     facts: [
-//       ['28', 'Natural Superfoods'],
-//       ['0', 'Refined Sugar'],
-//       ['100%', 'Natural Ingredients'],
-//     ],
-//   },
-//   {
-//     slug: 'virgin-coconut-oil',
-//     n: '02',
-//     tag: 'Cold-Pressed Wellness Essential',
-//     title: '100% Pure Virgin Coconut Oil',
-
-//     intro:
-//       'Crafted from fresh coconut milk using advanced cold-pressed extraction, our Virgin Coconut Oil preserves the coconut’s natural aroma, antioxidants, and healthy nutrients in their purest form. Designed for cooking, skincare, hair wellness, and holistic everyday living — without heat treatment, chemicals, or artificial processing.',
-
-//     img: '/products/oil/prod2.webp',
-//     altImg: '/products/oil/prod1.webp',
-// whyDifferent: [
-//       { t: '28 Composed Superfoods', d: 'A measured blend, not a marketing claim.' },
-//       { t: 'Sprouted-Grain Activation', d: 'Higher mineral and protein bio-availability.' },
-//       { t: 'Zero Refined Sugar', d: 'Naturally sweetened, never compromised.' },
-//       { t: 'Nuts \u00b7 Seeds \u00b7 Botanicals', d: 'A complete daily nutritional matrix.' },
-//     ],
-//     tech: {
-//       name: 'Sprouted-Activation Methodology',
-//       desc: 'Low-heat enzymatic sprouting followed by slow-bake retention preserves enzyme activity and micronutrient density.',
-//       steps: ['Soak', 'Sprout', 'Blend', 'Slow-Bake'],
-//     },
-//     perfectFor: ['Working Professionals', 'Fitness Enthusiasts', 'Families', 'Kids & Seniors', 'Wellness Households'],
-//     benefits: [
-//       {
-//         i: ShieldCheck,
-//         t: '100% Cold-Pressed Purity',
-//         d: 'No heat, no chemicals, and no refining — just pure coconut wellness.',
-//       },
-//       {
-//         i: Heart,
-//         t: 'Healthy Energy & Metabolism',
-//         d: 'Rich in MCFAs that support metabolism and natural daily energy.',
-//       },
-//       {
-//         i: Sparkles,
-//         t: 'Skin & Hair Nourishment',
-//         d: 'Deeply hydrates skin and strengthens hair with natural nutrients.',
-//       },
-//     ],
-
-//     facts: [
-//       ['100%', 'Cold-Pressed'],
-//       ['0', 'Chemical Processing'],
-//       ['Multi', 'Skin • Hair • Cooking'],
-//     ],
-//   },
-//   {
-//     slug: 'coconut-paneer',
-//     n: '03',
-//     tag: 'Plant-Based Dairy Innovation',
-//     title: 'Premium Coconut Paneer',
-
-//     intro:
-//       'A revolutionary dairy-free paneer crafted from 100% fresh coconut milk, delivering the rich softness and satisfying texture of traditional paneer in a completely plant-based form. Designed for modern healthy lifestyles, it offers clean nutrition, easy digestion, and wholesome goodness without lactose, preservatives, or artificial additives.',
-
-//     img: '/products/paneer/paneerProd.webp',
-//     altImg: '/products/paneer/paneeralt2.webp',
-// whyDifferent: [
-//       { t: '28 Composed Superfoods', d: 'A measured blend, not a marketing claim.' },
-//       { t: 'Sprouted-Grain Activation', d: 'Higher mineral and protein bio-availability.' },
-//       { t: 'Zero Refined Sugar', d: 'Naturally sweetened, never compromised.' },
-//       { t: 'Nuts \u00b7 Seeds \u00b7 Botanicals', d: 'A complete daily nutritional matrix.' },
-//     ],
-//     tech: {
-//       name: 'Sprouted-Activation Methodology',
-//       desc: 'Low-heat enzymatic sprouting followed by slow-bake retention preserves enzyme activity and micronutrient density.',
-//       steps: ['Soak', 'Sprout', 'Blend', 'Slow-Bake'],
-//     },
-//     perfectFor: ['Working Professionals', 'Fitness Enthusiasts', 'Families', 'Kids & Seniors', 'Wellness Households'],
-//     benefits: [
-//       {
-//         i: Leaf,
-//         t: '100% Vegan & Dairy-Free',
-//         d: 'Made entirely from fresh coconut milk with zero dairy or lactose.',
-//       },
-//       {
-//         i: Zap,
-//         t: 'Keto-Friendly Energy',
-//         d: 'Rich in healthy MCFAs that convert quickly into clean energy.',
-//       },
-//       {
-//         i: Heart,
-//         t: 'Light & Easy Digestion',
-//         d: 'Gentle on the stomach and suitable for all age groups.',
-//       },
-//     ],
-
-//     facts: [
-//       ['100%', 'Plant-Based'],
-//       ['0', 'Lactose & Dairy'],
-//       ['Clean', 'No Preservatives'],
-//     ],
-//   },
-//   {
-//     slug: 'coconut-water-powder',
-//     n: '04',
-//     tag: 'Natural Hydration Innovation',
-//     title: 'Premium Coconut Water Powder',
-
-//     intro:
-//       'A refreshing next-generation hydration solution crafted from pure tender coconut water using advanced low-temperature spray and freeze-drying technology. Designed for active modern lifestyles, it delivers natural electrolytes, instant hydration, and clean energy in a convenient travel-friendly form — without preservatives, artificial flavors, or added sugar.',
-
-//     img: '/products/coco-powder/cocopowder.webp',
-//     altImg: '/products/coco-powder/cocopowderalt1.webp',
-// whyDifferent: [
-//       { t: '28 Composed Superfoods', d: 'A measured blend, not a marketing claim.' },
-//       { t: 'Sprouted-Grain Activation', d: 'Higher mineral and protein bio-availability.' },
-//       { t: 'Zero Refined Sugar', d: 'Naturally sweetened, never compromised.' },
-//       { t: 'Nuts \u00b7 Seeds \u00b7 Botanicals', d: 'A complete daily nutritional matrix.' },
-//     ],
-//     tech: {
-//       name: 'Sprouted-Activation Methodology',
-//       desc: 'Low-heat enzymatic sprouting followed by slow-bake retention preserves enzyme activity and micronutrient density.',
-//       steps: ['Soak', 'Sprout', 'Blend', 'Slow-Bake'],
-//     },
-//     perfectFor: ['Working Professionals', 'Fitness Enthusiasts', 'Families', 'Kids & Seniors', 'Wellness Households'],
-//     benefits: [
-//       {
-//         i: Droplets,
-//         t: 'Natural Electrolyte Boost',
-//         d: 'Rich in potassium, magnesium, and calcium for instant hydration.',
-//       },
-//       {
-//         i: Zap,
-//         t: 'Clean Energy Hydration',
-//         d: 'Refreshes the body naturally without artificial sports drinks.',
-//       },
-//       {
-//         i: Sparkles,
-//         t: 'Skin & Digestive Wellness',
-//         d: 'Supports digestion, detoxification, and natural skin glow.',
-//       },
-//     ],
-
-//     facts: [
-//       ['100%', 'Natural Coconut Water'],
-//       ['0', 'Added Sugar'],
-//       ['Instant', 'Mix & Hydrate'],
-//     ],
-//   },
-//   {
-//     slug: 'coconut-milk-cream',
-//     n: '05',
-//     tag: 'Plant-Based Culinary Luxury',
-//     title: 'Premium Coconut Milk Cream',
-//     intro:
-//       'Crafted from the first pressing of mature handpicked coconuts, our Coconut Milk Cream delivers a naturally rich, velvety texture designed for premium cooking and gourmet wellness lifestyles. Completely dairy-free and preservative-free, it enhances curries, desserts, soups, and everyday recipes with authentic tropical richness and clean plant-based nutrition.',
-//     img: '/products/cream/prod1.webp',
-//     altImg: '/products/cream/prod3.webp',
-//     whyDifferent: [
-//       { t: '28 Composed Superfoods', d: 'A measured blend, not a marketing claim.' },
-//       { t: 'Sprouted-Grain Activation', d: 'Higher mineral and protein bio-availability.' },
-//       { t: 'Zero Refined Sugar', d: 'Naturally sweetened, never compromised.' },
-//       { t: 'Nuts \u00b7 Seeds \u00b7 Botanicals', d: 'A complete daily nutritional matrix.' },
-//     ],
-//     tech: {
-//       name: 'Sprouted-Activation Methodology',
-//       desc: 'Low-heat enzymatic sprouting followed by slow-bake retention preserves enzyme activity and micronutrient density.',
-//       steps: ['Soak', 'Sprout', 'Blend', 'Slow-Bake'],
-//     },
-//     perfectFor: ['Working Professionals', 'Fitness Enthusiasts', 'Families', 'Kids & Seniors', 'Wellness Households'],
-//     benefits: [
-//       {
-//         i: Droplets,
-//         t: 'Rich First-Press Creaminess',
-//         d: 'Naturally thick coconut cream with a smooth gourmet texture.',
-//       },
-//       {
-//         i: Leaf,
-//         t: '100% Vegan & Dairy-Free',
-//         d: 'Perfect plant-based alternative to heavy dairy creams.',
-//       },
-//       {
-//         i: Heart,
-//         t: 'Light & Healthy Cooking',
-//         d: 'Supports digestion and delivers clean plant-based energy.',
-//       },
-//     ],
-//     facts: [
-//       ['100%', 'First-Press Coconut'],
-//       ['0', 'Artificial Thickeners'],
-//       ['Plant', 'Based & Vegan'],
-//     ],
-//   },
-//   {
-//     slug: 'pink-paradise-fizz',
-//     n: '06',
-//     tag: 'Tropical Sparkling Wellness Drink',
-//     title: 'Pink Paradise Fizz',
-//     intro:
-//       'A vibrant sparkling wellness drink crafted with real pineapple juice, hydrating coconut water powder, and natural beetroot extract. Designed for modern active lifestyles, it delivers refreshing tropical flavor, clean hydration, natural stamina support, and crisp sparkling energy — without artificial colors, preservatives, or chemical-heavy soda ingredients.',
-//     img: '/products/protien/prodimg1.webp',
-//     altImg: '/products/protien/prod2.webp',
-//     whyDifferent: [
-//       { t: '28 Composed Superfoods', d: 'A measured blend, not a marketing claim.' },
-//       { t: 'Sprouted-Grain Activation', d: 'Higher mineral and protein bio-availability.' },
-//       { t: 'Zero Refined Sugar', d: 'Naturally sweetened, never compromised.' },
-//       { t: 'Nuts \u00b7 Seeds \u00b7 Botanicals', d: 'A complete daily nutritional matrix.' },
-//     ],
-//     tech: {
-//       name: 'Sprouted-Activation Methodology',
-//       desc: 'Low-heat enzymatic sprouting followed by slow-bake retention preserves enzyme activity and micronutrient density.',
-//       steps: ['Soak', 'Sprout', 'Blend', 'Slow-Bake'],
-//     },
-//     perfectFor: ['Working Professionals', 'Fitness Enthusiasts', 'Families', 'Kids & Seniors', 'Wellness Households'],
-//     benefits: [
-//       {
-//         i: Droplets,
-//         t: 'Natural Electrolyte Hydration',
-//         d: 'Powered by coconut water minerals for refreshing hydration support.',
-//       },
-//       {
-//         i: Zap,
-//         t: 'Clean Energy & Stamina',
-//         d: 'Beetroot and pineapple help boost natural energy and endurance.',
-//       },
-//       {
-//         i: ShieldCheck,
-//         t: 'Antioxidant-Rich Wellness',
-//         d: 'Supports immunity and digestion with natural tropical ingredients.',
-//       },
-//     ],
-
-//     facts: [
-//       ['100%', 'Natural Color'],
-//       ['0', 'Artificial Preservatives'],
-//       ['Real', 'Pineapple Juice'],
-//     ],
-//   },
-//   {
-//     slug: 'bio-active-moringa-extract',
-//     n: '07',
-//     tag: 'Next-Generation Wellness Extract',
-//     title: 'Bio-Active Moringa Dry Extract',
-
-//     intro:
-//       'A revolutionary next-generation moringa innovation developed using advanced Ultrasonic Nano-Extraction and precision Spray-Drying technology. Unlike ordinary moringa powders, this ultra-fine bio-active extract is 100% water-soluble, residue-free, and virtually tasteless — delivering powerful antioxidants, minerals, and plant nutrients in a clean premium wellness format designed for modern nutrition and global health formulations.',
-// whyDifferent: [
-//       { t: '28 Composed Superfoods', d: 'A measured blend, not a marketing claim.' },
-//       { t: 'Sprouted-Grain Activation', d: 'Higher mineral and protein bio-availability.' },
-//       { t: 'Zero Refined Sugar', d: 'Naturally sweetened, never compromised.' },
-//       { t: 'Nuts \u00b7 Seeds \u00b7 Botanicals', d: 'A complete daily nutritional matrix.' },
-//     ],
-//     tech: {
-//       name: 'Sprouted-Activation Methodology',
-//       desc: 'Low-heat enzymatic sprouting followed by slow-bake retention preserves enzyme activity and micronutrient density.',
-//       steps: ['Soak', 'Sprout', 'Blend', 'Slow-Bake'],
-//     },
-//     perfectFor: ['Working Professionals', 'Fitness Enthusiasts', 'Families', 'Kids & Seniors', 'Wellness Households'],
-//     img: '/products/muringa/muringaprod1.webp',
-//     altImg: '/products/muringa/muringaprodalt.webp',
-
-//     benefits: [
-//       {
-//         i: Sparkles,
-//         t: '100% Instant Solubility',
-//         d: 'Dissolves completely without grit, residue, or bitterness.',
-//       },
-//       {
-//         i: ShieldCheck,
-//         t: 'Advanced Bio-Nutrient Extraction',
-//         d: 'Ultrasonic processing isolates highly active wellness compounds.',
-//       },
-//       {
-//         i: Leaf,
-//         t: 'Clean Global Wellness Ingredient',
-//         d: 'Organic, vegan, preservative-free, and export-grade quality.',
-//       },
-//     ],
-
-//     facts: [
-//       ['100%', 'Water Soluble'],
-//       ['0', 'Artificial Fillers'],
-//       ['Ultra', 'Fine Extract Technology'],
-//     ],
-//   }
-// ]
 
 const PRODUCTS = [
   {
-    slug: 'virgin-coconut-oil',
+    slug: 'sprouted-grain-biscuits',
     n: '01',
     tag: '28 Superfood Wellness Biscuits',
-
     title: 'Premium Sprouted Grain Biscuits',
-
     intro:
       'A revolutionary healthy biscuit crafted with 28 powerful natural superfoods including sprouted grains, ancient millets, premium nuts, seeds, berries, and botanical ingredients. Made without maida, refined sugar, preservatives, or artificial additives, it delivers clean energy, smooth digestion, immunity support, and guilt-free nourishment for modern healthy lifestyles.',
-
-    img: '/products/biscuit/prod1.webp',
-
-    altImg: '/products/biscuit/prod2.webp',
-
+    img: '/products/biscuit/prod3.jpg',
+    altImg: '/products/biscuit/prod3.jpg',
     whyDifferent: [
       {
         t: '28 Natural Superfoods',
@@ -355,7 +26,7 @@ const PRODUCTS = [
         d: 'Sprouting improves mineral absorption and supports smooth digestion naturally.',
       },
       {
-        t: 'Zero Refined Sugar',
+        t: <>Zero Refined Sugar Using <strong>Monk Fruit</strong></>,
         d: 'Sweetened naturally using monk fruit and banana powder without white sugar.',
       },
       {
@@ -396,7 +67,7 @@ const PRODUCTS = [
       },
       {
         i: Zap,
-        t: 'Zero Refined Sugar',
+        t: <>Zero Refined Sugar Using <strong>Monk Fruit</strong></>,
         d: 'Naturally sweetened with monk fruit for clean energy without sugar crashes.',
       },
       {
@@ -884,7 +555,7 @@ export default function ProductsList() {
 
                 {/* Content */}
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-                  className="lg:col-span-5">
+                  className="lg:col-span-5 px-1 sm:px-0">
                   <div className="flex items-center gap-3 text-[11px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">
                     <span className="h-px w-4 sm:w-8 bg-emerald2-700" /> Product {p.n}
                   </div>
@@ -967,7 +638,7 @@ export default function ProductsList() {
 
                 {/* Perfect For */}
                 <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.8 }}
-                  className="lg:col-span-5 rounded-[24px] glass p-7 lg:p-9 flex flex-col">
+                  className="lg:col-span-5 rounded-[24px] glass p-5 lg:p-9 flex flex-col sm:p-7">
                   <div className="inline-flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-emerald2-700/70 font-mono-display">
                     <Heart className="h-3.5 w-3.5 text-emerald2-600" /> Perfect For
                   </div>

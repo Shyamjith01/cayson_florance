@@ -23,7 +23,7 @@ export default function CTA() {
               </h3>
               <p className="mt-4 sm:mt-6 text-emerald2-100/80 text-sm sm:text-base lg:text-lg max-w-2xl">For investors, distribution partners, Startup India ecosystem collaborators and large-format retailers — we're opening Phase 1 conversations now.</p>
               <div className="mt-5 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-5 text-xs sm:text-sm text-emerald2-100/80">
-                <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> hello@caysonflorance.in</span>
+                <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> contact@caysonflorance.com</span>
                 <span className="inline-flex items-center gap-2"><Phone className="h-4 w-4" /> +91 · Ernakulam, Kerala</span>
               </div>
             </div>

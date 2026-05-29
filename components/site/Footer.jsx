@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <footer className="relative bg-white border-t border-emerald2-100">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-10 pb-8 sm:pt-16 sm:pb-8">
         <div className="grid lg:grid-cols-12 gap-8 sm:gap-10">
           <div className="lg:col-span-5">
             <Link href="/" className="flex items-center gap-2.5">
@@ -20,7 +20,7 @@ export default function Footer() {
             </Link>
             <p className="mt-4 sm:mt-6 text-slate-600 text-xs sm:text-sm max-w-md leading-relaxed">A futuristic health, nutrition and bio-processing startup based in Ernakulam, Kerala — upcycling nature's finest into world-class functional foods.</p>
             <div className="mt-4 sm:mt-6 flex flex-wrap gap-1.5 sm:gap-2">
-              {['Coconut','Pineapple','Moringa','Sprouted Grains'].map(c => (
+              {['Coconut', 'Pineapple', 'Moringa', 'Sprouted Grains'].map(c => (
                 <span key={c} className="text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.15em] uppercase font-mono-display rounded-full bg-emerald2-50 text-emerald2-800 px-2.5 sm:px-3 py-0.5 sm:py-1">{c}</span>
               ))}
             </div>
@@ -38,20 +38,27 @@ export default function Footer() {
             <div>
               <div className="text-[10px] tracking-[0.25em] uppercase text-emerald2-800/70 font-mono-display">Products</div>
               <ul className="mt-3 sm:mt-4 space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-slate-700">
+                <li><Link href="/products#sprouted-grain-biscuits" className="hover:text-emerald2-800">Sprouted Grain Biscuits</Link></li>
                 <li><Link href="/products#virgin-coconut-oil" className="hover:text-emerald2-800">Virgin Coconut Oil</Link></li>
-                <li><Link href="/products#coconut-paneer-milk-powder" className="hover:text-emerald2-800">Coconut Paneer & Milk Powder</Link></li>
+                <li><Link href="/products#coconut-paneer" className="hover:text-emerald2-800">Coconut Paneer</Link></li>
                 <li><Link href="/products#coconut-water-powder" className="hover:text-emerald2-800">Coconut Water Powder</Link></li>
-                <li><Link href="/products#sparkling-protein" className="hover:text-emerald2-800">Sparkling Protein Drink</Link></li>
-                <li><Link href="/products#moringa-extract" className="hover:text-emerald2-800">Moringa Extract</Link></li>
+                <li><Link href="/products#coconut-milk-cream" className="hover:text-emerald2-800">Coconut Milk Cream</Link></li>
+                <li><Link href="/products#pink-paradise-fizz" className="hover:text-emerald2-800">Pink Paradise Fizz</Link></li>
+                <li><Link href="/products#bio-active-moringa-extract" className="hover:text-emerald2-800">Bio-Active Moringa Extract</Link></li>
               </ul>
             </div>
             <div>
               <div className="text-[10px] tracking-[0.25em] uppercase text-emerald2-800/70 font-mono-display">Connect</div>
               <ul className="mt-3 sm:mt-4 space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-slate-700">
-                <li>hello@caysonflorance.in</li>
-                <li>Ernakulam, Kerala</li>
-                <li>Startup India · Phase 01</li>
-                <li><a href="#contact" className="hover:text-emerald2-800">Partner With Us</a></li>
+                <li>contact@caysonflorance.com</li>
+                <li>
+                  1st Floor<br />
+                  Ernakulam<br />
+                  Door No: 66/1150, Suite B7<br />
+                  Ernakulam North<br />
+                  Ernakulam - 682018<br />
+                  Kerala
+                </li>
               </ul>
             </div>
           </div>
