@@ -54,7 +54,7 @@ export const PRODUCTS = [
     title: 'Premium Sprouted Grain Biscuits',
     short:
       '28 superfoods blended into a clean, nutrient-rich biscuit with sprouted grains, nuts, and zero refined sugar.',
-    img: '/products/biscuit/prod1.webp',
+    img: '/products/biscuit/homebipro1.webp',
     imgAlt: 'Premium Sprouted Grain Biscuits with 28 Superfoods — healthy snack by Cayson Florance',
     accent: 'from-emerald2-500 to-emerald2-700',
     chips: ['28 superfoods', 'Nuts & Seeds', 'Sprouted Grains', 'Zero Refined Sugar'],
