@@ -50,7 +50,7 @@ export default function Footer() {
             <div>
               <div className="text-[10px] tracking-[0.25em] uppercase text-emerald2-800/70 font-mono-display">Connect</div>
               <ul className="mt-3 sm:mt-4 space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-slate-700">
-                <li>contact@caysonflorance.com</li>
+                <li><a href="mailto:contact@caysonflorance.com" className="hover:text-emerald2-800 transition-colors">contact@caysonflorance.com</a></li>
                 <li>
                   1st Floor<br />
                   Ernakulam<br />
@@ -63,13 +63,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-8 sm:mt-14 pt-4 sm:pt-6 border-t border-emerald2-100 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
-          <div className="text-[10px] sm:text-xs text-slate-500">© {new Date().getFullYear()} Cayson Florance International Private Limited. All rights reserved.</div>
-          <div className="flex items-center gap-4 sm:gap-5 text-[10px] sm:text-xs text-slate-500">
-            <a href="#" className="hover:text-emerald2-800">Privacy</a>
-            <a href="#" className="hover:text-emerald2-800">Terms</a>
-            <a href="#" className="hover:text-emerald2-800">Compliance</a>
-          </div>
+        <div className="mt-8 sm:mt-14 pt-4 sm:pt-6 border-t border-emerald2-100 flex justify-center">
+          <div className="text-[10px] sm:text-xs text-slate-500 text-center">© {new Date().getFullYear()} Cayson Florance International Private Limited. All rights reserved.</div>
         </div>
       </div>
     </footer>

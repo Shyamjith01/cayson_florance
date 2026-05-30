@@ -10,8 +10,8 @@ export default function CTA() {
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
           className="relative overflow-hidden rounded-[24px] sm:rounded-[32px] lg:rounded-[40px] bg-gradient-to-br from-emerald2-900 via-emerald2-800 to-navy-900 p-6 sm:p-10 lg:p-20 text-white">
           <div className="absolute -top-20 -right-20 sm:-top-40 sm:-right-40 w-[250px] sm:w-[400px] lg:w-[500px] h-[250px] sm:h-[400px] lg:h-[500px] rounded-full bg-emerald2-500/25 blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 sm:-bottom-40 sm:-left-40 w-[250px] sm:w-[400px] lg:w-[500px] h-[250px] sm:h-[400px] lg:h-[500px] rounded-full bg-gold-400/15 blur-3xl" />
-          <div className="absolute inset-0 opacity-[0.08]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
+          <div className="absolute -bottom-20 -left-20 sm:-bottom-40 sm:-left-40 w-[250px] sm:w-[400px] lg:w-[500px] h-[250px] sm:h-[400px] lg:h-[500px] rounded-full bg-gold-400/15 blur-3xl pointer-events-none" />
+          <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
 
           <div className="relative grid lg:grid-cols-12 gap-6 sm:gap-10 items-end">
             <div className="lg:col-span-8">
@@ -22,9 +22,9 @@ export default function CTA() {
                 Let's build the future of <span className="gradient-gold">functional nutrition</span> — together.
               </h3>
               <p className="mt-4 sm:mt-6 text-emerald2-100/80 text-sm sm:text-base lg:text-lg max-w-2xl">For investors, distribution partners, Startup India ecosystem collaborators and large-format retailers — we're opening Phase 1 conversations now.</p>
-              <div className="mt-5 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-5 text-xs sm:text-sm text-emerald2-100/80">
-                <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4" /> contact@caysonflorance.com</span>
-                <span className="inline-flex items-center gap-2"><Phone className="h-4 w-4" /> +91 · Ernakulam, Kerala</span>
+              <div className="mt-5 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-5 text-xs sm:text-sm text-emerald2-100/80 relative z-20">
+                <a href="mailto:contact@caysonflorance.com" className="inline-flex items-center gap-2 hover:text-white transition-colors cursor-pointer"><Mail className="h-4 w-4" /> contact@caysonflorance.com</a>
+                <a href="tel:+918848344806" className="inline-flex items-center gap-2 hover:text-white transition-colors cursor-pointer"><Phone className="h-4 w-4" /> +91 8848344806</a>
               </div>
             </div>
             <div className="lg:col-span-4 flex flex-col gap-3">
