@@ -1,5 +1,10 @@
 'use client'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
+import JsonLd from '@/components/SEO/JsonLd'
+import { productSchema, PRODUCT_SEO_DATA } from '@/lib/schema'
+import { siteConfig } from '@/lib/seo'
 import {
   Leaf, Sparkles, ShieldCheck, Flame, Heart, Zap, Wheat, Droplets, Sprout,
   FlaskConical, Brain, Activity, Sun, Microscope, Atom, Cherry, Coffee,
@@ -513,31 +518,62 @@ const PRODUCTS = [
     ],
   }
 ]
-
-
-
+// Map product SEO data by slug for lookup
+const SEO_MAP = Object.fromEntries(PRODUCT_SEO_DATA.map((p) => [p.slug, p]))
 
 export default function ProductsList() {
   return (
-    <section className="relative bg-white">
+    <section className="relative bg-white" aria-label="All Cayson Florance innovative products">
       {PRODUCTS.map((p, idx) => {
         const reverse = idx % 2 === 1
+        const seoData = SEO_MAP[p.slug]
+        // Related products (next 2 after current, wrapping)
+        const relatedProducts = [
+          PRODUCTS[(idx + 1) % PRODUCTS.length],
+          PRODUCTS[(idx + 2) % PRODUCTS.length],
+        ]
         return (
-          <div key={p.slug} id={p.slug} className={`relative py-14 sm:py-20 lg:py-32 ${idx === 0 ? 'pt-6 sm:pt-10 lg:pt-16' : ''} ${idx % 2 === 0 ? 'bg-white' : 'bg-emerald2-50/30'}`}>
-            {idx % 2 === 1 && <div className="absolute inset-0 dot-bg opacity-40" />}
+          <article
+            key={p.slug}
+            id={p.slug}
+            aria-labelledby={`product-heading-${p.slug}`}
+            className={`relative py-14 sm:py-32 lg:py-28 ${idx === 0 ? 'pt-6 sm:pt-12 lg:pt-20' : ''} ${idx % 2 === 0 ? 'bg-white' : 'bg-emerald2-50/30'}`}
+          >
+            {/* JSON-LD Product Schema */}
+            {seoData && (
+              <JsonLd
+                schema={productSchema({
+                  name: seoData.title,
+                  description: seoData.description,
+                  image: seoData.image,
+                  url: `/products#${seoData.slug}`,
+                  category: seoData.category,
+                  keywords: seoData.keywords,
+                })}
+              />
+            )}
+            {idx % 2 === 1 && <div aria-hidden="true" className="absolute inset-0 dot-bg opacity-40" />}
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
               <div className={`grid lg:grid-cols-12 gap-8 sm:gap-12 items-center ${reverse ? 'lg:[&>*:first-child]:order-2' : ''}`}>
                 {/* Visual */}
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.9 }}
                   className="lg:col-span-7 relative">
                   <div className="relative h-[280px] sm:h-[400px] lg:h-[520px] rounded-[20px] sm:rounded-[32px] overflow-hidden hairline">
-                    <img src={p.img} alt={p.title} className="absolute inset-0 w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-emerald2-900/60 via-transparent to-transparent" />
-                    <div className="absolute top-3 left-3 right-3 sm:top-6 sm:left-6 sm:right-6 flex justify-between items-start">
-                      <span className="glass rounded-full px-3 py-1 text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">Product {p.n}</span>
-                      <span className="glass rounded-full px-3 py-1 text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">{p.tag}</span>
-                    </div>
-                    <div className="absolute inset-x-3 bottom-3 sm:inset-x-6 sm:bottom-6 grid grid-cols-3 gap-1.5 sm:gap-2">
+                    <img
+                      src={p.img}
+                      alt={`${p.title} — ${p.intro ? p.intro.substring(0, 80) + '...' : 'premium health product by Cayson Florance'}`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading={idx === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
+                      width={700}
+                      height={520}
+                    />
+                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-emerald2-900/60 via-transparent to-transparent" />
+                  <div className="absolute top-3 left-3 right-3 sm:top-6 sm:left-6 sm:right-6 flex justify-between items-start" aria-hidden="true">
+                    <span className="glass rounded-full px-3 py-1 text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">Product {p.n}</span>
+                    <span className="glass rounded-full px-3 py-1 text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">{p.tag}</span>
+                  </div>
+                  <div className="absolute inset-x-3 bottom-3 sm:inset-x-6 sm:bottom-6 grid grid-cols-3 gap-1.5 sm:gap-2" aria-label={`${p.title} key facts`}>
                       {p.facts.map(([v, l], i) => (
                         <div key={i} className="glass rounded-lg sm:rounded-xl p-2 py-1 sm:p-3 flex flex-col justify-center">
                           <div className="font-display text-sm sm:text-base lg:text-xl text-emerald2-900">{v}</div>
@@ -549,25 +585,33 @@ export default function ProductsList() {
                   {/* Floating alt thumb */}
                   <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
                     className={`hidden md:block absolute top-1/2 -mt-10 ${reverse ? '-right-8' : '-left-14'} w-32 h-28 sm:w-44 sm:h-40 rounded-xl sm:rounded-2xl overflow-hidden hairline shadow-[0_20px_60px_-25px_rgba(6,78,59,0.35)]`}>
-                    <img src={p.altImg} alt={p.title} className="w-full h-full object-cover" />
+                    <img
+                      src={p.altImg}
+                      alt={`${p.title} — alternate view`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      width={176}
+                      height={160}
+                    />
                   </motion.div>
                 </motion.div>
 
                 {/* Content */}
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
                   className="lg:col-span-5 px-1 sm:px-0">
-                  <div className="flex items-center gap-3 text-[11px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">
-                    <span className="h-px w-4 sm:w-8 bg-emerald2-700" /> Product {p.n}
-                  </div>
-                  <h2 className="mt-3 sm:mt-3 font-display text-2xl sm:text-3xl lg:text-5xl tracking-[-0.02em] text-emerald2-900 leading-[1.1] sm:leading-[1.04]">{p.title}</h2>
+                  <p className="flex items-center gap-3 text-[11px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">
+                    <span aria-hidden="true" className="h-px w-4 sm:w-8 bg-emerald2-700" /> Product {p.n}
+                  </p>
+                  <h2 id={`product-heading-${p.slug}`} className="mt-3 sm:mt-3 font-display text-2xl sm:text-3xl lg:text-5xl tracking-[-0.02em] text-emerald2-900 leading-[1.1] sm:leading-[1.04]">{p.title}</h2>
                   <p className="mt-3 sm:mt-6 text-slate-600 text-sm sm:text-base lg:text-[0.94rem] leading-relaxed">{p.intro}</p>
 
                   <div className="mt-5 sm:mt-8 space-y-2.5 sm:space-y-3">
                     {p.benefits.map((b, i) => (
                       <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.6 }}
                         className="flex items-start gap-4 group">
-                        <div className="h-8 w-8 sm:h-10 sm:w-10 shrink-0 rounded-lg sm:rounded-xl bg-gradient-to-br from-emerald2-600 to-emerald2-800 grid place-items-center text-white shadow-md group-hover:scale-110 transition-transform">
-                          <b.i className="h-4.5 w-4.5" />
+                        <div className="h-8 w-8 sm:h-10 sm:w-10 shrink-0 rounded-lg sm:rounded-xl bg-gradient-to-br from-emerald2-600 to-emerald2-800 grid place-items-center text-white shadow-md group-hover:scale-110 transition-transform" aria-hidden="true">
+                          <b.i className="h-4.5 w-4.5" aria-hidden="true" />
                         </div>
                         <div className="flex-1 pt-0 mt-0">
                           <div className="font-display text-sm sm:text-md font-medium tracking-[0.4px] text-emerald2-900">{b.t}</div>
@@ -657,7 +701,7 @@ export default function ProductsList() {
                 </motion.div>
               </div>
             </div>
-          </div>
+          </article>
         )
       })}
     </section>

@@ -1,7 +1,7 @@
 'use client'
-import { Fragment } from 'react'
 import { motion } from 'framer-motion'
-import { Recycle, Users, Truck, Sprout, Coins, Award, Trees, PackageOpen, Package, FlaskConical, ArrowDown, ArrowRight, RefreshCw } from 'lucide-react'
+import Link from 'next/link'
+import { Recycle, Users, Truck, Sprout, Coins, Award, Trees, PackageOpen, Package, FlaskConical, ArrowRight, RefreshCw } from 'lucide-react'
 
 const CIRCULAR = [
   { icon: Recycle, t: 'Zero-Waste Manufacturing', d: 'Every input is engineered into value — no plant material leaves our facility as waste.' },
@@ -19,25 +19,25 @@ const FARMER = [
 
 export default function Impact() {
   return (
-    <section id="impact" className="relative pt-6 sm:pt-10 pb-8 sm:pb-12 bg-gradient-to-b from-emerald2-50/40 via-white to-emerald2-50/30 overflow-hidden">
-      <div className="absolute inset-0 dot-bg opacity-40" />
+    <section id="impact" aria-labelledby="impact-heading" className="relative pt-6 sm:pt-10 pb-8 sm:pb-12 bg-gradient-to-b from-emerald2-50/40 via-white to-emerald2-50/30 overflow-hidden">
+      <div aria-hidden="true" className="absolute inset-0 dot-bg opacity-40" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 mt-3 sm:mt-5">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">
-            <span className="h-px w-4 sm:w-8 bg-emerald2-700" /> 02 · Our Impact
-          </div>
-          <h2 className="mt-4 sm:mt-6 font-display text-3xl sm:text-4xl lg:text-6xl tracking-[-0.02em] text-emerald2-900 leading-[1.08] sm:leading-[1.02]">
+          <p className="inline-flex items-center gap-2 text-[11px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">
+            <span aria-hidden="true" className="h-px w-4 sm:w-8 bg-emerald2-700" /> 02 · Our Impact
+          </p>
+          <h2 id="impact-heading" className="mt-4 sm:mt-6 font-display text-3xl sm:text-4xl lg:text-6xl tracking-[-0.02em] text-emerald2-900 leading-[1.08] sm:leading-[1.02]">
             Two loops. <span className="gradient-emerald">One regenerative ecosystem.</span>
           </h2>
           <p className="mt-4 sm:mt-6 text-slate-600 text-sm sm:text-base lg:text-lg">Our impact thesis is built on two interlocking systems — a circular production model and a farmer-first sourcing network. Each one quietly compounds the other.</p>
         </div>
 
         {/* Circular Economy */}
-        <div className="mt-10 sm:mt-16 lg:mt-20 grid lg:grid-cols-12 gap-6 sm:gap-10 items-center">
+        <div className="mt-10 sm:mt-16 lg:mt-20 grid lg:grid-cols-12 gap-6 sm:gap-10 items-center" aria-labelledby="circular-heading">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
             className="lg:col-span-5">
-            <div className="inline-flex items-center gap-2 rounded-full glass-emerald px-3 py-1 text-[10px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">Loop 01</div>
-            <h3 className="mt-3 sm:mt-4 font-display text-2xl sm:text-3xl lg:text-5xl text-emerald2-900 tracking-[-0.02em] leading-[1.1] sm:leading-[1.05]">Circular Economy</h3>
+            <p className="inline-flex items-center gap-2 rounded-full glass-emerald px-3 py-1 text-[10px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">Loop 01</p>
+            <h3 id="circular-heading" className="mt-3 sm:mt-4 font-display text-2xl sm:text-3xl lg:text-5xl text-emerald2-900 tracking-[-0.02em] leading-[1.1] sm:leading-[1.05]">Circular Economy</h3>
             <p className="mt-3 sm:mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">Zero-waste manufacturing built around upcycling — coconut shells, pineapple pulp and grain husk become inputs for the next cycle.</p>
             <div className="mt-5 sm:mt-8 grid grid-cols-3 gap-px bg-emerald2-100/60 rounded-2xl overflow-hidden hairline">
               {[['100%','Upcycled'], ['0','Plant Waste'], ['4','Reuse Streams']].map(([v,l], i) => (
@@ -73,13 +73,13 @@ export default function Impact() {
         </div>
 
         {/* Farmer First */}
-        <div className="grid lg:grid-cols-12 gap-6 sm:gap-10 items-center">
+        <div className="grid lg:grid-cols-12 gap-6 sm:gap-10 items-center" aria-labelledby="farmer-heading">
           <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4 order-2 lg:order-1">
             {FARMER.map((c, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.08 }}
                 className="group relative overflow-hidden rounded-2xl hairline bg-gradient-to-br from-white to-emerald2-50/40 p-4 sm:p-6 hover:-translate-y-1 transition-all duration-500">
-                <div className="h-11 w-11 rounded-xl bg-gradient-to-br from-navy-700 to-navy-800 grid place-items-center text-white">
-                  <c.icon className="h-5 w-5" />
+                <div className="h-11 w-11 rounded-xl bg-gradient-to-br from-navy-700 to-navy-800 grid place-items-center text-white" aria-hidden="true">
+                  <c.icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <h4 className="mt-3 sm:mt-4 font-display text-base sm:text-xl text-emerald2-900">{c.t}</h4>
                 <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">{c.d}</p>
@@ -88,8 +88,8 @@ export default function Impact() {
           </div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
             className="lg:col-span-5 order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 rounded-full glass-emerald px-3 py-1 text-[10px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">Loop 02</div>
-            <h3 className="mt-3 sm:mt-4 font-display text-2xl sm:text-3xl lg:text-5xl text-emerald2-900 tracking-[-0.02em] leading-[1.1] sm:leading-[1.05]">Farmer First</h3>
+            <p className="inline-flex items-center gap-2 rounded-full glass-emerald px-3 py-1 text-[10px] tracking-[0.25em] uppercase font-mono-display text-emerald2-800">Loop 02</p>
+            <h3 id="farmer-heading" className="mt-3 sm:mt-4 font-display text-2xl sm:text-3xl lg:text-5xl text-emerald2-900 tracking-[-0.02em] leading-[1.1] sm:leading-[1.05]">Farmer First</h3>
             <p className="mt-3 sm:mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">A direct partnership network across Kerala and Tamil Nadu — fair pricing, agronomy support and dramatically lower post-harvest losses.</p>
             <div className="mt-5 sm:mt-8 grid grid-cols-3 gap-px bg-navy-100/60 rounded-2xl overflow-hidden hairline">
               {[['500+','Farmers'], ['+22%','Above Mandi'], ['−60%','Post-Harvest Loss']].map(([v,l], i) => (
@@ -135,6 +135,26 @@ export default function Impact() {
 
           {/* Aligned Flow Grid */}
           <LoopFlow />
+        </motion.div>
+
+        {/* Internal link to products — improves crawlability and user journey */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mt-10 sm:mt-14 text-center"
+        >
+          <p className="text-sm sm:text-base text-slate-600 mb-5">
+            Our regenerative model powers every product we create — from our farms to your table.
+          </p>
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-2 rounded-full bg-emerald2-700 text-white px-6 py-3 text-sm font-medium shine hover:bg-emerald2-800 transition-all focus:outline-none focus:ring-2 focus:ring-emerald2-600 focus:ring-offset-2"
+            aria-label="Explore our range of innovative health and nutrition products"
+          >
+            Explore Our Products <ArrowRight aria-hidden="true" className="h-4 w-4" />
+          </Link>
         </motion.div>
       </div>
     </section>

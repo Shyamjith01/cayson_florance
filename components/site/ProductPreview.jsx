@@ -55,8 +55,9 @@ export const PRODUCTS = [
     short:
       '28 superfoods blended into a clean, nutrient-rich biscuit with sprouted grains, nuts, and zero refined sugar.',
     img: '/products/biscuit/prod1.webp',
+    imgAlt: 'Premium Sprouted Grain Biscuits with 28 Superfoods — healthy snack by Cayson Florance',
     accent: 'from-emerald2-500 to-emerald2-700',
-    chips:["28 superfoods",,"Nuts & Seeds","Sprouted Grains","Zero Refined Sugar"]
+    chips: ['28 superfoods', 'Nuts & Seeds', 'Sprouted Grains', 'Zero Refined Sugar'],
   },
   {
     slug: 'virgin-coconut-oil',
@@ -65,6 +66,7 @@ export const PRODUCTS = [
     short:
       'Cold-pressed coconut wellness oil crafted for cooking, skincare, hair nourishment, and holistic living.',
     img: '/products/oil/prod2.webp',
+    imgAlt: '100% Pure Cold Pressed Virgin Coconut Oil by Cayson Florance — Kerala sourced',
     accent: 'from-emerald2-400 to-navy-700',
   },
   {
@@ -74,6 +76,7 @@ export const PRODUCTS = [
     short:
       'A soft, dairy-free plant-based paneer crafted from fresh coconut milk for modern healthy lifestyles.',
     img: '/products/paneer/paneerProd.webp',
+    imgAlt: 'Premium Coconut Paneer — dairy-free plant-based paneer made from fresh coconut milk',
     accent: 'from-emerald2-500 to-emerald2-300',
   },
   {
@@ -83,6 +86,7 @@ export const PRODUCTS = [
     short:
       'Advanced low-temperature dried coconut water powder delivering instant hydration and natural electrolytes.',
     img: '/products/coco-powder/cocopowderalt1.webp',
+    imgAlt: 'Premium Coconut Water Powder — natural electrolyte hydration drink by Cayson Florance',
     mobileImg: '/products/coco-powder/cocopowder.webp',
     accent: 'from-navy-700 to-emerald2-600',
   },
@@ -93,6 +97,7 @@ export const PRODUCTS = [
     short:
       'First-press coconut milk cream with rich gourmet texture for premium dairy-free culinary experiences.',
     img: '/products/cream/prod1.webp',
+    imgAlt: 'Premium Coconut Milk Cream — first-press dairy-free culinary cream by Cayson Florance',
     accent: 'from-emerald2-700 to-emerald2-900',
   },
   {
@@ -102,8 +107,9 @@ export const PRODUCTS = [
     short:
       'A sparkling tropical wellness drink infused with pineapple, coconut water, and natural beetroot energy.',
     img: '/products/protien/prodimg1.webp',
+    imgAlt: 'Pink Paradise Fizz — tropical sparkling wellness drink with pineapple and beetroot',
     accent: 'from-navy-700 to-emerald2-600',
-    chips:["Tropical Infusion","Naturally Sparkling","Beetroot Energy","0g Added Sugar"]
+    chips: ['Tropical Infusion', 'Naturally Sparkling', 'Beetroot Energy', '0g Added Sugar'],
   },
   {
     slug: 'bio-active-moringa-extract',
@@ -112,9 +118,10 @@ export const PRODUCTS = [
     short:
       'Ultra-fine water-soluble moringa extract developed with advanced nano-extraction wellness technology.',
     img: '/products/muringa/muringaprod1.webp',
-    accent: 'from-emerald2-700 to-emerald2-900', 
+    imgAlt: 'Bio-Active Moringa Dry Extract — ultra-fine water-soluble moringa nutraceutical ingredient',
+    accent: 'from-emerald2-700 to-emerald2-900',
   },
-] 
+]
 
 function ProductImg({ src, mobileSrc, fallback, alt, className }) {
   if (mobileSrc) {
@@ -125,6 +132,8 @@ function ProductImg({ src, mobileSrc, fallback, alt, className }) {
           src={src}
           alt={alt}
           className={className}
+          loading="lazy"
+          decoding="async"
           onError={(e) => { if (e.currentTarget.src !== fallback) e.currentTarget.src = fallback }}
         />
       </picture>
@@ -135,6 +144,8 @@ function ProductImg({ src, mobileSrc, fallback, alt, className }) {
       src={src}
       alt={alt}
       className={className}
+      loading="lazy"
+      decoding="async"
       onError={(e) => { if (e.currentTarget.src !== fallback) e.currentTarget.src = fallback }}
     />
   )
@@ -150,11 +161,11 @@ function HeroCard({ p, index = 0, flagship = false, className = "" }) {
       transition={{ duration: 0.75, delay: index * 0.06 }}
       className={`sm:col-span-2 lg:col-span-2 ${className}`}
     >
-      <Link href={`/products#${p.slug}`} className="group block relative h-full rounded-[24px] overflow-hidden shine bg-emerald2-900">
+      <Link href={`/products#${p.slug}`} className="group block relative h-full rounded-[24px] overflow-hidden shine bg-emerald2-900" aria-label={`Learn more about ${p.title}`}>
         <div className="grid grid-cols-1 md:grid-cols-12 h-full min-h-[460px]">
           {/* Image side */}
           <div className="relative md:col-span-7 min-h-[240px] md:min-h-0 overflow-hidden">
-            <ProductImg src={p.img} mobileSrc={p.mobileImg} fallback={p.fallback} alt={p.title}
+            <ProductImg src={p.img} mobileSrc={p.mobileImg} fallback={p.fallback} alt={p.imgAlt || p.title}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.6s] group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-r from-emerald2-900/30 via-transparent to-emerald2-900/40 md:to-transparent" />
             <div className="absolute top-5 left-5 flex flex-wrap items-center gap-2">
@@ -216,9 +227,9 @@ function StandardCard({ p, index = 0, className = "" }) {
       transition={{ duration: 0.6, delay: (index % 3) * 0.08 }}
       className={className}
     >
-      <Link href={`/products#${p.slug}`} className="group block relative h-[460px] rounded-[24px] overflow-hidden hairline shine">
+      <Link href={`/products#${p.slug}`} className="group block relative h-[460px] rounded-[24px] overflow-hidden hairline shine" aria-label={`Learn more about ${p.title}`}>
         <div className="absolute inset-0 transition-transform duration-[1.4s] group-hover:scale-110">
-          <ProductImg src={p.img} mobileSrc={p.mobileImg} fallback={p.fallback} alt={p.title} className="w-full h-full object-cover" />
+          <ProductImg src={p.img} mobileSrc={p.mobileImg} fallback={p.fallback} alt={p.imgAlt || p.title} className="w-full h-full object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-emerald2-900/85 via-emerald2-900/30 to-emerald2-900/5" />
         <div className="absolute inset-0 bg-gradient-to-br from-emerald2-500/10 via-transparent to-navy-800/15 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -249,7 +260,7 @@ function StandardCard({ p, index = 0, className = "" }) {
 
 export default function ProductPreview() {
   return (
-    <section id="products" className="relative py-32 bg-white">
+    <section id="products" aria-labelledby="products-preview-heading" className="relative py-32 bg-white">
       <div className="mx-auto max-w-7xl px-6">
         {/* Heading */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
@@ -257,7 +268,7 @@ export default function ProductPreview() {
             <div className="inline-flex items-center gap-2 text-[9px] sm:text-[10px]  tracking-[0.25em] uppercase font-mono-display text-emerald2-800">
               <span className="h-px w-4 sm:w-8 bg-emerald2-700" /> 03 · Innovative Products
             </div>
-            <h2 className="mt-6 font-display text-3xl sm:text-5xl lg:text-6xl tracking-[-0.02em] text-emerald2-900 leading-[1.1] sm:leading-[1.02]">
+            <h2 id="products-preview-heading" className="mt-6 font-display text-3xl sm:text-5xl lg:text-6xl tracking-[-0.02em] text-emerald2-900 leading-[1.1] sm:leading-[1.02]">
               Functional nutrition, <span className="gradient-emerald">engineered with care.</span>
             </h2>
           </div>
