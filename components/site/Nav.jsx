@@ -39,11 +39,10 @@ export default function Nav() {
     >
       <div className="mx-auto max-w-7xl px-3 sm:px-5 mt-2 sm:mt-3">
         <div
-          className={`flex items-center justify-between rounded-2xl px-3 sm:px-5 py-2.5 sm:py-3 transition-all duration-500 ${
-            scrolled
-              ? 'glass shadow-[0_10px_40px_-15px_rgba(6,78,59,0.22)]'
-              : 'bg-white/55 backdrop-blur-md border border-white/50'
-          }`}
+          className={`flex items-center justify-between rounded-2xl px-3 sm:px-5 py-2.5 sm:py-3 transition-all duration-500 ${scrolled
+            ? 'glass shadow-[0_10px_40px_-15px_rgba(6,78,59,0.22)]'
+            : 'bg-white/55 backdrop-blur-md border border-white/50'
+            }`}
         >
           {/* Logo */}
           <Link
@@ -52,11 +51,11 @@ export default function Nav() {
             aria-label="Cayson Florance International — Home"
           >
             <Image
-              src="/logo/logo.png"
+              src="/logo/logo.svg"
               alt="Cayson Florance International logo"
               width={48}
               height={48}
-              className="h-9 w-9 sm:h-12 sm:w-12 object-contain"
+              className="h-9 w-9 sm:h-9 sm:w-9 mt-1.5 mb-1.5 object-contain"
               priority
             />
             <div className="leading-tight">
@@ -82,20 +81,18 @@ export default function Nav() {
                   key={l.href}
                   href={l.href}
                   aria-current={active ? 'page' : undefined}
-                  className={`relative px-3.5 py-2 text-[13px] font-medium transition-colors group ${
-                    active
-                      ? 'text-emerald2-800'
-                      : 'text-slate-700 hover:text-emerald2-800'
-                  }`}
+                  className={`relative px-3.5 py-2 text-[13px] font-medium transition-colors group ${active
+                    ? 'text-emerald2-800'
+                    : 'text-slate-700 hover:text-emerald2-800'
+                    }`}
                 >
                   {l.label}
                   <span
                     aria-hidden="true"
-                    className={`absolute left-3 right-3 -bottom-0.5 h-px bg-gradient-to-r from-emerald2-600 to-navy-700 ${
-                      active
-                        ? 'scale-x-100'
-                        : 'scale-x-0 group-hover:scale-x-100'
-                    } origin-left transition-transform duration-300`}
+                    className={`absolute left-3 right-3 -bottom-0.5 h-px bg-gradient-to-r from-emerald2-600 to-navy-700 ${active
+                      ? 'scale-x-100'
+                      : 'scale-x-0 group-hover:scale-x-100'
+                      } origin-left transition-transform duration-300`}
                   />
                 </Link>
               )
