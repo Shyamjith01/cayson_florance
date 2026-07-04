@@ -45,12 +45,12 @@ export default function CTA() {
                   contact@caysonflorance.com
                 </a>
                 <a
-                  href="tel:+918848344806"
-                  aria-label="Call Cayson Florance at +91 8848344806"
+                  href="tel:+919833662866"
+                  aria-label="Call Cayson Florance at +91 9833662866"
                   className="inline-flex items-center gap-2 hover:text-white transition-colors"
                 >
                   <Phone aria-hidden="true" className="h-4 w-4" />
-                  +91 8848344806
+                  +91 9833662866
                 </a>
               </div>
             </div>
