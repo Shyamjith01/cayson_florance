@@ -8,7 +8,8 @@ import { siteConfig } from '@/lib/seo'
 import {
   Leaf, Sparkles, ShieldCheck, Flame, Heart, Zap, Wheat, Droplets, Sprout,
   FlaskConical, Brain, Activity, Sun, Microscope, Atom, Cherry, Coffee,
-  TreePine, Apple, Snowflake, Waves, Beaker, Layers, ArrowRight, Star
+  TreePine, Apple, Snowflake, Waves, Beaker, Layers, ArrowRight, Star,
+  Volume
 } from 'lucide-react'
 
 const PRODUCTS = [
@@ -516,6 +517,235 @@ const PRODUCTS = [
       ['0', 'Artificial Fillers'],
       ['Ultra', 'Fine Extract Technology'],
     ],
+  },
+  {
+    slug: 'coconut-shell-activated-charcoal',
+    n: '08',
+    tag: 'Circular Bio-Value Innovation',
+    title: 'Premium Coconut Shell Activated Charcoal',
+
+    intro:
+      'A high-value bio-based material created by transforming discarded coconut shells into premium activated charcoal through controlled carbonization and activation technology. This circular innovation converts agricultural waste into a versatile, high-performance ingredient for advanced skincare, natural deodorization, water and air filtration, and emerging energy applications.',
+
+    img: '/products/charcoal/charcoalprod1.jpeg',
+
+    whyDifferent: [
+      {
+        t: 'Coconut Shell Waste to Value',
+        d: 'Transforms discarded coconut shells into a high-value, sustainable activated carbon material.',
+      },
+      {
+        t: 'High-Performance Activated Carbon',
+        d: 'Specialized activation develops a highly porous carbon structure designed for adsorption and filtration applications.',
+      },
+      {
+        t: 'Multiple Product Applications',
+        d: 'Can be developed into skincare products, deodorizing bags, water and air filters, and advanced industrial materials.',
+      },
+      {
+        t: 'Circular & Sustainable Innovation',
+        d: 'Creates additional value from coconut processing waste while supporting a low-waste circular economy.',
+      },
+    ],
+
+    tech: {
+      name: 'Coconut Shell Carbonization & Activation Technology',
+      desc:
+        'Selected coconut shells are carbonized under controlled conditions and subsequently activated to develop a high-surface-area porous carbon material suitable for premium consumer and industrial applications.',
+      steps: [
+        'Coconut Shell Collection',
+        'Controlled Carbonization',
+        'Activation Processing',
+        'Purification & Grading',
+      ],
+    },
+
+    perfectFor: [
+      'Natural Skincare Products',
+      'Air Purifying Products',
+      'Water Filtration Systems',
+      'Industrial Filtration',
+      'Advanced Energy Research',
+    ],
+
+    benefits: [
+      {
+        i: Sparkles,
+        t: 'Advanced Skincare Applications',
+        d: 'Can be formulated into charcoal face washes, peel-off masks, soaps, and other premium personal-care products.',
+      },
+      {
+        i: Droplets,
+        t: 'Water & Air Filtration',
+        d: 'Activated carbon can be used as an adsorption material in water purification and air filtration applications.',
+      },
+      {
+        i: Leaf,
+        t: 'Sustainable Waste Valorization',
+        d: 'Converts coconut shell waste into commercially valuable products while supporting circular bio-economy initiatives.',
+      },
+    ],
+
+    facts: [
+      ['100%', 'Coconut Shell Based'],
+      ['Multi', 'Consumer & Industrial Uses'],
+      ['Circular', 'Waste-to-Value Innovation'],
+    ],
+  },
+  {
+  slug: 'premium-artisan-bamboo-salt',
+  n: '08',
+  tag: '9X Roasted Premium Wellness Salt',
+  title: 'Premium Artisan Bamboo Salt',
+
+  intro:
+    'An ultra-premium wellness salt crafted through a traditional multi-stage Korean-inspired roasting process. Raw sea salt is packed into mature bamboo stalks, sealed with mineral-rich clay, and roasted at extreme temperatures up to 800°C–1000°C. Our signature 9X roasting process transforms the salt into distinctive light reddish-pink granules while creating a premium mineral-rich culinary and wellness ingredient.',
+
+  img: '/products/bamboo-salt/bamboosaltprod1.jpeg',
+  altImg: '/products/bamboo-salt/bamboosaltalt1.jpeg',
+
+  whyDifferent: [
+    {
+      t: '9X Roasted Bamboo Salt',
+      d: 'Repeated high-temperature roasting delivers the signature premium character, color, and mineral-rich profile.',
+    },
+    {
+      t: 'Traditional Bamboo Roasting',
+      d: 'Sea salt is packed inside mature bamboo stalks and sealed with mineral-rich clay before roasting.',
+    },
+    {
+      t: 'Distinctive Reddish-Pink Granules',
+      d: 'The multi-stage roasting process creates the characteristic light reddish-pink appearance and unique texture.',
+    },
+    {
+      t: 'Export-Grade Wellness Ingredient',
+      d: 'A premium functional salt designed for health-focused culinary, skincare, oral-care, and wellness applications.',
+    },
+  ],
+
+  tech: {
+    name: '9X Bamboo Roasting Technology',
+    desc:
+      'Raw sea salt is filled into mature bamboo stalks, sealed with mineral-rich clay, and subjected to repeated high-temperature roasting. The nine-stage roasting process creates the distinctive premium bamboo salt while adding significant value over conventional table salt.',
+    steps: [
+      'Premium Sea Salt Selection',
+      'Bamboo Filling',
+      'Clay Sealing',
+      'High-Temperature Roasting',
+      'Cooling & Refining',
+      'Repeat 9X Roasting',
+    ],
+  },
+
+  perfectFor: [
+    'Premium Culinary Applications',
+    'Health & Wellness Products',
+    'Natural Skincare',
+    'Premium Oral Care',
+    'Export & B2B Wellness Brands',
+  ],
+
+  benefits: [
+    {
+      i: Sparkles,
+      t: '9X Roasted Premium Salt',
+      d: 'A highly refined functional salt produced through nine stages of traditional high-temperature bamboo roasting.',
+    },
+    {
+      i: ShieldCheck,
+      t: 'Mineral-Rich Wellness Ingredient',
+      d: 'Naturally associated with minerals such as calcium, potassium, and magnesium through its traditional bamboo and clay roasting process.',
+    },
+    {
+      i: Leaf,
+      t: 'Multi-Application Innovation',
+      d: 'Suitable for premium culinary, skincare, oral-care, and wellness formulations.',
+    },
+  ],
+
+  facts: [
+    ['9X', 'Roasted'],
+    ['800°C–1000°C', 'High-Temperature Process'],
+    ['Reddish-Pink', 'Signature Granules'],
+  ],
+},
+  {
+    slug: 'coconut-coir-innovations',
+    n: '09',
+    tag: 'Circular Economy & Sustainable Materials',
+    title: 'Premium Coconut Coir Innovations',
+
+    intro:
+      'A new generation of sustainable materials engineered from coconut husk fibre and cocopeat, transforming agricultural by-products into high-value, eco-friendly solutions. From biodegradable packaging and plantable products to acoustic panels, vertical gardens, and durable WPC materials, these innovations create practical alternatives to plastic and conventional materials while supporting a circular economy.',
+
+    img: '/products/coir/coirProd.jpeg',
+    // altImg: '/products/coir/coirAlt.webp',
+
+    whyDifferent: [
+      {
+        t: 'Coconut Waste to High-Value Products',
+        d: 'Transforms coconut husk, coir fibre, and cocopeat into commercially valuable sustainable products.',
+      },
+      {
+        t: 'Plastic-Free Packaging Innovation',
+        d: 'Creates biodegradable food containers, plates, pots, and plantable grow bags as alternatives to conventional plastic and thermocol packaging.',
+      },
+      {
+        t: 'Natural Coir Acoustic Technology',
+        d: 'Uses coconut fibre to create decorative acoustic panels designed to help absorb sound in modern interior spaces.',
+      },
+      {
+        t: 'Circular & Sustainable Materials',
+        d: 'Combines coconut-derived materials with recycled resources to develop durable WPC panels, furniture, and architectural applications.',
+      },
+    ],
+
+    tech: {
+      name: 'Coconut Fibre Material Engineering',
+      desc:
+        'Coconut husk fibre and cocopeat are processed, refined, compressed, molded, and combined with suitable binders or recycled materials to create biodegradable packaging, plantable products, acoustic panels, vertical garden modules, and durable composite materials.',
+      steps: [
+        'Coconut Husk Collection',
+        'Fibre & Cocopeat Processing',
+        'Material Formulation',
+        'Compression & Moulding',
+        'Product Finishing',
+        'Quality Testing',
+      ],
+    },
+
+    perfectFor: [
+      'Eco-Friendly Packaging Brands',
+      'Interior & Acoustic Solutions',
+      'Urban Farming',
+      'Sustainable Furniture',
+      'Green Construction',
+      'Export & B2B Markets',
+    ],
+
+    benefits: [
+      {
+        i: Sparkles,
+        t: 'Biodegradable & Plantable',
+        d: 'Coconut fibre and cocopeat can be transformed into sustainable packaging, pots, and plantable grow solutions.',
+      },
+      {
+        i: Heart,
+        t: 'Natural Acoustic Solutions',
+        d: 'Coir-based panels provide a sustainable material option for acoustic treatment in studios, theatres, offices, and interiors.',
+      },
+      {
+        i: ShieldCheck,
+        t: 'Circular Economy Innovation',
+        d: 'Converts coconut processing waste into useful materials while creating alternatives to conventional plastics and wood-based products.',
+      },
+    ],
+
+    facts: [
+      ['100%', 'Coconut-Derived Materials'],
+      ['4+', 'Product Applications'],
+      ['Eco', 'Circular Economy'],
+    ],
   }
 ]
 // Map product SEO data by slug for lookup
@@ -568,12 +798,12 @@ export default function ProductsList() {
                       width={700}
                       height={520}
                     />
-                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-emerald2-900/60 via-transparent to-transparent" />
-                  <div className="absolute top-3 left-3 right-3 sm:top-6 sm:left-6 sm:right-6 flex justify-between items-start" aria-hidden="true">
-                    <span className="glass rounded-full px-3 py-1 text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">Product {p.n}</span>
-                    <span className="glass rounded-full px-3 py-1 text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">{p.tag}</span>
-                  </div>
-                  <div className="absolute inset-x-3 bottom-3 sm:inset-x-6 sm:bottom-6 grid grid-cols-3 gap-1.5 sm:gap-2" aria-label={`${p.title} key facts`}>
+                    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-emerald2-900/60 via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3 right-3 sm:top-6 sm:left-6 sm:right-6 flex justify-between items-start" aria-hidden="true">
+                      <span className="glass rounded-full px-3 py-1 text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">Product {p.n}</span>
+                      <span className="glass rounded-full px-3 py-1 text-[8px] sm:text-[10px] tracking-[0.25em] uppercase text-emerald2-800 font-mono-display">{p.tag}</span>
+                    </div>
+                    <div className="absolute inset-x-3 bottom-3 sm:inset-x-6 sm:bottom-6 grid grid-cols-3 gap-1.5 sm:gap-2" aria-label={`${p.title} key facts`}>
                       {p.facts.map(([v, l], i) => (
                         <div key={i} className="glass rounded-lg sm:rounded-xl p-2 py-1 sm:p-3 flex flex-col justify-center">
                           <div className="font-display text-sm sm:text-base lg:text-xl text-emerald2-900">{v}</div>
@@ -583,18 +813,22 @@ export default function ProductsList() {
                     </div>
                   </div>
                   {/* Floating alt thumb */}
-                  <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
-                    className={`hidden md:block absolute top-1/2 -mt-10 ${reverse ? '-right-8' : '-left-14'} w-32 h-28 sm:w-44 sm:h-40 rounded-xl sm:rounded-2xl overflow-hidden hairline shadow-[0_20px_60px_-25px_rgba(6,78,59,0.35)]`}>
-                    <img
-                      src={p.altImg}
-                      alt={`${p.title} — alternate view`}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      width={176}
-                      height={160}
-                    />
-                  </motion.div>
+                  {
+                    p.altImg &&
+                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
+                      className={`hidden md:block absolute top-1/2 -mt-10 ${reverse ? '-right-8' : '-left-14'} w-32 h-28 sm:w-44 sm:h-40 rounded-xl sm:rounded-2xl overflow-hidden hairline shadow-[0_20px_60px_-25px_rgba(6,78,59,0.35)]`}>
+                      <img
+                        src={p.altImg}
+                        alt={`${p.title} — alternate view`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                        width={176}
+                        height={160}
+                      />
+                    </motion.div>
+                  }
+
                 </motion.div>
 
                 {/* Content */}
