@@ -113,11 +113,11 @@ export default function Footer() {
               <ul className="mt-3 sm:mt-4 space-y-2 sm:space-y-2.5 text-xs sm:text-sm text-slate-700">
                 <li>
                   <a
-                    href="mailto:contact@caysonflorance.com"
-                    aria-label="Email Cayson Florance at contact@caysonflorance.com"
+                    href="mailto:support@caysonflorance.com"
+                    aria-label="Email Cayson Florance at support@caysonflorance.com"
                     className="hover:text-emerald2-800 transition-colors break-all"
                   >
-                    contact@caysonflorance.com
+                    support@caysonflorance.com
                   </a>
                 </li>
                 <li>
