@@ -121,6 +121,36 @@ export const PRODUCTS = [
     imgAlt: 'Bio-Active Moringa Dry Extract — ultra-fine water-soluble moringa nutraceutical ingredient',
     accent: 'from-emerald2-700 to-emerald2-900',
   },
+  {
+    slug: 'coconut-shell-activated-charcoal',
+    tag: 'Product 08',
+    title: 'Premium Coconut Shell Activated Charcoal',
+    short:
+      'A high-value bio-based material created by transforming discarded coconut shells into premium activated charcoal.',
+    img: '/products/charcoal/charcoalprod1.jpeg',
+    imgAlt: 'Premium Coconut Shell Activated Charcoal — bio-based material',
+    accent: 'from-emerald2-500 to-emerald2-700',
+  },
+  {
+    slug: 'premium-artisan-bamboo-salt',
+    tag: 'Product 09',
+    title: 'Premium Artisan Bamboo Salt',
+    short:
+      'An ultra-premium wellness salt crafted through a traditional multi-stage Korean-inspired roasting process.',
+    img: '/products/bamboo-salt/bamboosaltprod1.jpeg',
+    imgAlt: 'Premium Artisan Bamboo Salt — 9X roasted',
+    accent: 'from-emerald2-400 to-navy-700',
+  },
+  {
+    slug: 'coconut-coir-innovations',
+    tag: 'Product 10',
+    title: 'Premium Coconut Coir Innovations',
+    short:
+      'A new generation of sustainable materials engineered from coconut husk fibre and cocopeat for eco-friendly solutions.',
+    img: '/products/coir/coirmg2.jpg',
+    imgAlt: 'Premium Coconut Coir Innovations — sustainable materials',
+    accent: 'from-emerald2-500 to-emerald2-300',
+  },
 ]
 
 function ProductImg({ src, mobileSrc, fallback, alt, className }) {
@@ -244,7 +274,7 @@ function StandardCard({ p, index = 0, className = "" }) {
         <div className="absolute bottom-0 inset-x-0 p-5">
           <div className="glass rounded-2xl p-5 transition-transform duration-500 group-hover:-translate-y-1">
             <div className="text-[10px] tracking-[0.25em] uppercase text-emerald2-700/65 font-mono-display">{p.eyebrow}</div>
-            <h3 className="mt-1.5 font-display text-xl text-emerald2-900 leading-tight">{p.title}</h3>
+            <h3 className="mt-1.5 font-display text-lg  text-emerald2-900 leading-tight">{p.title}</h3>
             <p className="mt-2 text-[13px] text-slate-600 leading-relaxed line-clamp-2">{p.short}</p>
             <div className="mt-4 flex items-center justify-between pt-3 border-t border-emerald2-100/70">
               <span className="text-[11px] tracking-[0.22em] uppercase text-emerald2-700 font-mono-display">Explore →</span>
@@ -280,7 +310,7 @@ export default function ProductPreview() {
           </div>
         </div>
 
-        {/* Editorial Asymmetric Grid — 7 products in 3 rhythmic rows */}
+        {/* Editorial Asymmetric Grid — 10 products in 4 rhythmic rows */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* Row 1 :: Hero Biscuits (2-col) + Virgin Coconut Oil (1-col) */}
           <HeroCard p={PRODUCTS[0]} index={0} flagship />
@@ -301,6 +331,16 @@ export default function ProductPreview() {
           <HeroCard p={PRODUCTS[5]} index={5} />
           <HeroCard p={PRODUCTS[6]} index={6} className="sm:hidden" />
           <StandardCard p={PRODUCTS[6]} index={6} className="hidden sm:block" />
+
+          {/* Row 4 :: Three balanced medium cards */}
+          <HeroCard p={PRODUCTS[7]} index={7} className="sm:hidden" />
+          <StandardCard p={PRODUCTS[7]} index={7} className="hidden sm:block" />
+
+          <HeroCard p={PRODUCTS[8]} index={8} className="sm:hidden" />
+          <StandardCard p={PRODUCTS[8]} index={8} className="hidden sm:block" />
+
+          <HeroCard p={PRODUCTS[9]} index={9} className="sm:hidden" />
+          <StandardCard p={PRODUCTS[9]} index={9} className="hidden sm:block" />
         </div>
       </div>
     </section>

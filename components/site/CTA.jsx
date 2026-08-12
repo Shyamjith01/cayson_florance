@@ -37,12 +37,12 @@ export default function CTA() {
               </p>
               <div className="mt-5 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-5 text-xs sm:text-sm text-emerald2-100/80 relative z-20">
                 <a
-                  href="mailto:contact@caysonflorance.com"
-                  aria-label="Send an email to contact@caysonflorance.com"
+                  href="mailto:support@caysonflorance.com"
+                  aria-label="Send an email to support@caysonflorance.com"
                   className="inline-flex items-center gap-2 hover:text-white transition-colors"
                 >
                   <Mail aria-hidden="true" className="h-4 w-4" />
-                  contact@caysonflorance.com
+                  support@caysonflorance.com
                 </a>
                 <a
                   href="tel:+919833662866"
