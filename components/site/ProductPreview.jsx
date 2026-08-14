@@ -114,9 +114,9 @@ export const PRODUCTS = [
   {
     slug: 'bio-active-moringa-extract',
     tag: 'Product 07',
-    title: 'Bio-Active Moringa Dry Extract',
+    title: 'Bio-Active Moringa Spray-Dried Extract',
     short:
-      'Ultra-fine water-soluble moringa extract developed with advanced nano-extraction wellness technology.',
+      'A revolutionary next-generation moringa innovation, developed using advanced Ultrasonic Nano-Extraction and precision Spray-Drying technology. Unlike ordinary moringa powders, this ultra-fine bio-active extract is 100% water-soluble, residue-free, and scientifically refined for premium wellness applications.',
     img: '/products/muringa/muringaprod1.webp',
     imgAlt: 'Bio-Active Moringa Dry Extract — ultra-fine water-soluble moringa nutraceutical ingredient',
     accent: 'from-emerald2-700 to-emerald2-900',
