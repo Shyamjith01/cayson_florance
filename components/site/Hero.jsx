@@ -124,7 +124,7 @@ export default function Hero() {
             </motion.span>
           </motion.span>
            
-          <span className="font-script not-italic text-[13px] sm:text-[16px] tracking-wide">
+          <span className="font-script not-italic font-medium text-[13px] sm:text-[16px] tracking-wide">
             &ldquo;Enriching Lives Beyond Boundaries&rdquo;
           </span>
         </motion.p>
