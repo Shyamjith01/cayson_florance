@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Sparkles, Leaf, Droplets, Wheat, Sprout } from 'lucide-react'
+import { ArrowRight, Leaf, Droplets, Wheat, Sprout } from 'lucide-react'
 
 const ICON_ITEMS = [
   { icon: Leaf, label: 'Natural Ingredients' },
@@ -107,10 +107,26 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="inline-flex items-center gap-2 rounded-full glass px-3 sm:px-4 py-1.5 text-[9px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] font-mono-display text-emerald2-800"
+          className="inline-flex items-center gap-2.5 bg-gradient-to-r from-emerald2-100/70 via-emerald2-50/40 to-transparent backdrop-blur-sm rounded-[20px] pl-4 sm:pl-5 pr-10 sm:pr-16 py-2 text-emerald2-700"
         >
-          <Sparkles aria-hidden="true" className="h-3.5 w-3.5 text-gold-400" />
-          Health · Nutrition · Smart Agri-Tech
+          <motion.span
+            initial={{ opacity: 0, scale: 0.4, rotate: -45 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ delay: 0.5, duration: 0.7, type: 'spring', stiffness: 120 }}
+            className="inline-flex"
+          >
+            <motion.span
+              animate={{ y: [0, -2, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+              className="inline-flex"
+            >
+              <Leaf aria-hidden="true" className="h-4 w-4 text-emerald2-500" />
+            </motion.span>
+          </motion.span>
+           
+          <span className="font-script text-[13px] sm:text-[16px] tracking-wide">
+            &ldquo;Enriching Lives Beyond Boundaries&rdquo;
+          </span>
         </motion.p>
 
         <motion.h1
@@ -118,7 +134,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 1 }}
-          className="mt-5 sm:mt-8 font-display text-[clamp(1.6rem,6vw,4.3rem)] leading-[1.05] sm:leading-[0.96] tracking-[-0.02em] sm:tracking-[-0.03em] text-emerald2-900 max-w-5xl drop-shadow-[0_2px_12px_rgba(255,255,255,0.7)]"
+          className="mt-3 sm:mt-5 font-display text-[clamp(1.6rem,6vw,4.3rem)] leading-[1.05] sm:leading-[0.96] tracking-[-0.02em] sm:tracking-[-0.03em] text-emerald2-900 max-w-5xl drop-shadow-[0_2px_12px_rgba(255,255,255,0.7)]"
         >
           Redefining health &amp; nutrition{' '}
           <span className="gradient-emerald drop-shadow-[0_2px_8px_rgba(255,255,255,0.6)]">

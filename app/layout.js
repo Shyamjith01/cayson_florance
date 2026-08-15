@@ -1,5 +1,5 @@
 import './globals.css'
-import { Inter, Playfair_Display, Space_Grotesk } from 'next/font/google'
+import { Inter, Playfair_Display, Space_Grotesk, Cormorant_Garamond } from 'next/font/google'
 import JsonLd from '@/components/SEO/JsonLd'
 import { organizationSchema } from '@/lib/schema'
 import { siteConfig } from '@/lib/seo'
@@ -7,6 +7,7 @@ import { siteConfig } from '@/lib/seo'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' })
 const space = Space_Grotesk({ subsets: ['latin'], variable: '--font-space', display: 'swap' })
+const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '500'], style: ['italic'], variable: '--font-cormorant', display: 'swap' })
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -88,7 +89,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-IN" className={`${inter.variable} ${playfair.variable} ${space.variable}`}>
+    <html lang="en-IN" className={`${inter.variable} ${playfair.variable} ${space.variable} ${cormorant.variable}`}>
       <head>
         <JsonLd schema={organizationSchema()} />
         <script dangerouslySetInnerHTML={{__html:'window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);'}} />
