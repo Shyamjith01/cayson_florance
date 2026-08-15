@@ -7,7 +7,7 @@ import { siteConfig } from '@/lib/seo'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' })
 const space = Space_Grotesk({ subsets: ['latin'], variable: '--font-space', display: 'swap' })
-const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '500'], style: ['italic'], variable: '--font-cormorant', display: 'swap' })
+const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '500'], style: ['normal', 'italic'], variable: '--font-cormorant', display: 'swap' })
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
