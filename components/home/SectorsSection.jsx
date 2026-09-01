@@ -118,37 +118,49 @@ function SectorCard({ sector, index }) {
     >
       <Link
         href={sector.href}
-        className="group block rounded-2xl border border-[#E5E6E1] overflow-hidden bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+        className="group block rounded-[20px] overflow-hidden bg-white h-[168px] p-3
+          shadow-[0_1px_2px_rgba(0,0,0,0.04),0_3px_10px_rgba(0,0,0,0.03)]
+          hover:shadow-[0_12px_40px_rgba(6,75,59,0.10),0_4px_12px_rgba(0,0,0,0.04)]
+          ring-1 ring-black/[0.04] hover:ring-[#064B3B]/20
+          transition-all duration-500 ease-out hover:-translate-y-1"
         aria-label={`Explore ${sector.name} sector`}
       >
-        {/* Image */}
-        <div className="relative aspect-[16/9] overflow-hidden">
-          <img
-            src={sector.image}
-            alt={sector.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-        </div>
+        <div className="flex h-full gap-3">
+          {/* Left Content */}
+          <div className="flex flex-col justify-between flex-1 py-1.5 pl-2 min-w-0">
+            {/* Top: Icon + Number */}
+            <div className="flex items-center gap-2.5">
+              <span className="h-9 w-9 rounded-xl bg-[#064B3B] flex items-center justify-center text-white shrink-0
+                shadow-[0_2px_8px_rgba(6,75,59,0.25)]
+                group-hover:shadow-[0_4px_14px_rgba(6,75,59,0.35)]
+                transition-shadow duration-500">
+                {sector.icon}
+              </span>
+              <span className="text-[16px] font-mono-display font-bold text-[#1F2926]/70 tracking-wider">{sector.number}</span>
+            </div>
 
-        {/* Content */}
-        <div className="p-5 flex items-start justify-between gap-3">
-          <div className="flex items-start gap-3">
-            {/* Number */}
-            <span className="text-[11px] font-mono-display font-semibold text-[#66706C] tracking-wider mt-0.5">{sector.number}</span>
-            {/* Icon */}
-            <span className="h-8 w-8 rounded-lg bg-[#EAF1EB] flex items-center justify-center text-[#064B3B] shrink-0">
-              {sector.icon}
-            </span>
-            {/* Name */}
-            <h3 className="text-[14px] font-semibold text-[#1F2926] leading-snug group-hover:text-[#064B3B] transition-colors">
-              {sector.name}
-            </h3>
+            {/* Bottom: Name + Arrow */}
+            <div className="flex items-end justify-between gap-2">
+              <h3 className="text-[14.5px] font-semibold text-[#1F2926] leading-[1.3] group-hover:text-[#064B3B] transition-colors duration-300">
+                {sector.name}
+              </h3>
+              <div className="h-8 w-8 rounded-full bg-[#F2F3EE] flex items-center justify-center shrink-0
+                group-hover:bg-[#064B3B] group-hover:scale-105
+                transition-all duration-400 ease-out">
+                <ArrowUpRight className="h-3.5 w-3.5 text-[#064B3B]/60 group-hover:text-white transition-all duration-300" aria-hidden="true" />
+              </div>
+            </div>
           </div>
 
-          {/* Arrow button */}
-          <div className="h-8 w-8 rounded-full bg-[#064B3B] flex items-center justify-center shrink-0 group-hover:bg-[#03372C] transition-all duration-300 group-hover:translate-x-0.5">
-            <ArrowUpRight className="h-4 w-4 text-white" aria-hidden="true" />
+          {/* Right Image */}
+          <div className="w-[46%] shrink-0 rounded-[14px] overflow-hidden relative">
+            <img
+              src={sector.image}
+              alt={sector.name}
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+            />
+            {/* Subtle overlay for consistency */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/[0.06] via-transparent to-transparent" />
           </div>
         </div>
       </Link>
@@ -200,7 +212,7 @@ export default function SectorsSection() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {SECTORS.map((sector, i) => (
             <SectorCard key={sector.number} sector={sector} index={i} />
           ))}
