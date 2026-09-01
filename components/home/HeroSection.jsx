@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, Play } from 'lucide-react'
+import { ArrowRight, Play, Leaf } from 'lucide-react'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -58,7 +58,7 @@ const MISSION_ITEMS = [
   {
     label: 'Sustainable\nGrowth',
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.5c0-5 4-9 9-7.5C16 6.5 20 10 19.5 15c-.5 4-4 7-9 6-4-.8-6.5-4-6-8.5" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 12c1-3 3.5-5 6-5" />
       </svg>
@@ -67,7 +67,7 @@ const MISSION_ITEMS = [
   {
     label: 'Innovation\nDriven',
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 2a7 7 0 0 1 7 7c0 2.8-1.64 5.22-4 6.35V17a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1.65A7 7 0 0 1 12 2Z" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 21h6" />
       </svg>
@@ -76,7 +76,7 @@ const MISSION_ITEMS = [
   {
     label: 'Global\nImpact',
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="9" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M12 3c-2.5 3-4 5.7-4 9s1.5 6 4 9M12 3c2.5 3 4 5.7 4 9s-1.5 6-4 9" />
       </svg>
@@ -85,7 +85,7 @@ const MISSION_ITEMS = [
   {
     label: 'People\nFocused',
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
         <circle cx="10" cy="7" r="4" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
@@ -95,7 +95,7 @@ const MISSION_ITEMS = [
   {
     label: 'Responsible\nBy Nature',
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
       </svg>
     ),
@@ -126,9 +126,27 @@ export default function HeroSection() {
             <div className="lg:col-span-6">
               <motion.p
                 {...fadeUp(0.1)}
-                className="text-[11px] sm:text-[12px] tracking-[0.28em] uppercase font-mono-display text-white/70 font-semibold mb-6 lg:mb-8"
+                className="relative inline-flex items-center gap-2.5 bg-gradient-to-r from-white/15 via-emerald-400/10 to-transparent backdrop-blur-sm rounded-[20px] pl-4 sm:pl-5 pr-10 sm:pr-16 py-1.5 text-white mb-6 lg:mb-4 before:absolute before:inset-0 before:rounded-[20px] before:border before:border-white/20 before:pointer-events-none before:[mask-image:linear-gradient(to_right,white_30%,transparent_100%)]"
               >
-                Innovate · Sustain · Impact
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.4, rotate: -45 }}
+                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5, duration: 0.7, type: 'spring', stiffness: 120 }}
+                  className="inline-flex"
+                >
+                  <motion.span
+                    animate={{ y: [0, -2, 0] }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+                    className="inline-flex"
+                  >
+                    <Leaf aria-hidden="true" className="h-4 w-4 text-emerald-400" />
+                  </motion.span>
+                </motion.span>
+                 
+                <span className="font-script not-italic font-medium text-[13px] sm:text-[16px] tracking-wide text-white/90">
+                  &ldquo;Enriching Lives Beyond Boundaries&rdquo;
+                </span>
               </motion.p>
 
               <motion.h1

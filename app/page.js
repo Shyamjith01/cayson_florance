@@ -38,7 +38,7 @@ export default function HomePage() {
         <StatsBar />
 
         {/* Why Cayson */}
-        <div className="mt-16 lg:mt-24">
+        <div className="mt-5 lg:mt-8">
           <WhyCaysonSection />
         </div>
 

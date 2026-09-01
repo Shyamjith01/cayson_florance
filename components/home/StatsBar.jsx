@@ -4,9 +4,10 @@ import { motion } from 'framer-motion'
 const STATS = [
   {
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.5c0-5 4-9 9-7.5C16 6.5 20 10 19.5 15c-.5 4-4 7-9 6-4-.8-6.5-4-6-8.5" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 12c1-3 3.5-5 6-5" />
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-leaf">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M5 21c.5 -4.5 2.5 -8 7 -10" />
+        <path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3l.014 0" />
       </svg>
     ),
     number: '9+',
@@ -14,8 +15,12 @@ const STATS = [
   },
   {
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart-handshake">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+        <path d="M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25" />
+        <path d="M12.5 15.5l2 2" />
+        <path d="M15 13l2 2" />
       </svg>
     ),
     number: '500+',
@@ -23,9 +28,14 @@ const STATS = [
   },
   {
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-4.14-3.36-7.5-7.5-7.5S4.5 7.86 4.5 12s3.36 7.5 7.5 7.5m7.5-7.5H4.5m15 0A7.47 7.47 0 0112 4.5m7.5 7.5A7.47 7.47 0 0112 19.5M12 4.5c2 2.5 3 5 3 7.5s-1 5-3 7.5M12 4.5C10 7 9 9.5 9 12s1 5 3 7.5" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 7.5l-9 9M7.5 7.5l9 9" />
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-recycle">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 17l-2 2l2 2" />
+        <path d="M10 19h9a2 2 0 0 0 1.75 -2.75l-.55 -1" />
+        <path d="M8.536 11l-.732 -2.732l-2.732 .732" />
+        <path d="M7.804 8.268l-4.5 7.794a2 2 0 0 0 1.506 2.89l1.141 .024" />
+        <path d="M15.464 11l2.732 .732l.732 -2.732" />
+        <path d="M18.196 11.732l-4.5 -7.794a2 2 0 0 0 -3.256 -.14l-.591 .976" />
       </svg>
     ),
     number: 'Zero Waste',
@@ -57,15 +67,16 @@ export default function StatsBar() {
           {STATS.map((stat, i) => (
             <div
               key={stat.label}
-              className={`flex flex-col items-center justify-center text-center px-6 py-8 ${
-                i < STATS.length - 1 ? 'border-b lg:border-b-0 border-r-0 lg:border-r border-[#E5E6E1] last:border-b-0 col-span-1' : ''
-              }`}
+              className={`flex items-center gap-3 px-6 py-5 lg:py-6 ${i < STATS.length - 1 ? 'border-b lg:border-b-0 lg:border-r border-[#E5E6E1]' : ''
+                }`}
             >
-              <div className="text-[#064B3B] mb-3">{stat.icon}</div>
-              <div className="font-display text-2xl lg:text-3xl text-[#1F2926] font-semibold leading-none mb-1.5">
-                {stat.number}
+              <div className="text-[#064B3B] flex-shrink-0">{stat.icon}</div>
+              <div>
+                <div className="font-display text-xl lg:text-2xl text-[#1F2926] font-semibold leading-tight">
+                  {stat.number}
+                </div>
+                <div className="text-[11px] text-[#66706C] font-medium tracking-wide">{stat.label}</div>
               </div>
-              <div className="text-[12px] text-[#66706C] font-medium tracking-wide">{stat.label}</div>
             </div>
           ))}
         </div>
