@@ -3,50 +3,62 @@ import { useState, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import useEmblaCarousel from 'embla-carousel-react'
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react'
 
 /* ─── Insight data ─── */
 const ARTICLES = [
   {
+    index: '01',
     category: 'Sustainability',
     title: 'Building a Circular Future for Generations',
-    image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=80&auto=format&fit=crop',
     date: 'May 5, 2025',
     readTime: '5 min read',
+    excerpt:
+      'How closed-loop resource cycles and regenerative supply models are redefining industrial longevity.',
+    image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=80&auto=format&fit=crop',
     href: '#',
   },
   {
+    index: '02',
     category: 'Innovation',
-    title: 'The Future of Agri-Tech',
-    image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80&auto=format&fit=crop',
+    title: 'The Future of Agri-Tech & Smart Yields',
     date: 'May 3, 2025',
     readTime: '5 min read',
+    excerpt:
+      'Deploying precision telemetry, autonomous monitoring, and soil bio-intelligence to scale yields sustainably.',
+    image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80&auto=format&fit=crop',
     href: '#',
   },
   {
-    category: 'Industry News',
-    title: 'Renewable Energy Driving Change',
-    image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80&auto=format&fit=crop',
+    index: '03',
+    category: 'Clean Energy',
+    title: 'Renewable Energy Driving Industrial Change',
     date: 'May 1, 2025',
     readTime: '5 min read',
+    excerpt:
+      'Next-generation utility-scale solar and distributed battery architectures decarbonizing regional grids.',
+    image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80&auto=format&fit=crop',
     href: '#',
   },
   {
-    category: 'Company Updates',
-    title: 'Expanding Impact, Creating Value',
-    image: 'https://images.unsplash.com/photo-1494412519320-aa613dfb7738?w=800&q=80&auto=format&fit=crop',
-    date: 'May 1, 2025',
+    index: '04',
+    category: 'Global Impact',
+    title: 'Expanding Impact, Creating Long-Term Value',
+    date: 'Apr 28, 2025',
     readTime: '3 min read',
+    excerpt:
+      'Scaling our multi-sector footprint across strategic corridors while anchoring measurable social equity.',
+    image: 'https://images.unsplash.com/photo-1494412519320-aa613dfb7738?w=800&q=80&auto=format&fit=crop',
     href: '#',
   },
 ]
 
 /* ─── Shared animation helper ─── */
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 28 },
+  initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 })
 
 /* ═══════════════════════════════════════════════
@@ -92,49 +104,7 @@ function ViewAllLink() {
   )
 }
 
-/** Category pill badge — white/translucent, dark green text */
-function CategoryBadge({ category }) {
-  return (
-    <span className="inline-block rounded-full bg-white/90 backdrop-blur-[6px] border border-white/50 px-3 py-[5px] text-[9.5px] font-mono-display font-bold tracking-[0.16em] uppercase text-[var(--cf-primary)] shadow-[0_1px_6px_-1px_rgba(0,0,0,0.08)]">
-      {category}
-    </span>
-  )
-}
-
-/** Clock SVG icon — small circle clock for metadata */
-function ClockIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-[11px] w-[11px] shrink-0"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path
-        fillRule="evenodd"
-        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.828a1 1 0 101.415-1.414L11 9.586V6z"
-        clipRule="evenodd"
-      />
-    </svg>
-  )
-}
-
-/** Bottom metadata row — ⏱ date · ⏱ readTime */
-function InsightMeta({ date, readTime }) {
-  return (
-    <div className="flex items-center gap-[5px] text-[10.5px] text-[#6b7370] font-mono-display">
-      <ClockIcon />
-      <span>{date}</span>
-      <span className="mx-[2px]">
-        <ClockIcon />
-      </span>
-      <span>{readTime}</span>
-    </div>
-  )
-}
-
-/** Single insight card — image fills entire card, content overlaid */
+/** Single insight card — Inverted Text-First Items Alignment */
 function InsightCard({ article, index }) {
   return (
     <motion.article
@@ -146,52 +116,61 @@ function InsightCard({ article, index }) {
         delay: index * 0.08,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="h-full"
+      className="h-full flex flex-col flex-1"
     >
       <Link
         href={article.href}
-        className="group relative block rounded-[15px] overflow-hidden h-full border border-[rgba(0,0,0,0.06)] shadow-[0_2px_20px_-6px_rgba(0,0,0,0.07)] hover:shadow-[0_12px_40px_-8px_rgba(6,75,59,0.16)] transition-all duration-400 hover:-translate-y-[3px]"
+        className="group relative flex flex-col justify-between w-full h-full rounded-[19px] bg-white border border-[#E7E4DC] p-5 sm:p-5.5 shadow-[0_2px_14px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_16px_36px_-8px_rgba(6,75,59,0.14)] hover:border-[#064B3B]/25 hover:-translate-y-1.5 transition-all duration-300"
       >
-        {/* Card container — fixed height matching user request */}
-        <div className="relative h-[340px] overflow-hidden">
-          {/* Background image — fills entire card */}
+        {/* ── Top Section: Category, Index, Headline, Meta, Excerpt ── */}
+        <div className="flex flex-col">
+          {/* Header Row: Category Badge + Index Number */}
+          <div className="flex items-center justify-between gap-2 mb-3.5">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#EEF6F2] text-[#064B3B] text-[10px] font-mono tracking-[0.14em] uppercase font-semibold border border-[#064B3B]/10 group-hover:bg-[#064B3B] group-hover:text-white transition-colors duration-300">
+              {article.category}
+            </span>
+
+            <span className="font-mono text-[12px] font-bold text-[#8C9691] tracking-widest flex items-center gap-1.5">
+              <span className="text-[#C8D1CC] font-light">|</span>
+              {article.index}
+            </span>
+          </div>
+
+          {/* Headline */}
+          <h3 className="font-display text-[18px] sm:text-[19px] font-bold text-[#1F2926] group-hover:text-[#064B3B] leading-[1.3] transition-colors duration-300 mb-2.5 line-clamp-2">
+            {article.title}
+          </h3>
+
+          {/* Date & Read Time */}
+          <div className="flex items-center gap-2 text-[11px] font-mono text-[#737E79] mb-3">
+            <span>{article.date}</span>
+            <span className="w-1 h-1 rounded-full bg-[#737E79]/40" />
+            <span>{article.readTime}</span>
+          </div>
+
+          {/* Excerpt */}
+          <p className="text-[12.5px] text-[#55605B] leading-[1.65] line-clamp-2">
+            {article.excerpt}
+          </p>
+        </div>
+
+        {/* ── Bottom Section: Inset Framed Photo with Floating Arrow ── */}
+        <div className="relative h-[180px] sm:h-[190px] w-full rounded-[12px] overflow-hidden bg-[#EAE7DF] mt-5 shrink-0">
           <img
             src={article.image}
             alt={article.title}
             loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
 
-          {/* Gradient overlay — opaque white at bottom, transparent at ~45% from top */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: `linear-gradient(
-                to top,
-                rgba(255,255,255,0.98) 0%,
-                rgba(255,255,255,0.95) 15%,
-                rgba(255,255,255,0.80) 32%,
-                rgba(255,255,255,0.45) 48%,
-                rgba(255,255,255,0.12) 60%,
-                rgba(255,255,255,0.0) 72%
-              )`,
-            }}
-          />
+          {/* Subtle bottom vignette to elevate arrow disc */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
 
-          {/* ── Overlaid content — spread across full card height ── */}
-          <div className="absolute inset-0 z-10 flex flex-col justify-between p-4 sm:p-5">
-            {/* Top — Category badge */}
-            <div>
-              <CategoryBadge category={article.category} />
-            </div>
-
-            {/* Bottom — Title + Metadata */}
-            <div className="flex flex-col gap-2.5">
-              <h3 className="text-[15px] sm:text-[16px] font-bold text-[var(--cf-text)] leading-[1.35] group-hover:text-[var(--cf-primary)] transition-colors duration-300 max-w-[90%]">
-                {article.title}
-              </h3>
-              <InsightMeta date={article.date} readTime={article.readTime} />
-            </div>
+          {/* Floating Action Disc in photo corner */}
+          <div className="absolute bottom-3 right-3 z-10">
+            <span className="h-9 w-9 rounded-full bg-[#064B3B] text-white flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.25)] border border-white/20 group-hover:bg-[#03372C] group-hover:scale-110 group-hover:shadow-[0_6px_16px_rgba(6,75,59,0.35)] transition-all duration-300">
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+            </span>
           </div>
         </div>
       </Link>
@@ -279,7 +258,7 @@ export default function InsightsSection() {
           </div>
         </div>
 
-        {/* ── Carousel ── */}
+        {/* ── Carousel with Inverted Card Items Alignment ── */}
         <div className="relative">
           {/* Mobile/Tablet nav buttons */}
           <div className="lg:hidden flex items-center justify-end gap-2 mb-4">
@@ -287,12 +266,12 @@ export default function InsightsSection() {
             <CarouselButton direction="next" onClick={scrollNext} disabled={!canScrollNext} />
           </div>
 
-          <div className="overflow-hidden" ref={emblaRef}>
+          <div className="overflow-hidden py-4 -my-4 px-1 -mx-1" ref={emblaRef}>
             <div className="flex gap-5">
               {ARTICLES.map((article, i) => (
                 <div
                   key={article.title}
-                  className="flex-[0_0_80%] sm:flex-[0_0_46%] lg:flex-[0_0_calc(25%-15px)] min-w-0"
+                  className="flex-[0_0_80%] sm:flex-[0_0_46%] lg:flex-[0_0_calc(25%-15px)] min-w-0 flex flex-col"
                 >
                   <InsightCard article={article} index={i} />
                 </div>

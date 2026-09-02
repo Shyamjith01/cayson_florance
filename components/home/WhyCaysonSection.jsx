@@ -46,7 +46,7 @@ export default function WhyCaysonSection() {
   }, [])
 
   return (
-    <section id="about" className="py-20 lg:py-28 bg-[#F8F7F2]" aria-labelledby="why-cayson-heading">
+    <section id="why-cayson" className="py-20 lg:py-28 bg-[#F8F7F2]" aria-labelledby="why-cayson-heading">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-4 items-center">
 

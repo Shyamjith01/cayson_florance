@@ -214,12 +214,7 @@ export default function HeroSection() {
                   Explore Our Solutions
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
                 </Link>
-                <button className="inline-flex items-center gap-3 rounded-full border border-white/30 text-white text-sm font-medium px-6 py-3.5 hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
-                  <span className="h-7 w-7 rounded-full border border-white/60 grid place-items-center">
-                    <Play className="h-3 w-3 ml-0.5 fill-white" aria-hidden="true" />
-                  </span>
-                  Watch Corporate Film
-                </button>
+                 
               </motion.div>
             </div>
 
