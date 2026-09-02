@@ -1,7 +1,48 @@
 'use client'
-import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, Play, Leaf } from 'lucide-react'
+
+/* ─── Animated count-up component ─── */
+function AnimatedCounter({ value }) {
+  const match = value.match(/^(\d+)(.*)$/)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+  const [count, setCount] = useState(0)
+  const hasAnimated = useRef(false)
+
+  const target = match ? parseInt(match[1], 10) : 0
+  const suffix = match ? match[2] : ''
+  const isNumeric = !!match
+
+  useEffect(() => {
+    if (!isInView || !isNumeric || hasAnimated.current) return
+    hasAnimated.current = true
+
+    const duration = 2000
+    const startTime = performance.now()
+    const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4)
+
+    let raf
+    const animate = (now) => {
+      const elapsed = now - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      setCount(Math.round(easeOutQuart(progress) * target))
+      if (progress < 1) {
+        raf = requestAnimationFrame(animate)
+      }
+    }
+    raf = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(raf)
+  }, [isInView, isNumeric, target])
+
+  if (!isNumeric) {
+    return <span ref={ref}>{value}</span>
+  }
+
+  return <span ref={ref}>{count}{suffix}</span>
+}
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -118,7 +159,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex items-center pt-20 pb-32 lg:pb-36">
+      <div className="relative z-10 flex-1 flex items-center pt-28 pb-32 lg:pb-36">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 w-full">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-6 items-center">
 
@@ -214,7 +255,7 @@ export default function HeroSection() {
                         </div>
                         <div>
                           <div className="font-display text-xl lg:text-2xl text-white font-semibold leading-none mb-0.5">
-                            {item.number}
+                            <AnimatedCounter value={item.number} />
                           </div>
                           <div className="text-[10px] text-white/50 font-mono-display leading-tight whitespace-pre-line">
                             {item.label}
