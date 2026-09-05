@@ -3,10 +3,12 @@ import HeroSection from '@/components/home/HeroSection'
 import StatsBar from '@/components/home/StatsBar'
 import AboutUsSection from '@/components/home/AboutUsSection'
 import WhyCaysonSection from '@/components/home/WhyCaysonSection'
-import SectorsSection from '@/components/home/SectorsSection'
-import GlobalPresenceSection from '@/components/home/GlobalPresenceSection'
-import ImpactStatsSection from '@/components/home/ImpactStatsSection'
-import InsightsSection from '@/components/home/InsightsSection'
+import dynamic from 'next/dynamic'
+
+const SectorsSection = dynamic(() => import('@/components/home/SectorsSection'), { ssr: true })
+const GlobalPresenceSection = dynamic(() => import('@/components/home/GlobalPresenceSection'), { ssr: false, loading: () => null })
+const ImpactStatsSection = dynamic(() => import('@/components/home/ImpactStatsSection'), { ssr: true })
+const InsightsSection = dynamic(() => import('@/components/home/InsightsSection'), { ssr: true })
 import CTASection from '@/components/home/CTASection'
 import { generateMetadata as buildMeta } from '@/lib/seo'
 import Footer from '@/components/site/Footer'

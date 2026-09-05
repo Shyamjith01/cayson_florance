@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowUpRight, Sparkles } from 'lucide-react'
 
 // export const PRODUCTS = [
@@ -156,29 +157,13 @@ export const PRODUCTS = [
 function ProductImg({ src, mobileSrc, fallback, alt, className }) {
   if (mobileSrc) {
     return (
-      <picture>
-        <source media="(max-width: 639px)" srcSet={mobileSrc} />
-        <img
-          src={src}
-          alt={alt}
-          className={className}
-          loading="lazy"
-          decoding="async"
-          onError={(e) => { if (e.currentTarget.src !== fallback) e.currentTarget.src = fallback }}
-        />
-      </picture>
+      <>
+        <Image src={mobileSrc} alt={alt} fill sizes="(max-width: 639px) 100vw, 50vw" className={`${className} sm:hidden`} />
+        <Image src={src} alt={alt} fill sizes="(max-width: 1200px) 100vw, 50vw" className={`${className} hidden sm:block`} />
+      </>
     )
   }
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className={className}
-      loading="lazy"
-      decoding="async"
-      onError={(e) => { if (e.currentTarget.src !== fallback) e.currentTarget.src = fallback }}
-    />
-  )
+  return <Image src={src} alt={alt} fill sizes="(max-width: 1200px) 100vw, 50vw" className={className} />
 }
 
 

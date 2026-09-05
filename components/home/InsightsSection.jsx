@@ -2,6 +2,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -156,11 +157,12 @@ function InsightCard({ article, index }) {
 
         {/* ── Bottom Section: Inset Framed Photo with Floating Arrow ── */}
         <div className="relative h-[180px] sm:h-[190px] w-full rounded-[12px] overflow-hidden bg-[#EAE7DF] mt-5 shrink-0">
-          <img
+          <Image
             src={article.image}
             alt={article.title}
-            loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
 
           {/* Subtle bottom vignette to elevate arrow disc */}

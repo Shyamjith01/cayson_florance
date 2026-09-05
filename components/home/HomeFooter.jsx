@@ -105,7 +105,7 @@ export default function HomeFooter() {
               aria-label="Cayson Florance International — Home"
             >
               <Image
-                src="/logo/logo.svg"
+                src="/logo/logo.webp"
                 alt="Cayson Florance logo"
                 width={38}
                 height={38}
