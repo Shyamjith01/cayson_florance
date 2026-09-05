@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 
 const SECTORS = [
@@ -149,11 +150,12 @@ function SectorCard({ sector, index }) {
       >
         {/* Top Image Window */}
         <div className="relative h-[210px] w-full overflow-hidden bg-[#1A2E26]">
-          <img
+          <Image
             src={sector.image}
             alt={sector.name}
-            loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
 
           {/* Cinematic lighting gradient scrim */}

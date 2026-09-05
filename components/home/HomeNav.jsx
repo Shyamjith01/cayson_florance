@@ -39,11 +39,10 @@ export default function HomeNav() {
       role="banner"
     >
       <div
-        className={`transition-all duration-500 ${
-          scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E5E6E1]'
-            : 'bg-white/90 backdrop-blur-sm'
-        }`}
+        className={`transition-all duration-500 ${scrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E5E6E1]'
+          : 'bg-white/90 backdrop-blur-sm'
+          }`}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="flex items-center justify-between h-16 lg:h-[70px]">
@@ -55,7 +54,7 @@ export default function HomeNav() {
               aria-label="Cayson Florance International — Home"
             >
               <Image
-                src="/logo/logo.svg"
+                src="/logo/logo.webp"
                 alt="Cayson Florance International logo"
                 width={40}
                 height={40}
@@ -81,18 +80,16 @@ export default function HomeNav() {
                     key={l.href}
                     href={l.href}
                     aria-current={active ? 'page' : undefined}
-                    className={`relative px-3 py-2 text-[13px] font-medium transition-colors group ${
-                      active
-                        ? 'text-[#064B3B]'
-                        : 'text-[#1F2926] hover:text-[#064B3B]'
-                    }`}
+                    className={`relative px-3 py-2 text-[13px] font-medium transition-colors group ${active
+                      ? 'text-[#064B3B]'
+                      : 'text-[#1F2926] hover:text-[#064B3B]'
+                      }`}
                   >
                     {l.label}
                     <span
                       aria-hidden="true"
-                      className={`absolute left-3 right-3 -bottom-0.5 h-[1.5px] bg-[#064B3B] transition-transform duration-300 origin-left ${
-                        active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                      }`}
+                      className={`absolute left-3 right-3 -bottom-0.5 h-[1.5px] bg-[#064B3B] transition-transform duration-300 origin-left ${active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                        }`}
                     />
                   </Link>
                 )

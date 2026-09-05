@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, Space_Grotesk, Cormorant_Garamond } from 'next
 import JsonLd from '@/components/SEO/JsonLd'
 import { organizationSchema } from '@/lib/schema'
 import { siteConfig } from '@/lib/seo'
+import Preloader from '@/components/site/Preloader'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' })
@@ -102,6 +103,7 @@ export default function RootLayout({ children }) {
         >
           Skip to main content
         </a>
+        <Preloader />
         {children}
       </body>
     </html>
