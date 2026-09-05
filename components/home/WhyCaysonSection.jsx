@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRef, useState, useCallback } from 'react'
 import { ArrowRight, Play, Pause } from 'lucide-react'
+import Video from 'next-video'
+import corporateHeroVideo from '/videos/corporate-hero.mp4'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -107,15 +109,23 @@ export default function WhyCaysonSection() {
             onClick={togglePlayPause}
           >
             {/* Streaming video background */}
-            <video
+            <Video
               ref={videoRef}
-              src="/api/video"
-              autoPlay
+              src={corporateHeroVideo}
+              autoPlay="muted"
               muted
               loop
               playsInline
+              controls={false}
               preload="metadata"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              style={{ 
+                height: '100%', 
+                width: '100%',
+                objectFit: 'cover',
+                '--media-object-fit': 'cover',
+                '--media-object-position': 'center'
+              }}
+              className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
             />
 
             {/* Layered overlays for depth */}
