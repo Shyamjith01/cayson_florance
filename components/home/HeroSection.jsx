@@ -146,7 +146,8 @@ export default function HeroSection() {
           src={bannerVideo}
           autoPlay="muted"
           loop
-          poster="/placeholder/image.png"
+          preload="auto"
+          poster="/placeholder/image-optimized.jpg"
           muted
           playsInline
           controls={false}
