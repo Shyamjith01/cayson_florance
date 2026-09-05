@@ -1,27 +1,28 @@
 import Nav from '@/components/site/Nav'
-import Hero from '@/components/site/Hero'
-import About from '@/components/site/About'
-import Impact from '@/components/site/Impact'
-import ProductPreview from '@/components/site/ProductPreview'
-import CTA from '@/components/site/CTA'
-import Footer from '@/components/site/Footer'
-import ScrollProgress from '@/components/site/ScrollProgress'
+import HeroSection from '@/components/home/HeroSection'
+import StatsBar from '@/components/home/StatsBar'
+import AboutUsSection from '@/components/home/AboutUsSection'
+import WhyCaysonSection from '@/components/home/WhyCaysonSection'
+import SectorsSection from '@/components/home/SectorsSection'
+import GlobalPresenceSection from '@/components/home/GlobalPresenceSection'
+import ImpactStatsSection from '@/components/home/ImpactStatsSection'
+import InsightsSection from '@/components/home/InsightsSection'
+import CTASection from '@/components/home/CTASection'
 import { generateMetadata as buildMeta } from '@/lib/seo'
+import Footer from '@/components/site/Footer'
 
 export const metadata = buildMeta({
-  title: 'Health, Nutrition & Agri-Tech Innovation',
+  title: 'Building a Sustainable Future Across Industries',
   description:
-    'Cayson Florance International — a futuristic health, nutrition and bio-processing startup based in Ernakulam, Kerala. Upcycling coconut, pineapple, sprouted grains and moringa into world-class functional health foods for modern lifestyles.',
+    'Cayson Florance International Pvt. Ltd. — building integrated sustainable solutions across agriculture, food, infrastructure, renewable energy, trade, and more. Rooted in India. Growing globally.',
   keywords: [
     'Cayson Florance International',
-    'Health Tech Startup Kerala',
-    'Agri-Tech Startup India',
-    'Functional Foods',
-    'Zero Waste Bio-Processing',
-    'Coconut Products Kerala',
-    'Moringa Supplements India',
-    'Sprouted Grain Health Foods',
-    'Startup India Ernakulam',
+    'Sustainable Business India',
+    'Multi-sector Company Kerala',
+    'Agriculture Infrastructure Renewable Energy',
+    'Global Sustainable Solutions',
+    'Impact Investment India',
+    'Integrated Business Solutions',
   ],
   canonicalPath: '',
 })
@@ -29,14 +30,36 @@ export const metadata = buildMeta({
 export default function HomePage() {
   return (
     <>
-      <ScrollProgress />
       <Nav />
-      <main id="main-content">
-        <Hero />
-        <About />
-        <Impact />
-        <ProductPreview />
-        <CTA />
+      <main id="main-content" className="bg-[#F8F7F2]">
+        {/* Hero — full viewport */}
+        <HeroSection />
+
+        {/* Stats bar overlapping hero */}
+        {/* <StatsBar /> */}
+
+        {/* About Us */}
+        <AboutUsSection />
+
+        {/* Why Cayson */}
+        <div className="mt-5 lg:mt-8">
+          <WhyCaysonSection />
+        </div>
+
+        {/* Sectors */}
+        <SectorsSection />
+
+        {/* Global Presence */}
+        <GlobalPresenceSection />
+
+        {/* Impact Stats */}
+        <ImpactStatsSection />
+
+        {/* Insights */}
+        <InsightsSection />
+
+        {/* Final CTA */}
+        <CTASection />
       </main>
       <Footer />
     </>
