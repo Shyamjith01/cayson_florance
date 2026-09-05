@@ -789,14 +789,13 @@ export default function ProductsList() {
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.9 }}
                   className="lg:col-span-7 relative">
                   <div className="relative h-[280px] sm:h-[400px] lg:h-[520px] rounded-[20px] sm:rounded-[32px] overflow-hidden hairline">
-                    <img
+                    <Image
                       src={p.img}
                       alt={`${p.title} — ${p.intro ? p.intro.substring(0, 80) + '...' : 'premium health product by Cayson Florance'}`}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      loading={idx === 0 ? 'eager' : 'lazy'}
-                      decoding="async"
-                      width={700}
-                      height={520}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                      priority={idx === 0}
                     />
                     <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-emerald2-900/60 via-transparent to-transparent" />
                     <div className="absolute top-3 left-3 right-3 sm:top-6 sm:left-6 sm:right-6 flex justify-between items-start" aria-hidden="true">

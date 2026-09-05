@@ -18,7 +18,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const path = usePathname()
-  
+
   const isHome = path === '/'
   const isScrolledStyle = isHome ? scrolled : true
 
@@ -54,7 +54,7 @@ export default function Nav() {
             aria-label="Cayson Florance International — Home"
           >
             <Image
-              src="/logo/logo.svg"
+              src="/logo/logo.webp"
               alt="Cayson Florance International logo"
               width={48}
               height={48}
