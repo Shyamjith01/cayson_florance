@@ -18,6 +18,9 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const path = usePathname()
+  
+  const isHome = path === '/'
+  const isScrolledStyle = isHome ? scrolled : true
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 24)
@@ -39,9 +42,9 @@ export default function Nav() {
     >
       <div className="mx-auto max-w-7xl px-3 sm:px-5 mt-2 sm:mt-3">
         <div
-          className={`flex items-center justify-between rounded-2xl px-3 sm:px-5 py-2.5 sm:py-3 transition-all duration-500 ${scrolled
+          className={`flex items-center justify-between rounded-2xl px-3 sm:px-5 py-2.5 sm:py-3 transition-all duration-500 ${isScrolledStyle
             ? 'glass shadow-[0_10px_40px_-15px_rgba(6,78,59,0.22)]'
-            : 'bg-white/55 backdrop-blur-md border border-white/50'
+            : 'bg-transparent'
             }`}
         >
           {/* Logo */}
@@ -59,10 +62,10 @@ export default function Nav() {
               priority
             />
             <div className="leading-tight">
-              <div className="font-display text-[13px] sm:text-[15px] tracking-tight text-emerald2-900">
+              <div className={`font-display font-medium text-[13px] sm:text-[15px] tracking-normal ${isScrolledStyle ? 'text-emerald2-900' : 'text-white'}`}>
                 Cayson Florance
               </div>
-              <div className="text-[8px] sm:text-[10px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-emerald2-700/70 font-mono-display">
+              <div className={`text-[8px] sm:text-[10px] tracking-[0.18em] sm:tracking-[0.22em] uppercase font-mono-display ${isScrolledStyle ? 'text-emerald2-700/70' : 'text-white/80'} mt-1`}>
                 Health · Nutrition · Agri-Tech
               </div>
             </div>
@@ -82,14 +85,14 @@ export default function Nav() {
                   href={l.href}
                   aria-current={active ? 'page' : undefined}
                   className={`relative px-3.5 py-2 text-[13px] font-medium transition-colors group ${active
-                    ? 'text-emerald2-800'
-                    : 'text-slate-700 hover:text-emerald2-800'
+                    ? (isScrolledStyle ? 'text-emerald2-800' : 'text-white')
+                    : (isScrolledStyle ? 'text-slate-700 hover:text-emerald2-800' : 'text-white/80 hover:text-white')
                     }`}
                 >
                   {l.label}
                   <span
                     aria-hidden="true"
-                    className={`absolute left-3 right-3 -bottom-0.5 h-px bg-gradient-to-r from-emerald2-600 to-navy-700 ${active
+                    className={`absolute left-3 right-3 -bottom-0.5 h-px bg-gradient-to-r ${isScrolledStyle ? 'from-emerald2-600 to-navy-700' : 'from-white/70 to-white'} ${active
                       ? 'scale-x-100'
                       : 'scale-x-0 group-hover:scale-x-100'
                       } origin-left transition-transform duration-300`}
@@ -118,7 +121,7 @@ export default function Nav() {
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
-              className="lg:hidden h-10 w-10 grid place-items-center rounded-xl hairline focus:outline-none focus:ring-2 focus:ring-emerald2-600 focus:ring-offset-2"
+              className={`lg:hidden h-10 w-10 grid place-items-center rounded-xl hairline focus:outline-none focus:ring-2 focus:ring-emerald2-600 focus:ring-offset-2 ${isScrolledStyle ? 'text-slate-700' : 'text-white'}`}
             >
               {open ? (
                 <X aria-hidden="true" className="h-5 w-5" />
