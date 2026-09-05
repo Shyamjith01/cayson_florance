@@ -139,9 +139,9 @@ export default function HeroSection() {
   };
 
   return (
-    <section ref={sectionRef} className="relative w-full h-screen flex flex-col overflow-hidden bg-black" aria-label="Hero">
+    <section ref={sectionRef} className="relative w-full h-[100dvh] min-h-screen flex flex-col overflow-hidden bg-black" aria-label="Hero">
       {/* ── Background Video ── */}
-      <div className="absolute inset-0 z-0 bg-black">
+      <div className="absolute inset-0 z-0 bg-black overflow-hidden">
         <Video
           src={bannerVideo}
           autoPlay="muted"
@@ -151,13 +151,20 @@ export default function HeroSection() {
           muted
           playsInline
           controls={false}
-          className="w-full h-full object-cover object-center"
+          style={{ 
+            width: '100%', 
+            height: '100%',
+            objectFit: 'cover',
+            '--media-object-fit': 'cover',
+            '--media-object-position': 'center'
+          }}
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
 
         {/* Gradient overlays optimized for video visibility */}
         {/* Deep shadow on the left for text, completely clear on the right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/38 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/0 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/38 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/0 pointer-events-none" />
 
         {/* Subtle CSS noise overlay */}
         <div

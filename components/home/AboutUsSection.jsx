@@ -593,7 +593,7 @@ export default function AboutUsSection() {
 
               {/* Overlay */}
               <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5">
-                <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl px-5 py-4 sm:px-6 sm:py-3 shadow-[0_8px_32px_rgba(0,0,0,0.25)] flex items-center gap-4 sm:gap-5">
+                <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl px-5 py-4 sm:px-6 sm:py-3 shadow-[0_8px_32px_rgba(0,0,0,0.25)] flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5">
 
                   <div className="shrink-0 flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full border border-[#D4AF37]/50 bg-[#0A2010]/30 flex items-center justify-center text-[#D4AF37]">
@@ -618,7 +618,7 @@ export default function AboutUsSection() {
                   </div>
 
                   <div
-                    className="w-px h-9 bg-white/25 shrink-0"
+                    className="hidden sm:block w-px h-9 bg-white/25 shrink-0"
                     aria-hidden="true"
                   />
 
