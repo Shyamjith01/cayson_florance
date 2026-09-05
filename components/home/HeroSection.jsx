@@ -1,10 +1,12 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, Play, Leaf } from 'lucide-react'
+import { MoveRight, PlayCircle, Volume2, VolumeX, Maximize, ChevronRight, Users, Handshake, Globe2, Leaf } from 'lucide-react'
+import Video from 'next-video'
+import bannerVideo from '/videos/caysonflorancebanner3.mp4'
 
-/* ─── Animated count-up component ─── */
+/* ─── Animated count-up ─── */
 function AnimatedCounter({ value }) {
   const match = value.match(/^(\d+)(.*)$/)
   const ref = useRef(null)
@@ -19,293 +21,273 @@ function AnimatedCounter({ value }) {
   useEffect(() => {
     if (!isInView || !isNumeric || hasAnimated.current) return
     hasAnimated.current = true
-
     const duration = 2000
     const startTime = performance.now()
     const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4)
-
     let raf
     const animate = (now) => {
       const elapsed = now - startTime
       const progress = Math.min(elapsed / duration, 1)
       setCount(Math.round(easeOutQuart(progress) * target))
-      if (progress < 1) {
-        raf = requestAnimationFrame(animate)
-      }
+      if (progress < 1) raf = requestAnimationFrame(animate)
     }
     raf = requestAnimationFrame(animate)
     return () => cancelAnimationFrame(raf)
   }, [isInView, isNumeric, target])
 
-  if (!isNumeric) {
-    return <span ref={ref}>{value}</span>
-  }
-
+  if (!isNumeric) return <span ref={ref}>{value}</span>
   return <span ref={ref}>{count}{suffix}</span>
 }
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 28 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
-})
-
-/* ─── Stats card items (top-right glassmorphic card) ─── */
-const STATS_ITEMS = [
+/* ─── Sectors ─── */
+const SECTORS = [
   {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.5c0-5 4-9 9-7.5C16 6.5 20 10 19.5 15c-.5 4-4 7-9 6-4-.8-6.5-4-6-8.5" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 12c1-3 3.5-5 6-5" />
-      </svg>
-    ),
-    number: '9+',
-    label: 'Business\nSectors',
+    id: '01',
+    label: 'Agriculture &\nPlantations',
+    icon: <Leaf className="w-5 h-5" strokeWidth={1.5} />
   },
   {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-      </svg>
-    ),
+    id: '02',
+    label: 'Dairy, Livestock\n& Poultry',
+    icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M12 3c-1.5 0-2.5 1-3 2.5a4.5 4.5 0 0 0-4.5 4.5v1l-2 3v3h19v-3l-2-3v-1A4.5 4.5 0 0 0 15 5.5C14.5 4 13.5 3 12 3z" /><path d="M9 14h6" /><path d="M12 14v4" /></svg>
+  },
+  {
+    id: '03',
+    label: 'Food Processing\n& Beverages',
+    icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M7 3h10M9 3v18M15 3v18M7 21h10" /><path d="M7 10h10" /></svg>
+  },
+  {
+    id: '04',
+    label: 'Infrastructure &\nReal Estate',
+    icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5M10 11h4M10 15h4" /></svg>
+  },
+  {
+    id: '05',
+    label: 'Renewable Energy\n& Industry',
+    icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
+  },
+  {
+    id: '06',
+    label: 'International Trade\n& Logistics',
+    icon: <Globe2 className="w-5 h-5" strokeWidth={1.5} />
+  },
+];
+
+/* ─── Stats ─── */
+const STATS = [
+  {
+    number: '09+',
+    label: 'Business Sectors',
+    icon: <Users className="w-5 h-5" strokeWidth={1.5} />
+  },
+  {
     number: '500+',
-    label: 'Projects &\nPartners',
+    label: 'Projects & Partnerships',
+    icon: <Handshake className="w-5 h-5" strokeWidth={1.5} />
   },
   {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-4.14-3.36-7.5-7.5-7.5S4.5 7.86 4.5 12s3.36 7.5 7.5 7.5m7.5-7.5H4.5m15 0A7.47 7.47 0 0112 4.5m7.5 7.5A7.47 7.47 0 0112 19.5M12 4.5c2 2.5 3 5 3 7.5s-1 5-3 7.5M12 4.5C10 7 9 9.5 9 12s1 5 3 7.5" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 7.5l-9 9M7.5 7.5l9 9" />
-      </svg>
-    ),
-    number: 'Zero Waste',
-    label: 'Circular\nApproach',
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="9" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M12 3c-2.5 3-4 5.7-4 9s1.5 6 4 9M12 3c2.5 3 4 5.7 4 9s-1.5 6-4 9" />
-      </svg>
-    ),
     number: 'Global',
-    label: 'Presence &\nReach',
-  },
-]
-
-/* ─── Mission items (bottom-right white card) ─── */
-const MISSION_ITEMS = [
-  {
-    label: 'Sustainable\nGrowth',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.5c0-5 4-9 9-7.5C16 6.5 20 10 19.5 15c-.5 4-4 7-9 6-4-.8-6.5-4-6-8.5" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 12c1-3 3.5-5 6-5" />
-      </svg>
-    ),
+    label: 'Presence & Reach',
+    icon: <Globe2 className="w-5 h-5" strokeWidth={1.5} />
   },
   {
-    label: 'Innovation\nDriven',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2a7 7 0 0 1 7 7c0 2.8-1.64 5.22-4 6.35V17a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1.65A7 7 0 0 1 12 2Z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 21h6" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Global\nImpact',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="9" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M12 3c-2.5 3-4 5.7-4 9s1.5 6 4 9M12 3c2.5 3 4 5.7 4 9s-1.5 6-4 9" />
-      </svg>
-    ),
-  },
-  {
-    label: 'People\nFocused',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
-        <circle cx="10" cy="7" r="4" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Responsible\nBy Nature',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-      </svg>
-    ),
-  },
-]
+    number: '100%',
+    label: 'Commitment to Sustainability',
+    icon: <Leaf className="w-5 h-5" strokeWidth={1.5} />
+  }
+];
 
 export default function HeroSection() {
+  const [activeSector, setActiveSector] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [muted, setMuted] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const videoRef = useRef(null);
+  const sectionRef = useRef(null);
+  const DURATION = 3500;
+  const INTERVAL = 50;
+
+  useEffect(() => {
+    let elapsed = 0;
+    const timer = setInterval(() => {
+      elapsed += INTERVAL;
+      setProgress(elapsed / DURATION);
+      if (elapsed >= DURATION) {
+        elapsed = 0;
+        setActiveSector((prev) => (prev + 1) % SECTORS.length);
+      }
+    }, INTERVAL);
+    return () => clearInterval(timer);
+  }, [activeSector]);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !muted;
+      setMuted(!muted);
+    }
+  };
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      sectionRef.current?.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  };
+
   return (
-    <section  className="relative min-h-screen flex pt-12 flex-col overflow-hidden" aria-label="Hero">
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/homepage.webp"
-          alt="Sustainable multi-industry ecosystem"
+    <section ref={sectionRef} className="relative w-full h-screen flex flex-col overflow-hidden bg-black" aria-label="Hero">
+      {/* ── Background Video ── */}
+      <div className="absolute inset-0 z-0 bg-black">
+        <Video
+          src={bannerVideo}
+          autoPlay="muted"
+          loop
+          poster="/placeholder/image.png"
+          muted
+          playsInline
+          controls={false}
           className="w-full h-full object-cover object-center"
         />
-        {/* Dark gradient overlay from left for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f18]/80 via-[#0a1f18]/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f18]/50 via-transparent to-[#0a1f18]/20" />
+
+        {/* Gradient overlays optimized for video visibility */}
+        {/* Deep shadow on the left for text, completely clear on the right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/38 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/0 pointer-events-none" />
+
+        {/* Subtle CSS noise overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}
+        />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex-1 flex items-center pt-28 pb-32 lg:pb-36">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 w-full">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-6 items-center">
+      {/* ── Main Content Container ── */}
+      <div className="relative z-10 flex flex-col justify-between h-full w-full max-w-7xl mx-auto px-6 lg:px-10">
 
-            {/* Left — Hero Text (spans 5 cols) */}
-            <div className="lg:col-span-6">
-              <motion.p
-                {...fadeUp(0.1)}
-                className="relative inline-flex items-center gap-2.5 bg-gradient-to-r from-white/15 via-emerald-400/10 to-transparent backdrop-blur-sm rounded-[20px] pl-4 sm:pl-5 pr-10 sm:pr-16 py-1.5 text-white mb-6 lg:mb-4 before:absolute before:inset-0 before:rounded-[20px] before:border before:border-white/20 before:pointer-events-none before:[mask-image:linear-gradient(to_right,white_30%,transparent_100%)]"
-              >
-                <motion.span
-                  initial={{ opacity: 0, scale: 0.4, rotate: -45 }}
-                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5, duration: 0.7, type: 'spring', stiffness: 120 }}
-                  className="inline-flex"
-                >
-                  <motion.span
-                    animate={{ y: [0, -2, 0] }}
-                    transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                    className="inline-flex"
-                  >
-                    <Leaf aria-hidden="true" className="h-4 w-4 text-emerald-400" />
-                  </motion.span>
-                </motion.span>
-                 
-                <span className="font-script not-italic font-medium text-[13px] sm:text-[16px] tracking-wide text-white/90">
-                  &ldquo;Enriching Lives Beyond Boundaries&rdquo;
+        {/* Top Area: Text, Compact Stats & CTAs */}
+        <div className="flex-1 flex flex-col justify-end max-w-3xl pt-24 pb-8">
+
+          {/* Minimalist Badge */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <div className="relative flex items-center justify-center w-2.5 h-2.5">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-[#4ade80] opacity-75 animate-ping"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#4ade80]"></span>
+            </div>
+            <span className="uppercase tracking-[0.2em] text-[10px] sm:text-[11px] font-semibold text-white/70">
+              Enriching Lives Beyond Boundaries
+            </span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            className="font-display text-[2.75rem] sm:text-[3.75rem] lg:text-[4.75rem] leading-[1.05] tracking-tight text-white mb-6"
+          >
+            Creating Impact.<br />
+            Across Every <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] to-[#22c55e]">Industry.</span>
+          </motion.h1>
+
+          {/* Paragraph */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+            className="text-white/80 text-sm sm:text-base lg:text-lg max-w-2xl mb-8 leading-relaxed font-light"
+          >
+            From agriculture and food to infrastructure, technology and global trade, we create integrated solutions that connect industries, empower people and build a more sustainable future.
+          </motion.p>
+
+          {/* Compact Stats (Integrated to reduce congestion) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
+            className="flex flex-wrap items-center gap-x-8 gap-y-5 mb-10 border-l border-[#4ade80]/30 pl-4 sm:pl-6"
+          >
+            {STATS.map(stat => (
+              <div key={stat.label} className="flex flex-col justify-center">
+                <span className="font-display text-xl sm:text-2xl text-white font-medium leading-tight">
+                  <AnimatedCounter value={stat.number} />
                 </span>
-              </motion.p>
-
-              <motion.h1
-                {...fadeUp(0.2)}
-                className="font-display text-[2.6rem] sm:text-[3.2rem] lg:text-[3.6rem] xl:text-[4rem] leading-[1.05] tracking-tight text-white mb-6 lg:mb-7"
-              >
-                Building a{' '}
-                <span className="text-emerald-400">sustainable future</span>{' '}
-                across industries.
-              </motion.h1>
-
-              <motion.p
-                {...fadeUp(0.3)}
-                className="text-white/65 text-sm lg:text-[15px] leading-relaxed mb-9 max-w-md"
-              >
-                From agriculture and food to infrastructure and renewable energy — we build integrated solutions that create value, empower communities and protect our planet for generations to come.
-              </motion.p>
-
-              <motion.div {...fadeUp(0.4)} className="flex flex-wrap items-center gap-4">
-                <Link
-                  href="/#sectors"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-[#064B3B] text-white text-sm font-medium px-7 py-3.5 hover:bg-[#03372C] transition-all duration-300 group border border-emerald-600/30"
-                >
-                  Explore Our Solutions
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
-                </Link>
-                 
-              </motion.div>
-            </div>
-
-            {/* Right — Two Stacked Cards (spans 7 cols) */}
-            <div className="lg:col-span-6 flex flex-col items-end gap-0">
-
-              {/* Cards wrapper — single container for alignment */}
-              <div className="w-full max-w-[420px]">
-
-                {/* Top Card — Glassmorphic Stats 2×2 */}
-                <motion.div
-                  initial={{ opacity: 0, y: 32, x: 16 }}
-                  whileInView={{ opacity: 1, y: 0, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  className="w-full rounded-t-2xl overflow-hidden border border-white/15 border-b-0"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(10,31,24,0.55) 0%, rgba(6,75,59,0.35) 100%)',
-                    backdropFilter: 'blur(24px) saturate(160%)',
-                    WebkitBackdropFilter: 'blur(24px) saturate(160%)',
-                  }}
-                >
-                  <div className="grid grid-cols-2">
-                    {STATS_ITEMS.map((item, i) => (
-                      <div
-                        key={item.number}
-                        className={`flex items-center gap-3 px-5 py-5 ${
-                          i < 2 ? 'border-b border-white/10' : ''
-                        } ${i % 2 === 0 ? 'border-r border-white/10' : ''}`}
-                      >
-                        <div className="h-11 w-11 rounded-full border border-white/20 flex items-center justify-center text-emerald-400/90 shrink-0">
-                          {item.icon}
-                        </div>
-                        <div>
-                          <div className="font-display text-xl lg:text-2xl text-white font-semibold leading-none mb-0.5">
-                            <AnimatedCounter value={item.number} />
-                          </div>
-                          <div className="text-[10px] text-white/50 font-mono-display leading-tight whitespace-pre-line">
-                            {item.label}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-
-                {/* Bottom Card — Core Mission */}
-                <motion.div
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="w-full rounded-b-2xl overflow-hidden border border-white/20 border-t-0"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.88) 0%, rgba(248,247,242,0.92) 100%)',
-                    backdropFilter: 'blur(20px)',
-                    WebkitBackdropFilter: 'blur(20px)',
-                  }}
-                >
-                  <div className="px-5 pt-4 pb-2">
-                    <p className="text-[9px] tracking-[0.22em] uppercase font-mono-display text-[#66706C] mb-0.5">
-                      Core Mission
-                    </p>
-                    <h3 className="font-display text-base lg:text-[17px] text-[#1F2926] font-semibold leading-snug">
-                      More Possibilities. Greater Impact.
-                    </h3>
-                  </div>
-                  <div className="flex items-stretch justify-between px-3 pb-4 pt-1">
-                    {MISSION_ITEMS.map((item) => (
-                      <div
-                        key={item.label}
-                        className="flex flex-col items-center text-center flex-1 px-1"
-                      >
-                        <div className="h-10 w-10 rounded-xl bg-[#EAF1EB] flex items-center justify-center text-[#064B3B] mb-1.5">
-                          {item.icon}
-                        </div>
-                        <span className="text-[9px] leading-tight font-medium text-[#1F2926] whitespace-pre-line">
-                          {item.label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-
+                <span className="text-[10px] text-white/50 uppercase tracking-wider font-semibold mt-0.5">
+                  {stat.label}
+                </span>
               </div>
+            ))}
+          </motion.div>
 
-            </div>
+          {/* CTAs */}
+          {/* <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
+            className="flex flex-wrap items-center gap-5 sm:gap-8"
+          >
+            <Link href="/#sectors" className="group relative inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-white text-black text-sm font-semibold overflow-hidden transition-all hover:scale-105">
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#4ade80] to-[#22c55e] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative z-10 group-hover:text-white transition-colors duration-300">Explore Our World</span>
+              <MoveRight className="relative z-10 w-4 h-4 group-hover:text-white transition-colors duration-300 group-hover:translate-x-1" />
+            </Link>
 
-          </div>
+            <button onClick={() => setShowModal(true)} className="group inline-flex items-center gap-3 text-white text-sm font-medium transition-all hover:text-[#4ade80]">
+              <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#4ade80]/50 transition-colors bg-white/5 backdrop-blur-md">
+                <PlayCircle className="w-4 h-4 text-white group-hover:text-[#4ade80] transition-colors" />
+              </div>
+              <span className="tracking-wide">Watch Our Story</span>
+            </button>
+          </motion.div> */}
         </div>
+
+        {/* Bottom Area: Ultra-Minimal Timeline */}
+
       </div>
+
+      {/* ── Image Modal ── */}
+      <AnimatePresence>
+        {showModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowModal(false)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-xl"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-5xl mx-4 aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl relative border border-white/10"
+            >
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/50 border border-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-all hover:scale-105 backdrop-blur-md"
+              >
+                ✕
+              </button>
+              <Video
+                src={bannerVideo}
+                autoPlay
+                controls
+                playsInline
+                className="w-full h-full object-cover bg-black"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
-  )
+  );
 }

@@ -36,7 +36,7 @@ export default function HomePage() {
         <HeroSection />
 
         {/* Stats bar overlapping hero */}
-        <StatsBar />
+        {/* <StatsBar /> */}
 
         {/* About Us */}
         <AboutUsSection />
