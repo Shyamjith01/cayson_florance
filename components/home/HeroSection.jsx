@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { MoveRight, PlayCircle, Volume2, VolumeX, Maximize, ChevronRight, Users, Handshake, Globe2, Leaf } from 'lucide-react'
 import Video from 'next-video'
 import bannerVideo from '/videos/caysonflorancebanner3.mp4'
@@ -142,24 +143,35 @@ export default function HeroSection() {
     <section ref={sectionRef} className="relative w-full h-[100dvh] min-h-screen flex flex-col overflow-hidden bg-black" aria-label="Hero">
       {/* ── Background Video ── */}
       <div className="absolute inset-0 z-0 bg-black overflow-hidden">
-        <Video
-          src={bannerVideo}
-          autoPlay="muted"
-          loop
-          preload="auto"
-          poster="/placeholder/image-optimized.jpg"
-          muted
-          playsInline
-          controls={false}
-          style={{ 
-            width: '100%', 
-            height: '100%',
-            objectFit: 'cover',
-            '--media-object-fit': 'cover',
-            '--media-object-position': 'center'
-          }}
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
+        <div className="hidden md:block absolute inset-0 w-full h-full">
+          <Video
+            src={bannerVideo}
+            autoPlay="muted"
+            loop
+            preload="auto"
+            poster="/placeholder/image-optimized.jpg"
+            muted
+            playsInline
+            controls={false}
+            style={{ 
+              width: '100%', 
+              height: '100%',
+              objectFit: 'cover',
+              '--media-object-fit': 'cover',
+              '--media-object-position': 'center'
+            }}
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+        </div>
+        <div className="block md:hidden absolute inset-0 w-full h-full">
+          <Image
+            src="/home/mobile-screen/banner2.webp"
+            alt="Hero Banner"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
 
         {/* Gradient overlays optimized for video visibility */}
         {/* Deep shadow on the left for text, completely clear on the right */}
