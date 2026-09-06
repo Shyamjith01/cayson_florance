@@ -463,6 +463,57 @@ const PILLARS = [
   },
 ]
 
+const SECTORS = [
+  {
+    tag: 'Agri',
+    label: 'Plantations & allied farming',
+    icon: (
+      <svg className="w-[14px] h-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M7 20h10" />
+        <path d="M10 20c5.5-2.5.8-6.4 3-10" />
+        <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8Z" />
+        <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4.1.9-4.9 2Z" />
+      </svg>
+    ),
+  },
+  {
+    tag: 'Energy',
+    label: 'Power & renewable systems',
+    icon: (
+      <svg className="w-[14px] h-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 3v18h18" />
+        <path d="M7 16v-5" />
+        <path d="M12 16V8" />
+        <path d="M17 16v-9" />
+      </svg>
+    ),
+  },
+  {
+    tag: 'Industry',
+    label: 'Processing & technology',
+    icon: (
+      <svg className="w-[14px] h-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M4 7h16v10H4z" />
+        <path d="M8 7V4h8v3" />
+        <path d="M4 12h16" />
+        <path d="M10 12v2h4v-2" />
+      </svg>
+    ),
+  },
+  {
+    tag: 'Trade',
+    label: 'Logistics & global commerce',
+    icon: (
+      <svg className="w-[14px] h-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18" />
+        <path d="M11.5 3a17 17 0 0 0 0 18" />
+        <path d="M12.5 3a17 17 0 0 1 0 18" />
+      </svg>
+    ),
+  },
+]
+
 export default function AboutUsSection() {
   return (
     <section
@@ -473,7 +524,7 @@ export default function AboutUsSection() {
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
 
         {/* ─── TOP: Left Content + Right Image ─────────────────────────────── */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-20 lg:items-stretch">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 xl:gap-10 lg:items-stretch">
 
           {/* LEFT COLUMN */}
           <div className="flex-1   flex flex-col justify-between">
@@ -537,28 +588,32 @@ export default function AboutUsSection() {
             </div>
 
             {/* Scope Card — same existing UI */}
+            {/* Sector Ledger — replaces the old Scope Card */}
             <motion.div
               {...fadeUp(0.28)}
-              className="mt-8 bg-white rounded-2xl border border-[#EDF0EB] shadow-[0_2px_20px_rgba(0,0,0,0.04)] overflow-hidden"
+              className="mt-8 rounded-2xl border border-[#E4E2D8] bg-white overflow-hidden"
             >
-              <div className="grid grid-cols-4 divide-x divide-[#EDF0EB]">
-                {STATS.map((stat) => (
+              <div className="grid grid-cols-1 sm:grid-cols-4 divide-y sm:divide-y-0 divide-x-0 sm:divide-x divide-[#E4E2D8]">
+                {SECTORS.map((sector) => (
                   <div
-                    key={stat.label}
-                    className="flex flex-col items-start py-4 px-4 sm:px-5"
+                    key={sector.tag}
+                    className="flex flex-col items-start px-4 py-4 sm:py-4 sm:pb-3"
                   >
-                    {/* Icon */}
-                    <div className="w-9 h-9 rounded-full bg-[#EBF3EE] flex items-center justify-center text-[#064B3B] mb-3 shrink-0">
-                      {stat.icon}
+                    <div className="flex items-center gap-1 sm:gap-1.5 mb-1 sm:mb-2">
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-[8px] bg-[#EBF3EE] flex items-center justify-center text-[#064B3B] shrink-0">
+                        {sector.icon}
+                      </div>
+                      <span className="font-display text-[17px] sm:text-[19px] font-bold text-[#1A2420] tracking-tight">
+                        {sector.tag}
+                      </span>
                     </div>
-                    {/* Value */}
-                    <span className="font-display text-[17px] sm:text-[20px] font-bold text-[#1A2420] leading-none tracking-wide">
-                      {stat.value}
-                    </span>
-                    {/* Label */}
-                    <span className="text-[11px] sm:text-[10px] text-[#6E7A6E] font-medium mt-1.5 leading-[1.35]">
-                      {stat.label}
-                    </span>
+
+                    <div>
+                      <div className="w-6 h-[2px] bg-[#C9A96E] rounded-full my-2" aria-hidden="true" />
+                      <p className="text-[12px] text-[#6E7A6E] leading-[1.5] max-w-[190px] sm:max-w-none">
+                        {sector.label}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
